@@ -9,12 +9,13 @@ import {
   HeartPulse, 
   Gauge, 
   SlidersHorizontal,
-  CheckCircle2,
-  AlertCircle
+  Sparkles,
+  Award
 } from 'lucide-react';
 
 export type NavPage = 
   | 'overview' 
+  | 'showcase'
   | 'patients' 
   | 'clinical' 
   | 'digital-twin' 
@@ -28,16 +29,19 @@ interface SidebarProps {
   onSelectPage: (page: NavPage) => void;
   onOpenDemoControls: () => void;
   simulationActive: boolean;
+  urgentAlertCount: number;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
   currentPage,
   onSelectPage,
   onOpenDemoControls,
-  simulationActive
+  simulationActive,
+  urgentAlertCount,
 }) => {
-  const navItems: { id: NavPage; label: string; icon: React.ElementType; badge?: string }[] = [
+  const navItems: { id: NavPage; label: string; icon: React.ElementType; badge?: string; highlight?: boolean }[] = [
     { id: 'overview', label: 'Overview', icon: Activity },
+    { id: 'showcase', label: 'Showcase Demo', icon: Sparkles, badge: '7 ACTS', highlight: true },
     { id: 'patients', label: 'Patient Monitoring', icon: Users, badge: '10' },
     { id: 'clinical', label: 'Clinical Intelligence', icon: BrainCircuit },
     { id: 'digital-twin', label: 'Digital Twin', icon: GitFork },
@@ -80,11 +84,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   active
                     ? 'bg-[#16866A] text-white shadow-sm'
+                    : item.highlight
+                    ? 'bg-[#16866A]/10 text-[#16866A] hover:bg-[#16866A]/20 font-bold border border-[#16866A]/30'
                     : 'text-[#697B73] hover:text-[#193B32] hover:bg-[#F7F8F3]'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <Icon className={`w-4 h-4 ${active ? 'text-white' : 'text-[#697B73]'}`} />
+                  <Icon className={`w-4 h-4 ${active ? 'text-white' : item.highlight ? 'text-[#16866A]' : 'text-[#697B73]'}`} />
                   <span>{item.label}</span>
                 </div>
                 {item.badge && (
@@ -92,6 +98,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
                       active
                         ? 'bg-white/20 text-white'
+                        : item.highlight
+                        ? 'bg-[#16866A] text-white'
                         : 'bg-[#F7F8F3] text-[#697B73] border border-[#E7ECE6]'
                     }`}
                   >
@@ -128,7 +136,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <span className="font-bold text-[#193B32]">{simulationActive ? 'STREAMING' : 'PAUSED'}</span>
           </div>
           <div className="flex items-center justify-between text-[10px] text-[#697B73]">
-            <span>Mode: Deterministic NEWS2</span>
+            <span>Mode: 4-Vital NEWS2</span>
             <span className="text-[#16866A] font-semibold">Demo 100%</span>
           </div>
         </div>
@@ -147,4 +155,3 @@ export const Sidebar: React.FC<SidebarProps> = ({
     </aside>
   );
 };
-

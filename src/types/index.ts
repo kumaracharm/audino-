@@ -45,6 +45,12 @@ export interface SecurityEvent {
   result: 'REJECTED' | 'PASSED';
   clinicalImpact: string;
   details: Record<string, string>;
+  packetDump?: {
+    header: Record<string, string>;
+    rawPayload: string;
+    authDigest: string;
+    rejectionReason: string;
+  };
 }
 
 export interface ActivityEvent {
@@ -54,6 +60,13 @@ export interface ActivityEvent {
   message: string;
   patientId?: string;
   isDemo: boolean;
+  priority?: Priority;
+  telemetrySnapshot?: {
+    hr: number;
+    rr: number;
+    spo2: number;
+    temp: number;
+  };
 }
 
 export interface ForecastPoint {
@@ -70,4 +83,23 @@ export interface PerformanceMetric {
   p95: number;
   p99: number;
   unit: string;
+}
+
+export type ShowcaseActId = 'act-1' | 'act-2' | 'act-3' | 'act-4' | 'act-5' | 'act-6' | 'act-7';
+
+export interface ShowcaseAct {
+  id: ShowcaseActId;
+  actNumber: string;
+  title: string;
+  tagline: string;
+  description: string;
+  targetPatientId: string;
+  targetModule: 'overview' | 'patients' | 'clinical' | 'digital-twin' | 'security' | 'fhir';
+  narrativeBullets: string[];
+  actionLabel: string;
+  metricHighlight?: {
+    label: string;
+    value: string;
+    variant: 'neutral' | 'emerald' | 'coral' | 'amber';
+  };
 }

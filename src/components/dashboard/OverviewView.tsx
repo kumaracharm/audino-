@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { 
   Users, 
   AlertTriangle, 
@@ -11,7 +11,13 @@ import {
   Wind, 
   Droplets, 
   Thermometer, 
-  Zap 
+  Zap,
+  Sparkles,
+  ArrowUpRight,
+  TrendingDown,
+  ShieldAlert,
+  Sliders,
+  Filter
 } from 'lucide-react';
 import { Patient, Priority, ActivityEvent } from '@/types';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
@@ -21,7 +27,9 @@ interface OverviewViewProps {
   patients: Patient[];
   selectedPatientId: string;
   onSelectPatient: (id: string) => void;
+  onOpenPatientDrawer: (patient: Patient) => void;
   onNavigateToPatientDetail: (id: string) => void;
+  onNavigateToShowcase: () => void;
   activityEvents: ActivityEvent[];
   stats: {
     total: number;
@@ -38,14 +46,22 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
   patients,
   selectedPatientId,
   onSelectPatient,
+  onOpenPatientDrawer,
   onNavigateToPatientDetail,
+  onNavigateToShowcase,
   activityEvents,
   stats,
   onSimulateNewObservation,
   onSimulateUrgentEvent,
   isMounted
 }) => {
+  const [priorityFilter, setPriorityFilter] = useState<'ALL' | 'P0' | 'P1' | 'P2' | 'P3'>('ALL');
   const selectedPatient = patients.find(p => p.id === selectedPatientId) || patients[0];
+
+  const filteredCohort = useMemo(() => {
+    if (priorityFilter === 'ALL') return patients;
+    return patients.filter(p => p.priority === priorityFilter);
+  }, [patients, priorityFilter]);
 
   const renderPriorityBadge = (priority: Priority) => {
     switch (priority) {
@@ -95,215 +111,225 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-white via-white to-[#16866A]/5 rounded-2xl border border-[#E7ECE6] p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* Hero Showcase Callout Banner */}
+      <div className="bg-gradient-to-r from-white via-white to-[#16866A]/10 rounded-2xl border border-[#E7ECE6] p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#16866A]/10 text-[#16866A] uppercase tracking-wider">
-              Clinical Command Center
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#16866A] text-white uppercase tracking-wider shadow-xs">
+              COMMAND CENTER HERO
             </span>
-            <span className="text-xs text-[#697B73]">Live Synthetic Telemetry</span>
+            <span className="text-xs font-semibold text-[#16866A]">
+              Post-Discharge Deterioration Intelligence
+            </span>
           </div>
           <h2 className="text-xl font-bold text-[#193B32] mt-1">Good evening, Clinical Team</h2>
           <p className="text-xs text-[#697B73] mt-0.5 max-w-2xl">
-            Patient recovery intelligence and early deterioration monitoring. Tracking 10 synthetic post-discharge patients with deterministic partial NEWS2 safety routing.
+            Surveillance of 10 synthetic post-discharge patients with deterministic 4-vital safety routing, zero-queue critical dispatch, and edge cryptographic validation.
           </p>
         </div>
         <div className="flex items-center gap-2.5 shrink-0">
           <button
-            onClick={onSimulateNewObservation}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white border border-[#E7ECE6] text-[#193B32] hover:bg-gray-50 transition-all shadow-xs cursor-pointer active:scale-98"
+            onClick={onNavigateToShowcase}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-[#16866A] text-white hover:bg-[#126b55] transition-all shadow-xs cursor-pointer active:scale-98"
           >
-            <Activity className="w-3.5 h-3.5 text-[#16866A]" />
-            <span>Generate Observation</span>
+            <Sparkles className="w-4 h-4" />
+            <span>Launch 7-Act Showcase</span>
           </button>
           <button
             onClick={onSimulateUrgentEvent}
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#E45D58] text-white hover:bg-[#cf4d48] transition-all shadow-xs cursor-pointer active:scale-98"
           >
             <Zap className="w-3.5 h-3.5" />
-            <span>Simulate Urgent Deterioration</span>
+            <span>Simulate Decompensation</span>
           </button>
         </div>
       </div>
 
-      {/* KPI Cards Row */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-2xl border border-[#E7ECE6] p-4 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[#697B73] uppercase tracking-wider">Monitored Patients</span>
-            <div className="w-8 h-8 rounded-xl bg-[#16866A]/10 text-[#16866A] flex items-center justify-center">
-              <Users className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-[#193B32]">{stats.total}</span>
-            <span className="text-xs font-medium text-[#16866A]">100% telemetry stream</span>
-          </div>
-          <div className="mt-2 flex items-center gap-1 text-[11px] text-[#697B73]">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#16866A]" />
-            <span>All 10 synthetic devices active</span>
-          </div>
+      {/* Executive KPI Metrics (6 Cards) */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        <div className="bg-white rounded-2xl border border-[#E7ECE6] p-3.5 shadow-xs">
+          <span className="text-[10px] font-bold text-[#697B73] uppercase tracking-wider block">Monitored Cohort</span>
+          <span className="text-2xl font-black text-[#193B32] mt-0.5 block">{stats.total}</span>
+          <span className="text-[10px] text-[#16866A] font-semibold flex items-center gap-1 mt-0.5">
+            <CheckCircle2 className="w-3 h-3" /> 100% active stream
+          </span>
         </div>
 
-        <div className="bg-white rounded-2xl border border-[#E45D58]/30 p-4 shadow-xs bg-gradient-to-br from-white to-[#E45D58]/5">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[#E45D58] uppercase tracking-wider">Active Urgent Alerts</span>
-            <div className="w-8 h-8 rounded-xl bg-[#E45D58]/10 text-[#E45D58] flex items-center justify-center">
-              <Zap className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-[#E45D58]">{stats.urgent}</span>
-            <span className="text-xs font-medium text-[#E45D58]">P0 Immediate</span>
-          </div>
-          <div className="mt-2 flex items-center gap-1 text-[11px] text-[#E45D58]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E45D58] animate-ping" />
-            <span>Zero-queue bypass triggered</span>
-          </div>
+        <div className="bg-white rounded-2xl border border-[#E45D58]/40 p-3.5 shadow-xs bg-gradient-to-br from-white to-[#E45D58]/5">
+          <span className="text-[10px] font-bold text-[#E45D58] uppercase tracking-wider block">Critical P0 Patients</span>
+          <span className="text-2xl font-black text-[#E45D58] mt-0.5 block">{stats.urgent}</span>
+          <span className="text-[10px] text-[#E45D58] font-bold flex items-center gap-1 mt-0.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E45D58] animate-ping" /> Zero-queue active
+          </span>
         </div>
 
-        <div className="bg-white rounded-2xl border border-[#E6A23C]/30 p-4 shadow-xs bg-gradient-to-br from-white to-[#E6A23C]/5">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[#E6A23C] uppercase tracking-wider">Requiring Review</span>
-            <div className="w-8 h-8 rounded-xl bg-[#E6A23C]/10 text-[#E6A23C] flex items-center justify-center">
-              <Clock className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-[#E6A23C]">{stats.review}</span>
-            <span className="text-xs font-medium text-[#697B73]">P1 moderate risk</span>
-          </div>
-          <div className="mt-2 flex items-center gap-1 text-[11px] text-[#697B73]">
-            <span>Clinician review within 60m</span>
-          </div>
+        <div className="bg-white rounded-2xl border border-[#E6A23C]/40 p-3.5 shadow-xs bg-gradient-to-br from-white to-[#E6A23C]/5">
+          <span className="text-[10px] font-bold text-[#E6A23C] uppercase tracking-wider block">Require Review (P1)</span>
+          <span className="text-2xl font-black text-[#E6A23C] mt-0.5 block">{stats.review}</span>
+          <span className="text-[10px] text-[#697B73] flex items-center gap-1 mt-0.5">
+            <Clock className="w-3 h-3" /> Within 60m triage
+          </span>
         </div>
 
-        <div className="bg-white rounded-2xl border border-[#E7ECE6] p-4 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[#697B73] uppercase tracking-wider">System Availability</span>
-            <div className="w-8 h-8 rounded-xl bg-[#3AA99B]/10 text-[#3AA99B] flex items-center justify-center">
-              <ShieldCheck className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-[#16866A]">99.9%</span>
-            <span className="text-xs font-medium text-[#697B73]">simulated</span>
-          </div>
-          <div className="mt-2 flex items-center gap-1 text-[11px] text-[#16866A]">
-            <Activity className="w-3.5 h-3.5" />
-            <span>Redis Streams: 0 lag</span>
-          </div>
+        <div className="bg-white rounded-2xl border border-[#E7ECE6] p-3.5 shadow-xs">
+          <span className="text-[10px] font-bold text-[#697B73] uppercase tracking-wider block">Routine Monitoring</span>
+          <span className="text-2xl font-black text-[#16866A] mt-0.5 block">{stats.routine}</span>
+          <span className="text-[10px] text-[#16866A] font-semibold flex items-center gap-1 mt-0.5">
+            <ShieldCheck className="w-3 h-3" /> Stable trajectory
+          </span>
+        </div>
+
+        <div className="bg-white rounded-2xl border border-[#E7ECE6] p-3.5 shadow-xs">
+          <span className="text-[10px] font-bold text-[#697B73] uppercase tracking-wider block">Incoming Observations</span>
+          <span className="text-2xl font-black text-[#193B32] mt-0.5 block">14.8k</span>
+          <span className="text-[10px] text-[#697B73] mt-0.5 block">Simulink telemetry/hr</span>
+        </div>
+
+        <div className="bg-white rounded-2xl border border-[#E7ECE6] p-3.5 shadow-xs">
+          <span className="text-[10px] font-bold text-[#697B73] uppercase tracking-wider block">Security Rejections</span>
+          <span className="text-2xl font-black text-[#16866A] mt-0.5 block">87</span>
+          <span className="text-[10px] text-[#16866A] font-semibold mt-0.5 block">Purged at edge (0 lag)</span>
         </div>
       </div>
 
-      {/* Main Grid: Patient Surveillance Table (Left) & Real-time Live Activity Stream (Right) */}
+      {/* Main Grid: Patient Surveillance Table (Left 8 Cols) & Live Activity Feed (Right 4 Cols) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Patient Table - 8 Columns */}
-        <div className="lg:col-span-8 bg-white rounded-2xl border border-[#E7ECE6] shadow-xs overflow-hidden flex flex-col">
-          <div className="p-4 border-b border-[#E7ECE6] flex items-center justify-between flex-wrap gap-2">
-            <div>
-              <h3 className="text-sm font-bold text-[#193B32] flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#16866A]" />
-                Synthetic Cohort Surveillance (10 Patients)
-              </h3>
-              <p className="text-xs text-[#697B73]">
-                Click row to view physiological charts below • Click button for full patient record
-              </p>
+        <div className="lg:col-span-8 bg-white rounded-2xl border border-[#E7ECE6] shadow-xs overflow-hidden flex flex-col justify-between">
+          <div>
+            <div className="p-4 border-b border-[#E7ECE6] flex items-center justify-between flex-wrap gap-2">
+              <div>
+                <h3 className="text-sm font-bold text-[#193B32] flex items-center gap-2">
+                  <Users className="w-4 h-4 text-[#16866A]" />
+                  Post-Discharge Patient Surveillance Cohort (10 Patients)
+                </h3>
+                <p className="text-xs text-[#697B73]">
+                  Click row to open quick patient drawer • Select patient to inspect telemetry waveforms below
+                </p>
+              </div>
+
+              {/* Priority Filter Pills */}
+              <div className="flex items-center gap-1 bg-[#FAFBF8] p-1 rounded-xl border border-[#E7ECE6] text-[11px] font-bold">
+                {(['ALL', 'P0', 'P1', 'P2', 'P3'] as const).map((lvl) => (
+                  <button
+                    key={lvl}
+                    onClick={() => setPriorityFilter(lvl)}
+                    className={`px-2.5 py-0.5 rounded-lg transition-all cursor-pointer ${
+                      priorityFilter === lvl
+                        ? 'bg-[#16866A] text-white shadow-xs'
+                        : 'text-[#697B73] hover:text-[#193B32]'
+                    }`}
+                  >
+                    {lvl}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-xs text-[#697B73]">
-              <span className="w-2 h-2 rounded-full bg-[#16866A] animate-pulse" />
-              <span>Real-time polling</span>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-[#FAFBF8] text-[#697B73] font-semibold border-b border-[#E7ECE6]">
+                  <tr>
+                    <th className="py-3 px-3">Patient ID</th>
+                    <th className="py-3 px-2">Age</th>
+                    <th className="py-3 px-2">Recovery Stage</th>
+                    <th className="py-3 px-2 text-right">HR (bpm)</th>
+                    <th className="py-3 px-2 text-right">RR (/min)</th>
+                    <th className="py-3 px-2 text-right">SpO₂ (%)</th>
+                    <th className="py-3 px-2 text-right">Temp (°C)</th>
+                    <th className="py-3 px-3 text-center">Priority</th>
+                    <th className="py-3 px-3 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#E7ECE6]">
+                  {filteredCohort.map((p) => {
+                    const isSelected = p.id === selectedPatient.id;
+                    return (
+                      <tr
+                        key={p.id}
+                        onClick={() => {
+                          onSelectPatient(p.id);
+                          onOpenPatientDrawer(p);
+                        }}
+                        className={`cursor-pointer transition-colors ${
+                          isSelected ? 'bg-[#16866A]/10 font-medium' : 'hover:bg-[#FAFBF8]'
+                        }`}
+                      >
+                        <td className="py-3 px-3 font-bold text-[#193B32]">
+                          <div className="flex items-center gap-1.5">
+                            {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#16866A]" />}
+                            {p.id}
+                          </div>
+                        </td>
+                        <td className="py-3 px-2 text-[#697B73]">{p.age}y</td>
+                        <td className="py-3 px-2">
+                          <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#F7F8F3] text-[#193B32] border border-[#E7ECE6]">
+                            {p.recoveryStage}
+                          </span>
+                        </td>
+                        <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.heartRate > 110 || p.currentVitals.heartRate < 50 ? 'text-[#E45D58] font-bold' : 'text-[#193B32]'}`}>
+                          {p.currentVitals.heartRate}
+                        </td>
+                        <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.respiratoryRate >= 24 || p.currentVitals.respiratoryRate <= 9 ? 'text-[#E45D58] font-bold' : 'text-[#193B32]'}`}>
+                          {p.currentVitals.respiratoryRate}
+                        </td>
+                        <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.spo2 <= 92 ? 'text-[#E45D58] font-bold' : p.currentVitals.spo2 <= 94 ? 'text-[#E6A23C] font-bold' : 'text-[#16866A]'}`}>
+                          {p.currentVitals.spo2}%
+                        </td>
+                        <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.temperature >= 38.3 || p.currentVitals.temperature <= 35.5 ? 'text-[#E45D58] font-bold' : 'text-[#193B32]'}`}>
+                          {p.currentVitals.temperature.toFixed(1)}
+                        </td>
+                        <td className="py-3 px-3 text-center">
+                          {renderPriorityBadge(p.priority)}
+                        </td>
+                        <td className="py-3 px-3 text-right" onClick={(e) => e.stopPropagation()}>
+                          <div className="flex items-center justify-end gap-1.5">
+                            <button
+                              onClick={() => onOpenPatientDrawer(p)}
+                              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#16866A]/10 hover:bg-[#16866A] text-[#16866A] hover:text-white transition-all cursor-pointer"
+                            >
+                              Quick Drawer
+                            </button>
+                            <button
+                              onClick={() => onNavigateToPatientDetail(p.id)}
+                              className="p-1 rounded-lg text-[#697B73] hover:text-[#193B32] hover:bg-gray-100 transition-colors"
+                              title="Full Patient Record"
+                            >
+                              <ChevronRight className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-[#FAFBF8] text-[#697B73] font-semibold border-b border-[#E7ECE6]">
-                <tr>
-                  <th className="py-3 px-3">Patient ID</th>
-                  <th className="py-3 px-2">Age</th>
-                  <th className="py-3 px-2">Stage</th>
-                  <th className="py-3 px-2 text-right">HR (bpm)</th>
-                  <th className="py-3 px-2 text-right">RR (/min)</th>
-                  <th className="py-3 px-2 text-right">SpO₂ (%)</th>
-                  <th className="py-3 px-2 text-right">Temp (°C)</th>
-                  <th className="py-3 px-3 text-center">Priority</th>
-                  <th className="py-3 px-3 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E7ECE6]">
-                {patients.map((p) => {
-                  const isSelected = p.id === selectedPatient.id;
-                  return (
-                    <tr
-                      key={p.id}
-                      onClick={() => onSelectPatient(p.id)}
-                      className={`cursor-pointer transition-colors ${
-                        isSelected ? 'bg-[#16866A]/10 font-medium' : 'hover:bg-[#FAFBF8]'
-                      }`}
-                    >
-                      <td className="py-3 px-3 font-bold text-[#193B32]">
-                        <div className="flex items-center gap-1.5">
-                          {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#16866A]" />}
-                          {p.id}
-                        </div>
-                      </td>
-                      <td className="py-3 px-2 text-[#697B73]">{p.age}y</td>
-                      <td className="py-3 px-2">
-                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#F7F8F3] text-[#193B32] border border-[#E7ECE6]">
-                          {p.recoveryStage}
-                        </span>
-                      </td>
-                      <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.heartRate > 110 || p.currentVitals.heartRate < 50 ? 'text-[#E45D58] font-bold' : 'text-[#193B32]'}`}>
-                        {p.currentVitals.heartRate}
-                      </td>
-                      <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.respiratoryRate >= 24 || p.currentVitals.respiratoryRate <= 9 ? 'text-[#E45D58] font-bold' : 'text-[#193B32]'}`}>
-                        {p.currentVitals.respiratoryRate}
-                      </td>
-                      <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.spo2 <= 92 ? 'text-[#E45D58] font-bold' : p.currentVitals.spo2 <= 94 ? 'text-[#E6A23C] font-bold' : 'text-[#16866A]'}`}>
-                        {p.currentVitals.spo2}%
-                      </td>
-                      <td className={`py-3 px-2 text-right font-mono ${p.currentVitals.temperature >= 38.3 || p.currentVitals.temperature <= 35.5 ? 'text-[#E45D58] font-bold' : 'text-[#193B32]'}`}>
-                        {p.currentVitals.temperature.toFixed(1)}
-                      </td>
-                      <td className="py-3 px-3 text-center">
-                        {renderPriorityBadge(p.priority)}
-                      </td>
-                      <td className="py-3 px-3 text-right" onClick={(e) => e.stopPropagation()}>
-                        <button
-                          onClick={() => onNavigateToPatientDetail(p.id)}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#16866A]/10 hover:bg-[#16866A] text-[#16866A] hover:text-white transition-all cursor-pointer"
-                        >
-                          <span>Inspect</span>
-                          <ChevronRight className="w-3 h-3" />
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+          <div className="p-3 border-t border-[#E7ECE6] bg-[#FAFBF8] flex items-center justify-between text-xs text-[#697B73]">
+            <span>Showing {filteredCohort.length} of {patients.length} patients in surveillance cohort</span>
+            <span className="font-semibold text-[#16866A]">HMAC-SHA256 verified streams</span>
           </div>
         </div>
 
-        {/* Live Activity Feed - 4 Columns */}
+        {/* Live Ingestion Feed - 4 Columns */}
         <div className="lg:col-span-4 bg-white rounded-2xl border border-[#E7ECE6] p-4 shadow-xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-[#E7ECE6]">
               <h3 className="text-sm font-bold text-[#193B32] flex items-center gap-2">
                 <Activity className="w-4 h-4 text-[#16866A]" />
-                Live Ingestion Activity
+                Live Ingestion Audit Feed
               </h3>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#16866A]/10 text-[#16866A]">
                 DEMO FEED
               </span>
             </div>
             <p className="text-[11px] text-[#697B73] mt-2 mb-3">
-              Real-time audit log of telemetry verification, safety assessments and FHIR sync events:
+              Real-time feed of validated observations, deterministic assessments, and edge defense events:
             </p>
 
-            <div className="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+            <div className="space-y-2 max-h-[360px] overflow-y-auto pr-1">
               {activityEvents.slice(0, 8).map((evt) => (
                 <div
                   key={evt.id}
@@ -319,7 +345,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                       {evt.type}
                     </span>
                     <span className="text-[#697B73] bg-white px-1.5 py-0.5 rounded border border-[#E7ECE6]">
-                      Passed HMAC
+                      HMAC Valid
                     </span>
                   </div>
                 </div>
@@ -328,8 +354,8 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
           </div>
 
           <div className="pt-3 border-t border-[#E7ECE6] text-[11px] text-[#697B73] flex items-center justify-between">
-            <span>Continuous simulated broker</span>
-            <span className="font-semibold text-[#16866A]">Redis Streams: ACTIVE</span>
+            <span>Priority Queue Depth: 0</span>
+            <span className="font-semibold text-[#16866A]">Redis Streams: RUNNING</span>
           </div>
         </div>
       </div>
@@ -340,17 +366,23 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
           <div>
             <h3 className="text-sm font-bold text-[#193B32] flex items-center gap-2">
               <Activity className="w-4 h-4 text-[#16866A]" />
-              Real-Time Physiological Telemetry Waveforms — Patient {selectedPatient.id}
+              Continuous Telemetry Waveforms — Patient {selectedPatient.id}
             </h3>
             <p className="text-xs text-[#697B73] mt-0.5">
-              Diagnosis: <strong className="text-[#193B32]">{selectedPatient.dischargeContext}</strong> • Baseline: {selectedPatient.recoveryBaseline}
+              Discharge Diagnosis: <strong className="text-[#193B32]">{selectedPatient.dischargeContext}</strong> • Baseline: {selectedPatient.recoveryBaseline}
             </p>
           </div>
           <div className="flex items-center gap-2">
             {renderPriorityBadge(selectedPatient.priority)}
             <button
+              onClick={() => onOpenPatientDrawer(selectedPatient)}
+              className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-white border border-[#E7ECE6] text-[#193B32] hover:bg-gray-50 transition-all cursor-pointer shadow-xs"
+            >
+              Open Quick Drawer
+            </button>
+            <button
               onClick={() => onNavigateToPatientDetail(selectedPatient.id)}
-              className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-[#16866A] text-white hover:bg-[#126b55] transition-all cursor-pointer flex items-center gap-1"
+              className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-[#16866A] text-white hover:bg-[#126b55] transition-all cursor-pointer shadow-xs flex items-center gap-1"
             >
               <span>Full Patient Record</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -374,7 +406,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
                     <defs>
-                      <linearGradient id="hrGrad" x1="0" y1="0" x2="0" y2="1">
+                      <linearGradient id="hrGradOverview" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#E45D58" stopOpacity={0.3} />
                         <stop offset="95%" stopColor="#E45D58" stopOpacity={0.0} />
                       </linearGradient>
@@ -382,7 +414,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                     <XAxis dataKey="time" hide />
                     <YAxis domain={['dataMin - 10', 'dataMax + 10']} tick={{ fontSize: 9, fill: '#697B73' }} />
                     <Tooltip contentStyle={{ fontSize: '11px', backgroundColor: '#FFFFFF', border: '1px solid #E7ECE6', borderRadius: '6px' }} />
-                    <Area type="monotone" dataKey="heartRate" stroke="#E45D58" strokeWidth={2} fillOpacity={1} fill="url(#hrGrad)" />
+                    <Area type="monotone" dataKey="heartRate" stroke="#E45D58" strokeWidth={2} fillOpacity={1} fill="url(#hrGradOverview)" />
                   </AreaChart>
                 </ResponsiveContainer>
               ) : null}
@@ -410,7 +442,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
                     <defs>
-                      <linearGradient id="rrGrad" x1="0" y1="0" x2="0" y2="1">
+                      <linearGradient id="rrGradOverview" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#3AA99B" stopOpacity={0.3} />
                         <stop offset="95%" stopColor="#3AA99B" stopOpacity={0.0} />
                       </linearGradient>
@@ -418,7 +450,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                     <XAxis dataKey="time" hide />
                     <YAxis domain={['dataMin - 3', 'dataMax + 3']} tick={{ fontSize: 9, fill: '#697B73' }} />
                     <Tooltip contentStyle={{ fontSize: '11px', backgroundColor: '#FFFFFF', border: '1px solid #E7ECE6', borderRadius: '6px' }} />
-                    <Area type="monotone" dataKey="respiratoryRate" stroke="#3AA99B" strokeWidth={2} fillOpacity={1} fill="url(#rrGrad)" />
+                    <Area type="monotone" dataKey="respiratoryRate" stroke="#3AA99B" strokeWidth={2} fillOpacity={1} fill="url(#rrGradOverview)" />
                   </AreaChart>
                 </ResponsiveContainer>
               ) : null}
@@ -446,7 +478,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
                     <defs>
-                      <linearGradient id="spo2Grad" x1="0" y1="0" x2="0" y2="1">
+                      <linearGradient id="spo2GradOverview" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#16866A" stopOpacity={0.3} />
                         <stop offset="95%" stopColor="#16866A" stopOpacity={0.0} />
                       </linearGradient>
@@ -454,7 +486,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                     <XAxis dataKey="time" hide />
                     <YAxis domain={[85, 100]} tick={{ fontSize: 9, fill: '#697B73' }} />
                     <Tooltip contentStyle={{ fontSize: '11px', backgroundColor: '#FFFFFF', border: '1px solid #E7ECE6', borderRadius: '6px' }} />
-                    <Area type="monotone" dataKey="spo2" stroke="#16866A" strokeWidth={2} fillOpacity={1} fill="url(#spo2Grad)" />
+                    <Area type="monotone" dataKey="spo2" stroke="#16866A" strokeWidth={2} fillOpacity={1} fill="url(#spo2GradOverview)" />
                   </AreaChart>
                 </ResponsiveContainer>
               ) : null}
@@ -482,7 +514,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
                     <defs>
-                      <linearGradient id="tempGrad" x1="0" y1="0" x2="0" y2="1">
+                      <linearGradient id="tempGradOverview" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#E6A23C" stopOpacity={0.3} />
                         <stop offset="95%" stopColor="#E6A23C" stopOpacity={0.0} />
                       </linearGradient>
@@ -490,7 +522,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                     <XAxis dataKey="time" hide />
                     <YAxis domain={[34.5, 41.0]} tick={{ fontSize: 9, fill: '#697B73' }} />
                     <Tooltip contentStyle={{ fontSize: '11px', backgroundColor: '#FFFFFF', border: '1px solid #E7ECE6', borderRadius: '6px' }} />
-                    <Area type="monotone" dataKey="temperature" stroke="#E6A23C" strokeWidth={2} fillOpacity={1} fill="url(#tempGrad)" />
+                    <Area type="monotone" dataKey="temperature" stroke="#E6A23C" strokeWidth={2} fillOpacity={1} fill="url(#tempGradOverview)" />
                   </AreaChart>
                 </ResponsiveContainer>
               ) : null}

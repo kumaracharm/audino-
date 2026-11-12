@@ -2,14 +2,17 @@
 
 import React, { useState, useMemo, useEffect, useSyncExternalStore } from "react";
 import { PATIENTS } from "@/data/patients";
+import { SHOWCASE_ACTS } from "@/data/showcase-acts";
 import { calculateScore } from "@/lib/scoring";
 import { simulateAttack, AttackType } from "@/lib/security-simulator";
 import { generateActivityEvent } from "@/lib/simulation";
-import { Patient, VitalReading, SecurityEvent, ActivityEvent, Priority } from "@/types";
+import { Patient, VitalReading, SecurityEvent, ActivityEvent, Priority, ShowcaseAct } from "@/types";
 
 import { Sidebar, NavPage } from "@/components/layout/Sidebar";
 import { TopNav } from "@/components/layout/TopNav";
 import { DemoControlsModal } from "@/components/dashboard/DemoControlsModal";
+import { PatientDetailDrawer } from "@/components/dashboard/PatientDetailDrawer";
+import { ShowcaseExperience } from "@/components/dashboard/ShowcaseExperience";
 
 import { OverviewView } from "@/components/dashboard/OverviewView";
 import { PatientMonitoringView } from "@/components/patients/PatientMonitoringView";
@@ -38,6 +41,12 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
       idempotencyKey: "IK-DUPLICATE-001",
       deviceBinding: "BOUND",
     },
+    packetDump: {
+      header: { Host: "gateway.healthguard.local", Authorization: "Bearer eyJ...", "X-Nonce": "nonce-replay-001" },
+      rawPayload: '{"patientId":"HG-001","vitals":{"hr":72,"rr":16,"spo2":98,"temp":36.8}}',
+      authDigest: "HMAC-SHA256 [MATCH]",
+      rejectionReason: "Replay window violated: Nonce already registered in bloom filter.",
+    },
   },
   {
     id: "SEC-00002",
@@ -56,6 +65,12 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
       idempotencyKey: "IK-000398",
       deviceBinding: "BOUND",
     },
+    packetDump: {
+      header: { Host: "gateway.healthguard.local", "X-Signature-256": "4a7f9b0c..." },
+      rawPayload: '{"patientId":"HG-001","vitals":{"hr":65,"rr":15,"spo2":99,"temp":36.7}}',
+      authDigest: "SIGNATURE_MISMATCH: Calculated 8b1c... received 4a7f...",
+      rejectionReason: "Payload tampered in transit: HMAC digest validation failed.",
+    },
   },
   {
     id: "SEC-00003",
@@ -73,6 +88,12 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
       jwt: "eyJhbGciOiJub25lIn0...[FORGED]",
       idempotencyKey: "IK-000350",
       deviceBinding: "UNVERIFIED",
+    },
+    packetDump: {
+      header: { Host: "gateway.healthguard.local", Authorization: "Bearer none-alg" },
+      rawPayload: '{"patientId":"HG-003","vitals":{"hr":82,"rr":18,"spo2":95,"temp":37.0}}',
+      authDigest: "TOKEN_INVALID: Algorithm 'none' strictly rejected by RS256 policy.",
+      rejectionReason: "Unsigned / fabricated JWT presented by rogue device identity.",
     },
   },
 ];
@@ -95,6 +116,9 @@ export default function HealthGuardDashboard() {
   const [activityEvents, setActivityEvents] = useState<ActivityEvent[]>(INITIAL_ACTIVITY_LOG);
   const [simulationActive, setSimulationActive] = useState<boolean>(true);
   const [isDemoControlsOpen, setIsDemoControlsOpen] = useState<boolean>(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const [drawerPatient, setDrawerPatient] = useState<Patient | null>(null);
+  const [currentShowcaseAct, setCurrentShowcaseAct] = useState<number>(0);
   const [fhirOutage, setFhirOutage] = useState<boolean>(false);
   const [notification, setNotification] = useState<string | null>(null);
 
@@ -227,16 +251,17 @@ export default function HealthGuardDashboard() {
   };
 
   // Manual Trigger: Simulate Deterioration / Urgent Scenario
-  const handleSimulateUrgentEvent = () => {
+  const handleSimulateUrgentEvent = (patientIdOverride?: string) => {
+    const targetId = patientIdOverride || selectedPatient.id;
     setPatients((prev) =>
       prev.map((p) => {
-        if (p.id === selectedPatient.id) {
+        if (p.id === targetId) {
           const urgentReading: VitalReading = {
             timestamp: new Date().toISOString(),
             heartRate: 136,
-            respiratoryRate: 28,
-            spo2: 89,
-            temperature: 39.4,
+            respiratoryRate: 27,
+            spo2: 90,
+            temperature: 38.5,
           };
           return {
             ...p,
@@ -250,11 +275,11 @@ export default function HealthGuardDashboard() {
       })
     );
     setActivityEvents((prev) => [
-      generateActivityEvent("alert", selectedPatient.id),
+      generateActivityEvent("alert", targetId),
       ...prev.slice(0, 19),
     ]);
     showNotification(
-      `CRITICAL ALERT: Patient ${selectedPatient.id} deteriorated. P0 Urgent status triggered! Dedicated zero-queue path active.`
+      `CRITICAL ALERT: Patient ${targetId} deteriorated (HR 136, RR 27, SpO₂ 90%). P0 Urgent zero-queue dispatch active!`
     );
   };
 
@@ -299,6 +324,55 @@ export default function HealthGuardDashboard() {
     );
   };
 
+  // Showcase Act Execution Engine
+  const handleExecuteShowcaseAct = (act: ShowcaseAct) => {
+    setSelectedPatientId(act.targetPatientId);
+
+    switch (act.id) {
+      case 'act-1':
+        // Restore HG-001 baseline
+        setPatients((prev) =>
+          prev.map((p) => (p.id === 'HG-001' ? PATIENTS[0] : p))
+        );
+        showNotification("ACT I: Patient HG-001 baseline context retrieved from EHR.");
+        break;
+      case 'act-2':
+        // Generate live stream tick
+        handleSimulateNormalReading();
+        showNotification("ACT II: Continuous wearable telemetry verified via HMAC-SHA256.");
+        break;
+      case 'act-3':
+        // Inject acute deterioration
+        handleSimulateUrgentEvent('HG-001');
+        showNotification("ACT III: Acute decompensation injected! HR 136, RR 27, SpO₂ 90%.");
+        break;
+      case 'act-4':
+        // Trigger P0 fast-path
+        handleSimulateUrgentEvent('HG-001');
+        showNotification("ACT IV: P0 zero-queue lane activated — 48ms delivery directly to clinician.");
+        break;
+      case 'act-5':
+        // Open digital twin
+        setCurrentPage('digital-twin');
+        showNotification("ACT V: Digital Twin ODE engine projected 15-minute hypoxia trajectory.");
+        return;
+      case 'act-6':
+        // Fire replay and tampered attacks
+        handleTriggerAttack('replayed-request');
+        setTimeout(() => handleTriggerAttack('tampered-vital'), 600);
+        showNotification("ACT VI: Adversarial replay & vital tamper attacks blocked at edge gateway.");
+        break;
+      case 'act-7':
+        // Sync FHIR
+        setActivityEvents((prev) => [
+          generateActivityEvent("fhir", 'HG-001'),
+          ...prev.slice(0, 19),
+        ]);
+        showNotification("ACT VII: LOINC observations committed to HAPI FHIR R4 repository.");
+        break;
+    }
+  };
+
   // Reset Demo State
   const handleResetDemo = () => {
     setPatients(PATIENTS);
@@ -306,6 +380,7 @@ export default function HealthGuardDashboard() {
     setSecurityEvents(INITIAL_SECURITY_LOG);
     setActivityEvents(INITIAL_ACTIVITY_LOG);
     setFhirOutage(false);
+    setCurrentShowcaseAct(0);
     showNotification("Demo environment restored to baseline synthetic cohort.");
   };
 
@@ -325,6 +400,7 @@ export default function HealthGuardDashboard() {
         onSelectPage={(page) => setCurrentPage(page)}
         onOpenDemoControls={() => setIsDemoControlsOpen(true)}
         simulationActive={simulationActive}
+        urgentAlertCount={stats.urgent}
       />
 
       {/* MAIN WORKSPACE CONTENT */}
@@ -337,6 +413,7 @@ export default function HealthGuardDashboard() {
           onOpenDemoControls={() => setIsDemoControlsOpen(true)}
           unreadAlertCount={stats.urgent}
           onTriggerAlertView={() => setCurrentPage("overview")}
+          onNavigateToShowcase={() => setCurrentPage("showcase")}
         />
 
         {/* SCROLLABLE PAGE BODY */}
@@ -347,15 +424,32 @@ export default function HealthGuardDashboard() {
                 patients={filteredPatients}
                 selectedPatientId={selectedPatientId}
                 onSelectPatient={(id) => setSelectedPatientId(id)}
+                onOpenPatientDrawer={(patient) => {
+                  setDrawerPatient(patient);
+                  setIsDrawerOpen(true);
+                }}
                 onNavigateToPatientDetail={(id) => {
                   setSelectedPatientId(id);
                   setCurrentPage("patients");
                 }}
+                onNavigateToShowcase={() => setCurrentPage("showcase")}
                 activityEvents={activityEvents}
                 stats={stats}
                 onSimulateNewObservation={handleSimulateNormalReading}
                 onSimulateUrgentEvent={handleSimulateUrgentEvent}
                 isMounted={isMounted}
+              />
+            )}
+
+            {currentPage === "showcase" && (
+              <ShowcaseExperience
+                currentActIndex={currentShowcaseAct}
+                onSelectAct={(idx) => setCurrentShowcaseAct(idx)}
+                onExecuteActAction={handleExecuteShowcaseAct}
+                onNavigateToModule={(mod) => setCurrentPage(mod)}
+                onResetShowcase={handleResetDemo}
+                patients={patients}
+                selectedPatientId={selectedPatientId}
               />
             )}
 
@@ -418,6 +512,20 @@ export default function HealthGuardDashboard() {
           </div>
         </main>
       </div>
+
+      {/* SLIDE-OVER PATIENT DETAIL DRAWER */}
+      <PatientDetailDrawer
+        patient={drawerPatient}
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        onNavigateToFullDetail={(pId) => {
+          setSelectedPatientId(pId);
+          setCurrentPage("patients");
+        }}
+        onSimulateNewObservation={handleSimulateNormalReading}
+        onSimulateDeterioration={handleSimulateUrgentEvent}
+        isMounted={isMounted}
+      />
 
       {/* DEMO CONTROLS MODAL */}
       <DemoControlsModal

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Bell, SlidersHorizontal } from 'lucide-react';
+import { Search, Bell, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { NavPage } from './Sidebar';
 
 interface TopNavProps {
@@ -9,6 +9,7 @@ interface TopNavProps {
   onOpenDemoControls: () => void;
   unreadAlertCount: number;
   onTriggerAlertView: () => void;
+  onNavigateToShowcase: () => void;
 }
 
 export const TopNav: React.FC<TopNavProps> = ({
@@ -18,11 +19,16 @@ export const TopNav: React.FC<TopNavProps> = ({
   onOpenDemoControls,
   unreadAlertCount,
   onTriggerAlertView,
+  onNavigateToShowcase,
 }) => {
   const pageTitles: Record<NavPage, { title: string; subtitle: string }> = {
     overview: {
       title: 'Clinical Command Center',
       subtitle: 'Real-time cohort monitoring, telemetry ingestion & deterministic priority triage',
+    },
+    showcase: {
+      title: 'Executive Showcase Demonstration',
+      subtitle: '7-Act end-to-end clinical decompensation, zero-queue triage, PINN forecast & attack defense',
     },
     patients: {
       title: 'Individual Patient Tele-Surveillance',
@@ -59,7 +65,6 @@ export const TopNav: React.FC<TopNavProps> = ({
   const [currentTime, setCurrentTime] = useState<string>('');
 
   useEffect(() => {
-    // Only set time on client after mounting to avoid hydration mismatch
     const updateTime = () => {
       const now = new Date();
       const hours = String(now.getHours()).padStart(2, '0');
@@ -88,21 +93,32 @@ export const TopNav: React.FC<TopNavProps> = ({
       </div>
 
       {/* Right toolbar controls */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
+        {/* Quick Showcase Demonstration Pill */}
+        {currentPage !== 'showcase' && (
+          <button
+            onClick={onNavigateToShowcase}
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#16866A]/10 text-[#16866A] hover:bg-[#16866A] hover:text-white border border-[#16866A]/30 text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-98"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Launch Showcase</span>
+          </button>
+        )}
+
         {/* Search bar */}
-        <div className="relative w-56 hidden md:block">
+        <div className="relative w-52 hidden md:block">
           <Search className="w-3.5 h-3.5 text-[#697B73] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search patient ID, diagnosis..."
+            placeholder="Search patient ID..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl bg-[#F7F8F3] border border-[#E7ECE6] focus:outline-none focus:border-[#16866A] transition-colors text-[#193B32] placeholder-[#697B73]"
           />
         </div>
 
-        {/* Current Time Display - Deterministic & safe for SSR */}
-        <div className="text-[11px] font-mono font-medium text-[#697B73] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E7ECE6] hidden lg:block min-w-[130px] text-center">
+        {/* Current Time Display */}
+        <div className="text-[11px] font-mono font-medium text-[#697B73] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E7ECE6] hidden lg:block min-w-[125px] text-center">
           {currentTime || '18:00:00 UTC'}
         </div>
 
