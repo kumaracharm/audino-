@@ -23,7 +23,7 @@ import { SystemPerformanceView } from "@/components/performance/SystemPerformanc
 const INITIAL_SECURITY_LOG: SecurityEvent[] = [
   {
     id: "SEC-00001",
-    timestamp: new Date(Date.now() - 14 * 60 * 1000).toISOString(),
+    timestamp: "2026-11-12T17:46:00.000Z",
     deviceId: "DEVICE-104",
     attackCategory: "Replayed Request",
     detectionStage: "Nonce / Replay Protection",
@@ -31,7 +31,7 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
     clinicalImpact: "None — rejected before clinical processing",
     details: {
       nonce: "nonce-replay-001",
-      timestamp: new Date(Date.now() - 900000).toISOString(),
+      timestamp: "2026-11-12T17:45:00.000Z",
       sequenceNumber: "SEQ-000412",
       hmac: "HMAC-SHA256: [VALID]",
       jwt: "eyJhbGciOiJSUzI1NiJ9...[MASKED]",
@@ -41,7 +41,7 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
   },
   {
     id: "SEC-00002",
-    timestamp: new Date(Date.now() - 32 * 60 * 1000).toISOString(),
+    timestamp: "2026-11-12T17:28:00.000Z",
     deviceId: "DEVICE-883",
     attackCategory: "Tampered Vital Reading",
     detectionStage: "HMAC Signature Verification",
@@ -49,7 +49,7 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
     clinicalImpact: "None — rejected before clinical processing",
     details: {
       nonce: "nonce-tamper-002",
-      timestamp: new Date(Date.now() - 1920000).toISOString(),
+      timestamp: "2026-11-12T17:27:00.000Z",
       sequenceNumber: "SEQ-000398",
       hmac: "HMAC-SHA256: INVALID_SIG_HEX [MISMATCH]",
       jwt: "eyJhbGciOiJSUzI1NiJ9...[MASKED]",
@@ -59,7 +59,7 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
   },
   {
     id: "SEC-00003",
-    timestamp: new Date(Date.now() - 55 * 60 * 1000).toISOString(),
+    timestamp: "2026-11-12T17:05:00.000Z",
     deviceId: "DEVICE-049",
     attackCategory: "Forged Device Identity",
     detectionStage: "JWT Validation",
@@ -67,7 +67,7 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
     clinicalImpact: "None — rejected before clinical processing",
     details: {
       nonce: "nonce-forged-003",
-      timestamp: new Date(Date.now() - 3300000).toISOString(),
+      timestamp: "2026-11-12T17:04:00.000Z",
       sequenceNumber: "SEQ-000350",
       hmac: "HMAC-SHA256: [UNVERIFIED]",
       jwt: "eyJhbGciOiJub25lIn0...[FORGED]",
@@ -78,12 +78,12 @@ const INITIAL_SECURITY_LOG: SecurityEvent[] = [
 ];
 
 const INITIAL_ACTIVITY_LOG: ActivityEvent[] = [
-  { id: "EVT-0001", timestamp: new Date(Date.now() - 1 * 60 * 1000).toISOString(), type: "observation", message: "New observation received for HG-001", patientId: "HG-001", isDemo: true },
-  { id: "EVT-0002", timestamp: new Date(Date.now() - 2 * 60 * 1000).toISOString(), type: "assessment", message: "Clinical assessment completed for HG-001: P0 Assigned", patientId: "HG-001", isDemo: true },
-  { id: "EVT-0003", timestamp: new Date(Date.now() - 4 * 60 * 1000).toISOString(), type: "alert", message: "Urgent P0 alert dispatched to on-call physician", patientId: "HG-001", isDemo: true },
-  { id: "EVT-0004", timestamp: new Date(Date.now() - 6 * 60 * 1000).toISOString(), type: "security", message: "Security validation passed for HG-002", patientId: "HG-002", isDemo: true },
-  { id: "EVT-0005", timestamp: new Date(Date.now() - 8 * 60 * 1000).toISOString(), type: "fhir", message: "FHIR observation synced to HAPI repository", patientId: "HG-003", isDemo: true },
-  { id: "EVT-0006", timestamp: new Date(Date.now() - 10 * 60 * 1000).toISOString(), type: "context", message: "Patient context retrieved: CHF baseline", patientId: "HG-001", isDemo: true },
+  { id: "EVT-0001", timestamp: "2026-11-12T17:59:00.000Z", type: "observation", message: "New observation received for HG-001", patientId: "HG-001", isDemo: true },
+  { id: "EVT-0002", timestamp: "2026-11-12T17:58:00.000Z", type: "assessment", message: "Clinical assessment completed for HG-001: P0 Assigned", patientId: "HG-001", isDemo: true },
+  { id: "EVT-0003", timestamp: "2026-11-12T17:56:00.000Z", type: "alert", message: "Urgent P0 alert dispatched to on-call physician", patientId: "HG-001", isDemo: true },
+  { id: "EVT-0004", timestamp: "2026-11-12T17:54:00.000Z", type: "security", message: "Security validation passed for HG-002", patientId: "HG-002", isDemo: true },
+  { id: "EVT-0005", timestamp: "2026-11-12T17:52:00.000Z", type: "fhir", message: "FHIR observation synced to HAPI repository", patientId: "HG-003", isDemo: true },
+  { id: "EVT-0006", timestamp: "2026-11-12T17:50:00.000Z", type: "context", message: "Patient context retrieved: CHF baseline", patientId: "HG-001", isDemo: true },
 ];
 
 export default function HealthGuardDashboard() {
@@ -136,7 +136,7 @@ export default function HealthGuardDashboard() {
     }, 4500);
   };
 
-  // Continuous Telemetry Stream Generator (runs every 3.5 seconds if active)
+  // Continuous Telemetry Stream Generator (runs every 3.5 seconds if active on client)
   useEffect(() => {
     if (!simulationActive) return;
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   GitFork, 
   Activity, 
@@ -15,7 +15,8 @@ import {
   Clock
 } from 'lucide-react';
 import { Patient } from '@/types';
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { formatHourMinuteSafe } from '@/lib/date-utils';
 
 interface DigitalTwinViewProps {
   patients: Patient[];
@@ -34,7 +35,7 @@ export const DigitalTwinView: React.FC<DigitalTwinViewProps> = ({
   const selectedPatient = patients.find((p) => p.id === selectedPatientId) || patients[0];
 
   // Generate historical + forecast points
-  const twinForecastData = React.useMemo(() => {
+  const twinForecastData = useMemo(() => {
     const history = selectedPatient.vitalHistory.slice(-10);
     const horizonMinutes = horizon === '5m' ? 5 : horizon === '15m' ? 15 : 30;
     const forecastCount = horizon === '5m' ? 5 : horizon === '15m' ? 8 : 12;
@@ -50,9 +51,8 @@ export const DigitalTwinView: React.FC<DigitalTwinViewProps> = ({
     const driftSpO2 = selectedPatient.priority === 'P0' ? -0.4 : 0;
 
     const formattedHistory = history.map((h, i) => {
-      const d = new Date(h.timestamp);
       return {
-        time: d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        time: formatHourMinuteSafe(h.timestamp),
         type: 'historical',
         hrActual: h.heartRate,
         hrForecast: null as number | null,
@@ -65,24 +65,25 @@ export const DigitalTwinView: React.FC<DigitalTwinViewProps> = ({
       };
     });
 
-    const now = Date.now();
+    const lastTime = new Date(selectedPatient.currentVitals.timestamp).getTime();
     const forecastPoints = Array.from({ length: forecastCount }, (_, i) => {
-      const t = new Date(now + (i + 1) * (horizonMinutes / forecastCount) * 60 * 1000);
+      const stepMs = (horizonMinutes / forecastCount) * 60 * 1000;
+      const t = new Date(lastTime + (i + 1) * stepMs);
       return {
-        time: t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        time: formatHourMinuteSafe(t),
         type: 'forecast',
         hrActual: null as number | null,
-        hrForecast: Math.round(baseHR + (i + 1) * driftHR + (Math.random() - 0.5) * 3),
+        hrForecast: Math.round(baseHR + (i + 1) * driftHR),
         rrActual: null as number | null,
-        rrForecast: Math.round(baseRR + (i + 1) * driftRR + (Math.random() - 0.5) * 1.5),
+        rrForecast: Math.round(baseRR + (i + 1) * driftRR),
         spo2Actual: null as number | null,
-        spo2Forecast: Math.round(Math.max(80, Math.min(100, baseSpO2 + (i + 1) * driftSpO2 + (Math.random() - 0.5) * 1))),
+        spo2Forecast: Math.round(Math.max(80, Math.min(100, baseSpO2 + (i + 1) * driftSpO2))),
         tempActual: null as number | null,
-        tempForecast: parseFloat((baseTemp + (i + 1) * 0.05 + (Math.random() - 0.5) * 0.1).toFixed(1)),
+        tempForecast: parseFloat((baseTemp + (i + 1) * 0.04).toFixed(1)),
       };
     });
 
-    // Bridge point to connect line
+    // Bridge point to connect line smoothly
     const lastHist = formattedHistory[formattedHistory.length - 1];
     if (lastHist) {
       lastHist.hrForecast = lastHist.hrActual;

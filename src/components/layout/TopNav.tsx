@@ -1,5 +1,5 @@
-import React from 'react';
-import { Search, Bell, Shield, SlidersHorizontal, RefreshCw } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, Bell, SlidersHorizontal } from 'lucide-react';
 import { NavPage } from './Sidebar';
 
 interface TopNavProps {
@@ -56,21 +56,16 @@ export const TopNav: React.FC<TopNavProps> = ({
 
   const currentMeta = pageTitles[currentPage] || { title: 'HealthGuard', subtitle: '' };
 
-  const [currentTime, setCurrentTime] = React.useState<string>('');
+  const [currentTime, setCurrentTime] = useState<string>('');
 
-  React.useEffect(() => {
+  useEffect(() => {
+    // Only set time on client after mounting to avoid hydration mismatch
     const updateTime = () => {
       const now = new Date();
-      setCurrentTime(
-        now.toLocaleDateString('en-US', {
-          weekday: 'short',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-        })
-      );
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      setCurrentTime(`${hours}:${minutes}:${seconds} UTC+5:30`);
     };
     updateTime();
     const timer = setInterval(updateTime, 1000);
@@ -106,9 +101,9 @@ export const TopNav: React.FC<TopNavProps> = ({
           />
         </div>
 
-        {/* Current Time Display */}
-        <div className="text-[11px] font-mono font-medium text-[#697B73] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E7ECE6] hidden lg:block">
-          {currentTime || 'Synchronizing...'}
+        {/* Current Time Display - Deterministic & safe for SSR */}
+        <div className="text-[11px] font-mono font-medium text-[#697B73] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E7ECE6] hidden lg:block min-w-[130px] text-center">
+          {currentTime || '18:00:00 UTC'}
         </div>
 
         {/* Notification Bell */}

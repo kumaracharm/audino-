@@ -1,25 +1,21 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { 
   Users, 
   AlertTriangle, 
   CheckCircle2, 
   Activity, 
   ShieldCheck, 
-  ArrowUpRight, 
-  TrendingUp, 
-  TrendingDown, 
-  Minus,
-  Sparkles,
-  Zap,
-  Clock,
-  ChevronRight,
-  Heart,
-  Wind,
-  Droplets,
-  Thermometer
+  Clock, 
+  ChevronRight, 
+  Heart, 
+  Wind, 
+  Droplets, 
+  Thermometer, 
+  Zap 
 } from 'lucide-react';
 import { Patient, Priority, ActivityEvent } from '@/types';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
+import { formatTimeSafe, formatHourMinuteSafe } from '@/lib/date-utils';
 
 interface OverviewViewProps {
   patients: Patient[];
@@ -83,13 +79,12 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
     }
   };
 
-  const chartData = React.useMemo(() => {
+  const chartData = useMemo(() => {
     if (!selectedPatient) return [];
     return selectedPatient.vitalHistory.map((v, i) => {
-      const date = new Date(v.timestamp);
       return {
         idx: i + 1,
-        time: date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        time: formatHourMinuteSafe(v.timestamp),
         heartRate: v.heartRate,
         respiratoryRate: v.respiratoryRate,
         spo2: v.spo2,
@@ -316,7 +311,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                 >
                   <div className="flex items-center justify-between text-[10px] text-[#697B73]">
                     <span className="font-mono font-semibold">{evt.id}</span>
-                    <span>{new Date(evt.timestamp).toLocaleTimeString()}</span>
+                    <span>{formatTimeSafe(evt.timestamp)}</span>
                   </div>
                   <p className="font-semibold text-[#193B32] text-xs">{evt.message}</p>
                   <div className="flex items-center justify-between text-[10px]">

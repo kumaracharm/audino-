@@ -198,3 +198,4 @@ export const SystemPerformanceView: React.FC = () => {
     </div>
   );
 };
+

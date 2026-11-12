@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   ShieldAlert, 
   ShieldCheck, 
-  Key, 
-  Clock, 
-  RotateCcw, 
-  AlertOctagon, 
   CheckCircle2, 
-  ChevronRight, 
   Lock, 
   Terminal, 
-  FileCode,
-  Layers,
-  ArrowRight
+  AlertOctagon,
+  Layers
 } from 'lucide-react';
 import { SecurityEvent } from '@/types';
-import { simulateAttack, AttackType } from '@/lib/security-simulator';
+import { AttackType } from '@/lib/security-simulator';
+import { formatTimeSafe } from '@/lib/date-utils';
 
 interface SecurityOperationsViewProps {
   securityEvents: SecurityEvent[];
@@ -30,7 +25,7 @@ export const SecurityOperationsView: React.FC<SecurityOperationsViewProps> = ({
     securityEvents[0] || null
   );
 
-  const stats = React.useMemo(() => {
+  const stats = useMemo(() => {
     const total = 4280 + securityEvents.length;
     const rejected = securityEvents.filter((e) => e.result === 'REJECTED').length + 84;
     const replay = securityEvents.filter((e) => e.attackCategory === 'Replayed Request').length + 38;
@@ -77,7 +72,7 @@ export const SecurityOperationsView: React.FC<SecurityOperationsViewProps> = ({
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3.5">
         <div className="p-4 rounded-xl bg-white border border-[#E7ECE6] shadow-xs">
           <span className="text-[10px] font-bold text-[#697B73] uppercase tracking-wider block">Authenticated</span>
-          <span className="text-2xl font-black text-[#16866A] mt-0.5 block">{stats.total.toLocaleString()}</span>
+          <span className="text-2xl font-black text-[#16866A] mt-0.5 block">{stats.total}</span>
           <span className="text-[10px] text-[#697B73]">Verified telemetry frames</span>
         </div>
 
@@ -229,7 +224,7 @@ export const SecurityOperationsView: React.FC<SecurityOperationsViewProps> = ({
                     <p className="text-xs font-bold text-[#193B32] mt-1">{evt.attackCategory}</p>
                     <div className="flex items-center justify-between text-[10px] text-[#697B73] mt-1 pt-1 border-t border-gray-200/60">
                       <span>Interception: <strong>{evt.detectionStage}</strong></span>
-                      <span>{new Date(evt.timestamp).toLocaleTimeString()}</span>
+                      <span>{formatTimeSafe(evt.timestamp)}</span>
                     </div>
                   </div>
                 );

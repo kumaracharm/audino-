@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { 
   ArrowLeft, 
   Activity, 
   Zap, 
-  AlertTriangle, 
-  ShieldCheck, 
   Clock, 
   FileText, 
   Heart, 
@@ -12,13 +10,12 @@ import {
   Droplets, 
   Thermometer, 
   CheckCircle2,
-  Calendar,
-  Layers,
-  Sparkles
+  Layers
 } from 'lucide-react';
-import { Patient, Priority, VitalReading } from '@/types';
+import { Patient, Priority } from '@/types';
 import { calculateScore, ScoreResult } from '@/lib/scoring';
-import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
+import { ResponsiveContainer, AreaChart, Area } from 'recharts';
+import { formatTimeSafe, formatHourMinuteSafe } from '@/lib/date-utils';
 
 interface PatientMonitoringViewProps {
   patient: Patient;
@@ -35,17 +32,16 @@ export const PatientMonitoringView: React.FC<PatientMonitoringViewProps> = ({
   onSimulateAbnormalObservation,
   isMounted
 }) => {
-  const clinicalScore: ScoreResult = React.useMemo(() => {
+  const clinicalScore: ScoreResult = useMemo(() => {
     const v = patient.currentVitals;
     return calculateScore(v.heartRate, v.respiratoryRate, v.spo2, v.temperature, patient.age);
   }, [patient]);
 
-  const chartData = React.useMemo(() => {
+  const chartData = useMemo(() => {
     return patient.vitalHistory.map((v, i) => {
-      const date = new Date(v.timestamp);
       return {
         idx: i + 1,
-        time: date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        time: formatHourMinuteSafe(v.timestamp),
         heartRate: v.heartRate,
         respiratoryRate: v.respiratoryRate,
         spo2: v.spo2,
@@ -111,7 +107,7 @@ export const PatientMonitoringView: React.FC<PatientMonitoringViewProps> = ({
               </span>
             </div>
             <p className="text-xs text-[#697B73] mt-1">
-              Recovery Stage: <strong className="text-[#193B32]">{patient.recoveryStage}</strong> • Monitoring Status: <span className="text-[#16866A] font-semibold">{patient.monitoringStatus}</span> • Last Sync: {new Date(patient.lastObservation).toLocaleTimeString()}
+              Recovery Stage: <strong className="text-[#193B32]">{patient.recoveryStage}</strong> • Monitoring Status: <span className="text-[#16866A] font-semibold">{patient.monitoringStatus}</span> • Last Sync: {formatTimeSafe(patient.lastObservation)}
             </p>
           </div>
         </div>
@@ -322,7 +318,7 @@ export const PatientMonitoringView: React.FC<PatientMonitoringViewProps> = ({
                   key={idx}
                   className="p-2.5 rounded-xl bg-[#FAFBF8] border border-[#E7ECE6] text-xs flex items-center justify-between font-mono"
                 >
-                  <span className="text-[#697B73]">{new Date(reading.timestamp).toLocaleTimeString()}</span>
+                  <span className="text-[#697B73]">{formatTimeSafe(reading.timestamp)}</span>
                   <span className="text-[#193B32] font-semibold">
                     HR {reading.heartRate} | RR {reading.respiratoryRate} | SpO₂ {reading.spo2}% | {reading.temperature.toFixed(1)}°C
                   </span>

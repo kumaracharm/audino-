@@ -214,3 +214,4 @@ export const FhirRecordsView: React.FC<FhirRecordsViewProps> = ({
     </div>
   );
 };
+

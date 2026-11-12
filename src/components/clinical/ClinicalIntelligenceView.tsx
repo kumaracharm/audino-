@@ -315,3 +315,4 @@ export const ClinicalIntelligenceView: React.FC<ClinicalIntelligenceViewProps> =
     </div>
   );
 };
+
