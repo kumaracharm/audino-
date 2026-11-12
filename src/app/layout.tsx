@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./tailwind-built.css";
 
 export const metadata: Metadata = {
   title: "HEALTHGUARD | Clinical Monitoring Command Center",
@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#F7F8F3] text-[#193B32]">
+      <body className="min-h-full flex flex-col bg-[#F7F8F3] text-[#203C35]">
         {children}
       </body>
     </html>

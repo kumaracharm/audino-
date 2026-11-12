@@ -289,3 +289,4 @@ export const PatientDetailDrawer: React.FC<PatientDetailDrawerProps> = ({
     </div>
   );
 };
+
