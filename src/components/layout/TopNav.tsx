@@ -1,0 +1,139 @@
+import React from 'react';
+import { Search, Bell, Shield, SlidersHorizontal, RefreshCw } from 'lucide-react';
+import { NavPage } from './Sidebar';
+
+interface TopNavProps {
+  currentPage: NavPage;
+  onSearchChange: (query: string) => void;
+  searchQuery: string;
+  onOpenDemoControls: () => void;
+  unreadAlertCount: number;
+  onTriggerAlertView: () => void;
+}
+
+export const TopNav: React.FC<TopNavProps> = ({
+  currentPage,
+  onSearchChange,
+  searchQuery,
+  onOpenDemoControls,
+  unreadAlertCount,
+  onTriggerAlertView,
+}) => {
+  const pageTitles: Record<NavPage, { title: string; subtitle: string }> = {
+    overview: {
+      title: 'Clinical Command Center',
+      subtitle: 'Real-time cohort monitoring, telemetry ingestion & deterministic priority triage',
+    },
+    patients: {
+      title: 'Individual Patient Tele-Surveillance',
+      subtitle: 'Detailed physiological vitals, baseline delta & 4-vital component scoring',
+    },
+    clinical: {
+      title: 'Clinical Intelligence Pipeline',
+      subtitle: 'Expert physiological analysis & context-aware deterministic decision engine',
+    },
+    'digital-twin': {
+      title: 'Physiological Digital Twin',
+      subtitle: 'Hybrid physics-informed neural ODE telemetry forecasting & confidence bounds',
+    },
+    security: {
+      title: 'Clinical Data Security Operations',
+      subtitle: 'Edge HMAC verification, nonce replay defense & zero-trust payload validation',
+    },
+    fhir: {
+      title: 'HL7 FHIR R4 Interoperability',
+      subtitle: 'HAPI FHIR compliant resource explorer with live observation sync status',
+    },
+    recovery: {
+      title: 'Post-Discharge Recovery Plans',
+      subtitle: 'Milestone adherence, patient-reported symptoms & nurse care-protocol checklist',
+    },
+    performance: {
+      title: 'System Architecture & Telemetry Throughput',
+      subtitle: 'Ingestion pipeline latency (p50/p95/p99), worker queue health & Redis Streams',
+    },
+  };
+
+  const currentMeta = pageTitles[currentPage] || { title: 'HealthGuard', subtitle: '' };
+
+  const [currentTime, setCurrentTime] = React.useState<string>('');
+
+  React.useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleDateString('en-US', {
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        })
+      );
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <header className="h-16 border-b border-[#E7ECE6] bg-white sticky top-0 z-20 px-6 flex items-center justify-between gap-4">
+      {/* Title & subtitle */}
+      <div className="flex-1 min-w-0">
+        <h1 className="text-base font-bold text-[#193B32] truncate flex items-center gap-2">
+          {currentMeta.title}
+          <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-[#16866A]/10 text-[#16866A] border border-[#16866A]/20">
+            DEMO STREAM
+          </span>
+        </h1>
+        <p className="text-xs text-[#697B73] truncate hidden sm:block">
+          {currentMeta.subtitle}
+        </p>
+      </div>
+
+      {/* Right toolbar controls */}
+      <div className="flex items-center gap-3">
+        {/* Search bar */}
+        <div className="relative w-56 hidden md:block">
+          <Search className="w-3.5 h-3.5 text-[#697B73] absolute left-3 top-1/2 -translate-y-1/2" />
+          <input
+            type="text"
+            placeholder="Search patient ID, diagnosis..."
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
+            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl bg-[#F7F8F3] border border-[#E7ECE6] focus:outline-none focus:border-[#16866A] transition-colors text-[#193B32] placeholder-[#697B73]"
+          />
+        </div>
+
+        {/* Current Time Display */}
+        <div className="text-[11px] font-mono font-medium text-[#697B73] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E7ECE6] hidden lg:block">
+          {currentTime || 'Synchronizing...'}
+        </div>
+
+        {/* Notification Bell */}
+        <button
+          onClick={onTriggerAlertView}
+          className="relative p-2 rounded-xl text-[#697B73] hover:text-[#193B32] hover:bg-[#F7F8F3] transition-colors cursor-pointer border border-[#E7ECE6]"
+          title="Clinical Priority Alerts"
+        >
+          <Bell className="w-4 h-4" />
+          {unreadAlertCount > 0 && (
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#E45D58] text-white rounded-full text-[9px] font-bold flex items-center justify-center animate-pulse">
+              {unreadAlertCount}
+            </span>
+          )}
+        </button>
+
+        {/* Global Demo Controls Button */}
+        <button
+          onClick={onOpenDemoControls}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#16866A] text-white hover:bg-[#126b55] text-xs font-semibold shadow-xs transition-all active:scale-98 cursor-pointer"
+        >
+          <SlidersHorizontal className="w-3.5 h-3.5" />
+          <span>Demo Controls</span>
+        </button>
+      </div>
+    </header>
+  );
+};
