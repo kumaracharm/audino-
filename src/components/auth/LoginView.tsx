@@ -85,30 +85,44 @@ const CLINICAL_ROLE_CONFIGS: Record<Exclude<UserRole, 'patient'>, {
 
 export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
   return (
-    <div className="min-h-screen bg-[#F7F8F3] flex flex-col justify-center items-center p-6 text-[#193B32]">
+    <div className="relative min-h-screen bg-[#F4F6F2] flex flex-col justify-center items-center p-6 text-[#193B32] overflow-hidden">
+      {/* Ambient Spatial Lighting Orbs */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-[15%] -left-[10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-[#16866A]/12 to-[#3AA99B]/08 blur-[120px]" />
+        <div className="absolute top-[35%] -right-[15%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-bl from-[#83AD8B]/14 to-[#16866A]/05 blur-[130px]" />
+        <div className="absolute -bottom-[20%] left-[25%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-[#3AA99B]/10 to-[#A99ACB]/06 blur-[140px]" />
+        <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#193B32_1px,transparent_1px)] [background-size:24px_24px]" />
+      </div>
+
       {/* Brand Header */}
-      <div className="max-w-2xl w-full text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#16866A]/10 text-[#16866A] text-xs font-bold border border-[#16866A]/20 mb-4">
-          <Activity className="w-4 h-4" />
-          <span>HOSPITAL-GRADE ROLE-BASED ACCESS CONTROL</span>
+      <div className="relative z-10 max-w-2xl w-full text-center mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 shadow-xs mb-4">
+          <img 
+            src="/avoflare_logo.jpg" 
+            alt="AvoFlare" 
+            className="h-7 w-auto object-contain" 
+          />
+          <span className="text-xs font-black text-[#16866A] tracking-wider uppercase">
+            Clinical Tele-Surveillance
+          </span>
         </div>
-        <h1 className="text-3xl font-extrabold tracking-tight text-[#193B32]">
-          HealthGuard Clinical Intelligence
+        <h1 className="text-3xl md:text-4xl font-black tracking-tight text-[#193B32]">
+          AvoFlare Clinical Intelligence
         </h1>
         <p className="text-sm text-[#697B73] mt-2 max-w-lg mx-auto">
-          Sign in with your authorized credentials. Patients access their private health check-in portal, while clinicians access scoped monitoring workspaces.
+          Personalized post-discharge deterioration forecasting. Select your authorized clinical profile to access your dedicated surveillance workspace.
         </p>
       </div>
 
       {/* Role Selection Grid */}
-      <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {/* Patient Portal Card (Completely Separated & Non-Mixed!) */}
-        <div className="col-span-1 md:col-span-2 lg:col-span-3 bg-gradient-to-r from-[#0284c7]/10 via-[#38bdf8]/5 to-white border-2 border-[#0284c7]/30 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="relative z-10 max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Patient Portal Card */}
+        <div className="col-span-1 md:col-span-2 lg:col-span-3 spatial-card backdrop-blur-2xl bg-white/85 border border-white/95 p-6 shadow-md hover:shadow-xl transition-all flex flex-col md:flex-row items-center justify-between gap-6 rounded-3xl">
           <div className="flex items-center gap-4">
             <MinecraftAvatar patientId="HG-001" size={64} />
             <div>
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded-full bg-[#0284c7] text-white text-[10px] font-bold uppercase tracking-wider">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#0284c7] text-white text-[10px] font-bold uppercase tracking-wider shadow-xs">
                   Patient Portal
                 </span>
                 <span className="text-xs font-mono font-semibold text-[#64748b]">ID: HG-001</span>
@@ -121,7 +135,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
           </div>
           <button
             onClick={() => onLogin(DEMO_USERS[0])}
-            className="w-full md:w-auto px-6 py-3 rounded-xl bg-[#0284c7] text-white font-bold text-sm shadow hover:bg-[#0369a1] transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+            className="w-full md:w-auto px-6 py-3 rounded-2xl bg-[#0284c7] text-white font-bold text-sm shadow hover:bg-[#0369a1] transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer active:scale-98"
           >
             <span>Launch Patient Portal</span>
             <ArrowRight className="w-4 h-4" />
@@ -138,14 +152,14 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
             <div
               key={user.id}
               onClick={() => onLogin(user)}
-              className="bg-white border border-[#E7ECE6] rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-[#16866A] transition-all cursor-pointer flex flex-col justify-between group"
+              className="spatial-card backdrop-blur-xl bg-white/80 border border-white/90 rounded-2xl p-5 shadow-xs hover:shadow-lg hover:border-[#16866A]/40 transition-all cursor-pointer flex flex-col justify-between group active:scale-98"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${roleConfig.badgeColor}`}>
                     {roleConfig.badge}
                   </span>
-                  <div className="w-8 h-8 rounded-lg bg-[#F7F8F3] group-hover:bg-[#16866A]/10 flex items-center justify-center text-[#697B73] group-hover:text-[#16866A] transition-colors">
+                  <div className="w-8 h-8 rounded-xl bg-white/80 border border-[#E7ECE6]/80 group-hover:bg-[#16866A]/10 flex items-center justify-center text-[#697B73] group-hover:text-[#16866A] transition-colors shadow-xs">
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
@@ -153,7 +167,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
                   {user.name}
                 </h3>
                 <p className="text-[11px] text-[#697B73] mt-0.5 font-medium">{user.title}</p>
-                <div className="my-2.5 py-1 px-2 rounded-lg bg-[#FAFBF8] border border-[#E7ECE6] text-[10px] font-semibold text-[#16866A]">
+                <div className="my-2.5 py-1 px-2 rounded-xl bg-white/70 border border-[#E7ECE6]/80 text-[10px] font-semibold text-[#16866A]">
                   {roleConfig.scope}
                 </div>
                 <p className="text-[11px] text-[#697B73] leading-relaxed line-clamp-3">
@@ -161,7 +175,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#E7ECE6] flex items-center justify-between text-xs font-bold text-[#16866A]">
+              <div className="mt-4 pt-3 border-t border-[#E7ECE6]/60 flex items-center justify-between text-xs font-bold text-[#16866A]">
                 <span>Sign In Workspace</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>

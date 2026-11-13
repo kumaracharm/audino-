@@ -38,32 +38,32 @@ export const TopNav: React.FC<TopNavProps> = ({
 }) => {
   const pageTitles: Record<NavPage, { title: string; subtitle: string }> = {
     overview: {
-      title: 'Clinical Command Center',
-      subtitle: 'Real-time cohort monitoring, telemetry ingestion & deterministic priority triage',
+      title: 'AvoFlare Command Center',
+      subtitle: 'Spatial tele-surveillance, PINN-ODE trajectory predictions & deterministic triage',
     },
     showcase: {
-      title: 'Executive Showcase Demonstration',
-      subtitle: '7-Act end-to-end clinical decompensation, zero-queue triage, PINN forecast & attack defense',
+      title: 'AvoFlare Showcase Experience',
+      subtitle: '7-Act clinical decompensation, zero-queue triage, PINN digital twin & security defense',
     },
     patients: {
       title: 'Individual Patient Tele-Surveillance',
       subtitle: 'Detailed physiological vitals, baseline delta & 4-vital component scoring',
     },
     clinical: {
-      title: 'Clinical Intelligence Pipeline',
-      subtitle: 'Expert physiological analysis & context-aware deterministic decision engine',
+      title: 'AvoFlare Clinical Intelligence Engine',
+      subtitle: 'Context-adaptive clinical experts & deterministic decision pipeline',
     },
     'digital-twin': {
-      title: 'Physiological Digital Twin',
-      subtitle: 'Hybrid physics-informed neural ODE telemetry forecasting & confidence bounds',
+      title: 'AvoFlare Physiological Digital Twin',
+      subtitle: 'Hybrid physics-informed neural ODE telemetry forecasting & 95% confidence corridors',
     },
     security: {
-      title: 'Clinical Data Security Operations',
-      subtitle: 'Edge HMAC verification, nonce replay defense & zero-trust payload validation',
+      title: 'Zero-Trust Clinical Security Operations',
+      subtitle: 'Edge HMAC verification, nonce replay defense & signed telemetry payloads',
     },
     fhir: {
-      title: 'HL7 FHIR R4 Interoperability',
-      subtitle: 'HAPI FHIR compliant resource explorer with live observation sync status',
+      title: 'HL7 FHIR R4 Interoperability & Synthea Clinical Reports',
+      subtitle: 'Standardized US Core resources, structured diagnostic reports & full JSON export',
     },
     recovery: {
       title: 'Post-Discharge Recovery Plans',
@@ -75,7 +75,7 @@ export const TopNav: React.FC<TopNavProps> = ({
     },
   };
 
-  const currentMeta = pageTitles[currentPage] || { title: 'HealthGuard', subtitle: '' };
+  const currentMeta = pageTitles[currentPage] || { title: 'AvoFlare', subtitle: '' };
 
   const [currentTime, setCurrentTime] = useState<string>('');
 
@@ -93,13 +93,13 @@ export const TopNav: React.FC<TopNavProps> = ({
   }, []);
 
   return (
-    <header className="h-16 border-b border-[#E7ECE6] bg-white sticky top-0 z-20 px-6 flex items-center justify-between gap-4">
+    <header className="h-16 border-b border-[#E7ECE6]/80 backdrop-blur-2xl bg-white/80 sticky top-0 z-20 px-6 flex items-center justify-between gap-4 shadow-[0_4px_20px_-2px_rgba(25,59,50,0.03)]">
       {/* Title & subtitle */}
       <div className="flex-1 min-w-0">
-        <h1 className="text-base font-bold text-[#193B32] truncate flex items-center gap-2">
+        <h1 className="text-base font-black text-[#193B32] truncate flex items-center gap-2">
           {currentMeta.title}
           <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-[#16866A]/10 text-[#16866A] border border-[#16866A]/20">
-            DEMO STREAM
+            LIVE STREAM
           </span>
         </h1>
         <p className="text-xs text-[#697B73] truncate hidden sm:block">
@@ -128,12 +128,12 @@ export const TopNav: React.FC<TopNavProps> = ({
             placeholder="Search patient ID..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl bg-[#F7F8F3] border border-[#E7ECE6] focus:outline-none focus:border-[#16866A] transition-colors text-[#193B32] placeholder-[#697B73]"
+            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl bg-white/70 backdrop-blur-md border border-[#E7ECE6]/80 focus:outline-none focus:border-[#16866A] transition-colors text-[#193B32] placeholder-[#697B73]"
           />
         </div>
 
         {/* Current Time Display */}
-        <div className="text-[11px] font-mono font-medium text-[#697B73] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E7ECE6] hidden lg:block min-w-[125px] text-center">
+        <div className="text-[11px] font-mono font-semibold text-[#697B73] px-2.5 py-1 rounded-xl bg-white/70 backdrop-blur-md border border-[#E7ECE6]/80 hidden lg:block min-w-[125px] text-center shadow-xs">
           {currentTime || '18:00:00 UTC'}
         </div>
 

@@ -648,16 +648,24 @@ export default function HealthGuardDashboard() {
 
   // 3. CLINICIAN ROLES (PHEON, Nurse, Doctor, Senior Doctor): Render Scoped Clinical Command Center
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-[#F7F8F3] text-[#193B32]">
+    <div className="relative flex flex-col h-screen overflow-hidden bg-[#F4F6F2] text-[#193B32]">
+      {/* Ambient Spatial Lighting Orbs (Creates depth and visible frosted glass blur behind cards) */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#16866A]/10 to-[#3AA99B]/08 blur-[120px]" />
+        <div className="absolute top-[30%] -right-[15%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-bl from-[#83AD8B]/12 to-[#16866A]/05 blur-[130px]" />
+        <div className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tr from-[#3AA99B]/10 to-[#A99ACB]/08 blur-[140px]" />
+        <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#193B32_1px,transparent_1px)] [background-size:24px_24px]" />
+      </div>
+
       {/* Toast Notification Banner */}
       {notification && (
-        <div className="fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-3 rounded-xl shadow-lg bg-[#193B32] text-white text-xs border-l-4 border-[#3AA99B] animate-in fade-in slide-in-from-top-2">
-          <span className="w-2 h-2 rounded-full bg-[#3AA99B]" />
+        <div className="fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-3 rounded-2xl shadow-xl backdrop-blur-xl bg-[#193B32]/95 text-white text-xs border border-white/20 animate-in fade-in slide-in-from-top-2">
+          <span className="w-2 h-2 rounded-full bg-[#3AA99B] animate-ping" />
           <span>{notification}</span>
         </div>
       )}
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="relative z-10 flex-1 flex overflow-hidden">
         {/* FIXED LEFT SIDEBAR (Filtered by Role Permissions) */}
         <Sidebar
           currentPage={currentPage}

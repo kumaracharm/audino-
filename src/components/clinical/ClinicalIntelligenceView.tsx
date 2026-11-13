@@ -72,17 +72,17 @@ export const ClinicalIntelligenceView: React.FC<ClinicalIntelligenceViewProps> =
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-2xl border border-[#E7ECE6] p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="spatial-card backdrop-blur-2xl bg-white/85 border border-white/90 p-6 shadow-sm rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#16866A]/10 text-[#16866A] uppercase tracking-wider">
-              Architecture V4.1 · Clinical Intelligence
+              AvoFlare V4.1 · Clinical Intelligence
             </span>
             <span className="text-xs text-[#697B73]">7 Context-Adaptive Specialized Experts</span>
           </div>
-          <h2 className="text-xl font-bold text-[#193B32] mt-1">Multi-Expert Physiological Intelligence</h2>
+          <h2 className="text-xl font-bold text-[#193B32] mt-1">AvoFlare Physiological Decision Engine</h2>
           <p className="text-xs text-[#697B73] mt-0.5 max-w-2xl">
-            HEALTHGUARD pairs dual knowledge bases (Patient KB + Shared Clinical KB) with 7 specialized domain experts and an independent safety supervisor.
+            AvoFlare pairs dual knowledge bases (Patient KB + Shared Clinical KB) with 7 specialized domain experts and an independent safety supervisor.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export const ClinicalIntelligenceView: React.FC<ClinicalIntelligenceViewProps> =
           <select
             value={selectedPatient.id}
             onChange={(e) => onSelectPatient(e.target.value)}
-            className="px-3 py-1.5 rounded-xl border border-[#E7ECE6] bg-[#FAFBF8] text-xs font-bold text-[#193B32] focus:outline-none focus:border-[#16866A] cursor-pointer"
+            className="px-3.5 py-2 rounded-xl border border-[#E7ECE6]/80 bg-white/80 backdrop-blur-md text-xs font-bold text-[#193B32] focus:outline-none focus:border-[#16866A] cursor-pointer shadow-xs"
           >
             {patients.map((p) => (
               <option key={p.id} value={p.id}>

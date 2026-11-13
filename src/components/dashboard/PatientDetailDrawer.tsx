@@ -101,13 +101,13 @@ export const PatientDetailDrawer: React.FC<PatientDetailDrawerProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-black/40 backdrop-blur-xs flex justify-end animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-hidden bg-black/35 backdrop-blur-sm flex justify-end animate-in fade-in duration-200">
       <div 
-        className="w-full max-w-xl bg-white h-full shadow-2xl flex flex-col justify-between border-l border-[#E7ECE6] animate-in slide-in-from-right duration-250 select-text"
+        className="w-full max-w-xl backdrop-blur-2xl bg-white/90 h-full shadow-2xl flex flex-col justify-between border-l border-white/80 animate-in slide-in-from-right duration-250 select-text"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with Minecraft Avatar */}
-        <div className="p-5 border-b border-[#E7ECE6] bg-[#FAFBF8] flex items-center justify-between">
+        <div className="p-6 border-b border-[#E7ECE6]/80 bg-white/70 backdrop-blur-md flex items-center justify-between">
           <div className="flex items-center gap-3">
             <MinecraftAvatar patientId={patient.id} size={48} />
             <div>

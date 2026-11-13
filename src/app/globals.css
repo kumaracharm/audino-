@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #F7F8F3;
+  --background: #F4F6F2;
   --foreground: #203C35;
   --surface: #FFFFFF;
   --forest: #203C35;
@@ -20,13 +20,60 @@
 }
 
 body {
-  background-color: #F7F8F3;
+  background-color: #F4F6F2;
   color: #203C35;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Spatial Frosted Glass System */
+.spatial-glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(22, 134, 106, 0.04), 0 4px 12px -2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.spatial-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 30px -4px rgba(25, 59, 50, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  border-radius: 1.25rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spatial-card:hover {
+  box-shadow: 0 14px 38px -6px rgba(22, 134, 106, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1);
+  border-color: rgba(22, 134, 106, 0.25);
+}
+
+.spatial-card-subtle {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(231, 236, 230, 0.65);
+  border-radius: 1rem;
+}
+
+.spatial-kpi {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(25, 59, 50, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border-radius: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spatial-kpi:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -4px rgba(22, 134, 106, 0.08);
 }
 
 /* Custom scrollbars */

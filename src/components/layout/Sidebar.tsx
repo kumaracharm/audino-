@@ -81,28 +81,35 @@ export const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <aside className="w-64 bg-white border-r border-[#E7ECE6] flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none">
+    <aside className="w-64 backdrop-blur-2xl bg-white/85 border-r border-[#E7ECE6]/80 flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none shadow-[2px_0_24px_-4px_rgba(25,59,50,0.04)]">
       {/* Brand Header */}
       <div>
-        <div className="p-5 border-b border-[#E7ECE6] flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#16866A] to-[#3AA99B] flex items-center justify-center text-white shadow-sm shrink-0">
-            <Activity className="w-5 h-5 stroke-[2.5]" />
+        <div className="p-4 border-b border-[#E7ECE6]/80 flex items-center gap-3">
+          <div className="h-10 px-2 rounded-xl bg-white/90 border border-white/80 shadow-xs flex items-center justify-center shrink-0">
+            <img 
+              src="/avoflare_logo.jpg" 
+              alt="AvoFlare Logo" 
+              className="h-7 w-auto object-contain" 
+            />
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className="font-extrabold text-base tracking-tight text-[#193B32]">HEALTHGUARD</span>
+              <span className="font-black text-base tracking-tight text-[#16866A]">AvoFlare</span>
+              <span className="text-[9px] uppercase font-bold px-1.5 py-0.2 rounded-md bg-[#16866A]/10 text-[#16866A] border border-[#16866A]/20">
+                PRO
+              </span>
             </div>
-            <p className="text-[11px] font-medium text-[#697B73] leading-none mt-1 truncate">
-              Intelligent Tele-Surveillance
+            <p className="text-[10px] font-semibold text-[#697B73] leading-none mt-1 truncate">
+              Clinical Deterioration Platform
             </p>
           </div>
         </div>
 
         {/* Current Clinician Identity Card */}
         {currentUser && (
-          <div className="px-4 py-3 mx-3 my-2 rounded-xl bg-[#F7F8F3] border border-[#E7ECE6] space-y-1">
+          <div className="px-3.5 py-2.5 mx-3 my-2.5 rounded-xl bg-white/60 backdrop-blur-md border border-[#E7ECE6]/70 shadow-xs space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] uppercase font-bold text-[#697B73]">Logged In Role</span>
+              <span className="text-[9px] uppercase font-bold text-[#697B73] tracking-wider">Active Clinician</span>
               {renderRoleBadge()}
             </div>
             <p className="text-xs font-bold text-[#193B32] truncate">{currentUser.name}</p>
