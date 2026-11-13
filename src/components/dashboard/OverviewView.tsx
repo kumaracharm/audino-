@@ -148,7 +148,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                 </span>
               </div>
               <h2 className="text-xl md:text-2xl font-black text-[#193B32] mt-1 tracking-tight">
-                {currentUser ? `Welcome back, ${currentUser.name}` : 'AvoFlare Command Center'}
+                {currentUser ? `Welcome back, ${currentUser.name}` : 'Clinical Command Center'}
               </h2>
               <p className="text-xs text-[#697B73] mt-0.5 max-w-2xl leading-relaxed">
                 Personalized tele-surveillance of 10 home patients powered by hybrid PINN-ODE neural digital twins, deterministic 4-vital safety supervisor, and edge cryptographic validation.

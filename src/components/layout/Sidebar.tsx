@@ -82,26 +82,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside className="w-64 backdrop-blur-2xl bg-white/85 border-r border-[#E7ECE6]/80 flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none shadow-[2px_0_24px_-4px_rgba(25,59,50,0.04)]">
-      {/* Brand Header */}
+      {/* Brand Header: Logo only as visual recognition */}
       <div>
-        <div className="p-4 border-b border-[#E7ECE6]/80 flex items-center gap-3">
-          <div className="h-10 px-2 rounded-xl bg-white/90 border border-white/80 shadow-xs flex items-center justify-center shrink-0">
+        <div className="p-4 border-b border-[#E7ECE6]/80 flex items-center justify-center">
+          <div className="w-full py-2 px-3 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 shadow-xs flex items-center justify-center">
             <img 
               src="/avoflare_logo.jpg" 
-              alt="AvoFlare Logo" 
-              className="h-7 w-auto object-contain" 
+              alt="Logo" 
+              className="h-9 w-auto max-w-full object-contain" 
             />
-          </div>
-          <div className="min-w-0">
-            <div className="flex items-center gap-1.5">
-              <span className="font-black text-base tracking-tight text-[#16866A]">AvoFlare</span>
-              <span className="text-[9px] uppercase font-bold px-1.5 py-0.2 rounded-md bg-[#16866A]/10 text-[#16866A] border border-[#16866A]/20">
-                PRO
-              </span>
-            </div>
-            <p className="text-[10px] font-semibold text-[#697B73] leading-none mt-1 truncate">
-              Clinical Deterioration Platform
-            </p>
           </div>
         </div>
 

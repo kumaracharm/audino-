@@ -94,23 +94,17 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
         <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(#193B32_1px,transparent_1px)] [background-size:24px_24px]" />
       </div>
 
-      {/* Brand Header */}
-      <div className="relative z-10 max-w-2xl w-full text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 shadow-xs mb-4">
+      {/* Brand Header: Logo only as visual recognition */}
+      <div className="relative z-10 max-w-2xl w-full text-center mb-8 flex flex-col items-center">
+        <div className="py-2.5 px-6 rounded-3xl bg-white/95 backdrop-blur-md border border-white/90 shadow-sm mb-3 inline-flex items-center justify-center">
           <img 
             src="/avoflare_logo.jpg" 
-            alt="AvoFlare" 
-            className="h-7 w-auto object-contain" 
+            alt="Logo" 
+            className="h-10 w-auto object-contain" 
           />
-          <span className="text-xs font-black text-[#16866A] tracking-wider uppercase">
-            Clinical Tele-Surveillance
-          </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-black tracking-tight text-[#193B32]">
-          AvoFlare Clinical Intelligence
-        </h1>
-        <p className="text-sm text-[#697B73] mt-2 max-w-lg mx-auto">
-          Personalized post-discharge deterioration forecasting. Select your authorized clinical profile to access your dedicated surveillance workspace.
+        <p className="text-xs text-[#697B73] mt-1 max-w-md mx-auto">
+          Personalized post-discharge deterioration forecasting. Select your authorized clinical profile to access your surveillance workspace.
         </p>
       </div>
 

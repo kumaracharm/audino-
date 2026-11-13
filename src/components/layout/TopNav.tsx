@@ -38,11 +38,11 @@ export const TopNav: React.FC<TopNavProps> = ({
 }) => {
   const pageTitles: Record<NavPage, { title: string; subtitle: string }> = {
     overview: {
-      title: 'AvoFlare Command Center',
+      title: 'Clinical Command Center',
       subtitle: 'Spatial tele-surveillance, PINN-ODE trajectory predictions & deterministic triage',
     },
     showcase: {
-      title: 'AvoFlare Showcase Experience',
+      title: 'Showcase Experience',
       subtitle: '7-Act clinical decompensation, zero-queue triage, PINN digital twin & security defense',
     },
     patients: {
@@ -50,11 +50,11 @@ export const TopNav: React.FC<TopNavProps> = ({
       subtitle: 'Detailed physiological vitals, baseline delta & 4-vital component scoring',
     },
     clinical: {
-      title: 'AvoFlare Clinical Intelligence Engine',
+      title: 'Clinical Intelligence Engine',
       subtitle: 'Context-adaptive clinical experts & deterministic decision pipeline',
     },
     'digital-twin': {
-      title: 'AvoFlare Physiological Digital Twin',
+      title: 'Physiological Digital Twin',
       subtitle: 'Hybrid physics-informed neural ODE telemetry forecasting & 95% confidence corridors',
     },
     security: {
