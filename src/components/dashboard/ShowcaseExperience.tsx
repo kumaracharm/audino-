@@ -131,7 +131,7 @@ export const ShowcaseExperience: React.FC<ShowcaseExperienceProps> = ({
                 <div className="flex items-center justify-between text-[10px] font-bold">
                   <span>{act.actNumber}</span>
                   {isCompleted && <CheckCircle2 className="w-3 h-3 text-[#16866A]" />}
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
                 </div>
                 <p className={`text-xs font-bold mt-1 line-clamp-1 ${isActive ? 'text-white' : 'text-[#193B32]'}`}>
                   {act.title.replace('The ', '')}

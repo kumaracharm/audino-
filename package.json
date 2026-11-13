@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "pnpm build:css && next dev",
+    "dev:clinical": "next dev -p 3000",
+    "dev:patient": "next dev -p 3001",
+    "dev:chaos": "next dev -p 3002",
+    "serve:isolated": "python serve_portals.py",
     "build:css": "tailwindcss -i ./src/app/globals.css -o ./src/app/tailwind-built.css --minify",
     "build": "pnpm build:css && next build",
     "start": "next start",

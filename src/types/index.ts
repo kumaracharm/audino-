@@ -103,3 +103,40 @@ export interface ShowcaseAct {
     variant: 'neutral' | 'emerald' | 'coral' | 'amber';
   };
 }
+
+// User Roles & Authentication Types
+export type UserRole = 'patient' | 'pheon' | 'nurse' | 'doctor' | 'senior_doctor';
+
+export interface UserSession {
+  id: string;
+  name: string;
+  role: UserRole;
+  title: string;
+  patientId?: string;
+  assignedPatients?: string[];
+  avatarSeed?: string;
+}
+
+// Daily Check-in Types
+export interface DailyCheckin {
+  id: string;
+  patientId: string;
+  timestamp: string;
+  timeFormatted: string;
+  date: string;
+  feeling: string;
+  breathing: string;
+  fatigue: string;
+  fever: string;
+  medications: string;
+  symptoms: string[];
+  adaptiveDetails?: {
+    onset?: string;
+    progression?: string;
+    impact?: string;
+  };
+  voiceNoteTranscript?: string;
+  riskScore: number;
+  riskTier: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL';
+}
+

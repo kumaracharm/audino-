@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthGuard — Patient Spatial Check-in & Digital Twin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes pulse-slow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.85; transform: scale(1.02); } }
+    .pulse-glow { animation: pulse-slow 3s infinite ease-in-out; }
+    .glass-card { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); }
+    .spatial-shadow { box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+  </style>
+</head>
+<body class="bg-[#F0F4F8] text-[#0f172a] min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- TOP ARCHITECTURE NAVIGATION BAR (Connecting all 3 webpages) -->
+  <div class="bg-[#0f172a] text-white px-4 py-2.5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-50 text-xs shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span class="font-extrabold tracking-tight text-white uppercase text-[11px]">PS-03 Tri-Tier Architecture</span>
+      <span class="hidden sm:inline text-slate-400 text-[10px]">| Webpage 2 of 3: Patient Spatial Portal</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="healthguard_app.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+        <i data-lucide="stethoscope" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <span>1. Clinical Hub</span>
+      </a>
+      <a href="patient_checkin.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-cyan-400 text-cyan-300 bg-cyan-950/60 font-bold shadow-xs">
+        <i data-lucide="user-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <span>2. Patient Check-in</span>
+      </a>
+      <a href="chaos_monkey.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+        <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rose-400"></i>
+        <span>3. Chaos Monkey GUI</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- PATIENT PORTAL HEADER -->
+  <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 px-6 py-4 sticky top-10 z-40 flex items-center justify-between shadow-xs">
+    <div class="flex items-center gap-4">
+      <!-- Deterministic Minecraft Pixel-Art SVG Avatar -->
+      <div class="w-12 h-12 rounded-2xl overflow-hidden border-2 border-sky-400/40 shadow-sm shrink-0 bg-slate-100 flex items-center justify-center">
+        <svg viewBox="0 0 16 16" width="48" height="48" shape-rendering="crispEdges">
+          <!-- Minecraft Block Face for Clora Christiansen -->
+          <rect width="16" height="16" fill="#F8C8A0" />
+          <rect x="2" y="1" width="12" height="4" fill="#6B4423" />
+          <rect x="2" y="5" width="2" height="3" fill="#6B4423" />
+          <rect x="12" y="5" width="2" height="3" fill="#6B4423" />
+          <!-- Eyes -->
+          <rect x="4" y="7" width="2" height="2" fill="#FFFFFF" />
+          <rect x="5" y="7" width="1" height="2" fill="#2E5C8A" />
+          <rect x="10" y="7" width="2" height="2" fill="#FFFFFF" />
+          <rect x="10" y="7" width="1" height="2" fill="#2E5C8A" />
+          <!-- Nose & Smile -->
+          <rect x="7" y="10" width="2" height="1" fill="#D49B7A" />
+          <rect x="6" y="12" width="4" height="1" fill="#8C3A3A" />
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-lg font-black text-slate-900 tracking-tight">Clora Christiansen</h1>
+          <span class="px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-700 text-[10px] font-bold border border-sky-500/20">
+            PATIENT PORTAL
+          </span>
+        </div>
+        <p class="text-xs text-slate-500">
+          ID: <strong class="text-slate-800 font-mono">HG-001</strong> • Ward A CHF Tele-Recovery • Assigned: Sarah Jenkins, RN
+        </p>
+      </div>
+    </div>
+
+    <!-- Quick Status & Actions -->
+    <div class="flex items-center gap-3">
+      <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+        <i data-lucide="watch" class="w-4 h-4 text-sky-600"></i>
+        <span>Smartwatch: <strong class="text-emerald-600 font-bold">Connected</strong></span>
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+      </div>
+      <button onclick="callNurse()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 text-xs font-bold transition-all cursor-pointer">
+        <i data-lucide="phone-call" class="w-3.5 h-3.5 text-rose-600"></i>
+        <span>Call Nurse</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN SPATIAL BODY -->
+  <main class="flex-1 max-w-6xl mx-auto p-6 w-full space-y-6">
+
+    <!-- SPATIAL ROW 1: VOICE-ASSISTED DAILY CHECK-IN WIZARD -->
+    <div class="glass-card spatial-shadow rounded-3xl p-6 border border-sky-100 space-y-5 bg-white">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-sky-600">Step <span id="step-num">1</span> of 6 • Morning Assessment</span>
+          <h2 class="text-xl font-extrabold text-slate-900 mt-0.5" id="question-title">How are you feeling overall today?</h2>
+          <p class="text-xs text-slate-500 mt-0.5" id="question-desc">Select the option or use the voice assistant button below to speak naturally.</p>
+        </div>
+
+        <!-- Voice Assistant Controls -->
+        <div class="flex items-center gap-2">
+          <button onclick="speakCurrentQuestion()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 text-xs font-semibold border border-sky-200 transition-all cursor-pointer" title="Listen to question">
+            <i data-lucide="volume-2" class="w-4 h-4 text-sky-600"></i>
+            <span>Read Aloud</span>
+          </button>
+          <button id="voice-btn" onclick="toggleVoiceRecognition()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700 text-xs font-bold shadow-md shadow-sky-600/20 transition-all cursor-pointer">
+            <i data-lucide="mic" class="w-4 h-4"></i>
+            <span id="voice-btn-label">Speak Answer</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Voice Recognition Live Feedback Banner -->
+      <div id="voice-status" class="hidden p-3 rounded-xl bg-sky-50 border border-sky-200 text-xs text-sky-900 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-sky-600 animate-ping"></span>
+          <span id="voice-transcript">Listening... Speak now (e.g. "Good", "No difficulty", "Taken all")</span>
+        </div>
+        <span class="text-[10px] text-sky-700 font-bold uppercase">Web Speech API</span>
+      </div>
+
+      <!-- Question Options Container -->
+      <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Adaptive Branch Banner (Shows if breathing distress detected) -->
+      <div id="adaptive-branch" class="hidden p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-2">
+        <div class="flex items-center gap-2 font-bold text-amber-800">
+          <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
+          <span>Adaptive Respiratory Follow-up: When did the shortness of breath start?</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <button onclick="setAdaptiveAnswer('Past hour', this)" class="p-2 rounded-lg bg-white border border-amber-300 font-semibold text-center hover:bg-amber-100">Within past hour</button>
+          <button onclick="setAdaptiveAnswer('Earlier today', this)" class="p-2 rounded-lg bg-white border border-amber-300 font-semibold text-center hover:bg-amber-100">Earlier today</button>
+          <button onclick="setAdaptiveAnswer('Several days', this)" class="p-2 rounded-lg bg-white border border-amber-300 font-semibold text-center hover:bg-amber-100">Past few days</button>
+        </div>
+      </div>
+
+      <!-- Optional Voice Note Input -->
+      <div class="space-y-1.5">
+        <label class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 text-sky-600"></i>
+          <span>Voice Note or Additional Symptoms (Optional):</span>
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="voice-note" placeholder="Dictate or type any symptoms: e.g. feeling dizzy when getting out of bed..." class="flex-1 px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500">
+          <button onclick="toggleVoiceNoteMic()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-200 flex items-center gap-1">
+            <i data-lucide="mic" class="w-3.5 h-3.5 text-sky-600"></i>
+            <span>Dictate</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation & Submit Bar -->
+      <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+        <button id="prev-btn" onclick="prevStep()" class="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 text-xs font-bold transition-all disabled:opacity-40" disabled>
+          Previous
+        </button>
+        <div class="flex items-center gap-2">
+          <button id="next-btn" onclick="nextStep()" class="px-6 py-2.5 rounded-xl bg-sky-600 text-white hover:bg-sky-700 text-xs font-bold shadow transition-all cursor-pointer">
+            Next Question →
+          </button>
+          <button id="submit-btn" onclick="submitCheckin()" class="hidden px-6 py-2.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold shadow transition-all cursor-pointer">
+            Confirm & Submit Check-in ✓
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPATIAL ROW 2: LIVE TELEMETRY WAVEFORM STREAM WITH CHECK-IN DATA PLOTTED ALONG THE WAVE -->
+    <div class="glass-card spatial-shadow rounded-3xl p-6 border border-slate-200 bg-white space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+            <i data-lucide="activity" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              Continuous Telemetry Wave Stream & Correlated Check-in Checkpoints
+              <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">
+                LIVE 10 Hz
+              </span>
+            </h3>
+            <p class="text-xs text-slate-500">
+              Heart Rate and Oxygen Saturation (SpO₂) continuous waveform with your daily check-in responses collected directly along the wave
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-mono">
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> HR: <strong id="live-hr" class="text-slate-900">72 bpm</strong></span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> SpO₂: <strong id="live-spo2" class="text-slate-900">98%</strong></span>
+        </div>
+      </div>
+
+      <!-- Animated HTML5 Canvas Waveform -->
+      <div class="relative w-full h-44 bg-slate-950 rounded-2xl overflow-hidden border border-slate-800">
+        <canvas id="waveCanvas" class="w-full h-full"></canvas>
+        <div class="absolute top-3 left-3 text-[10px] text-emerald-400 font-mono bg-black/50 px-2 py-0.5 rounded">
+          ECG / PLETH CHANNEL A • HMAC-SHA256 SIGNED
+        </div>
+      </div>
+
+      <!-- Check-in Data Events Along The Wave Timeline -->
+      <div class="space-y-2 pt-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-sky-600"></i> Check-in Records Collected Along The Wave
+          </span>
+          <span id="checkin-count-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-100 text-sky-800">
+            1 Check-in Recorded
+          </span>
+        </div>
+
+        <div id="checkin-stream" class="space-y-2">
+          <!-- Baseline Check-in 1 -->
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[10px]">
+                08:30 AM
+              </span>
+              <div>
+                <span class="font-bold text-slate-800">Morning Check-in: Stable</span>
+                <span class="text-slate-500 text-[11px] block">
+                  Feeling: <strong>Good</strong> • Breathing: <strong>None</strong> • Fatigue: <strong>Mild</strong> • Meds: <strong>Taken</strong>
+                </span>
+                <span class="text-slate-600 italic text-[10px] block mt-0.5">
+                  Voice Note: "I feel pretty rested today, just slight fatigue after morning tea."
+                </span>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[10px] font-bold self-start sm:self-auto">
+              Tier: LOW RISK
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPATIAL ROW 3: MEDICATION RECOVERY & 14-DAY CALENDAR -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Active Prescriptions -->
+      <div class="glass-card spatial-shadow rounded-3xl p-5 border border-slate-200 bg-white space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+            <i data-lucide="pill" class="w-4 h-4 text-sky-600"></i> Active Prescription Adherence
+          </h3>
+          <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">All Verified</span>
+        </div>
+        <div class="space-y-2 text-xs">
+          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div>
+              <strong class="text-slate-800">Lisinopril 10mg</strong>
+              <span class="text-slate-500 block text-[11px]">Once daily with breakfast • ACE Inhibitor</span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Taken 08:15 AM</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div>
+              <strong class="text-slate-800">Furosemide 40mg</strong>
+              <span class="text-slate-500 block text-[11px]">Morning loop diuretic • Edema reduction</span>
+            </div>
+            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Taken 08:15 AM</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div>
+              <strong class="text-slate-800">Carvedilol 6.25mg</strong>
+              <span class="text-slate-500 block text-[11px]">Twice daily with meals • Beta-blocker</span>
+            </div>
+            <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Next: 06:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14-Day Post-Discharge Adherence Streak -->
+      <div class="glass-card spatial-shadow rounded-3xl p-5 border border-slate-200 bg-white space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4 text-sky-600"></i> 14-Day Check-in Compliance
+          </h3>
+          <span class="text-[10px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">Day 6 of 14</span>
+        </div>
+        <p class="text-xs text-slate-500">
+          Daily consecutive check-ins lower 30-day cardiac hospital readmission probability by 43%.
+        </p>
+        <div class="grid grid-cols-7 gap-2 text-center text-xs">
+          <div class="p-2 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">D1 ✓</div>
+          <div class="p-2 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">D2 ✓</div>
+          <div class="p-2 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">D3 ✓</div>
+          <div class="p-2 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">D4 ✓</div>
+          <div class="p-2 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">D5 ✓</div>
+          <div class="p-2 rounded-xl bg-sky-500 text-white font-black shadow-sm ring-2 ring-sky-300">D6 ★</div>
+          <div class="p-2 rounded-xl bg-slate-100 text-slate-400 font-semibold border border-slate-200">D7</div>
+        </div>
+        <p class="text-[11px] text-slate-400 italic text-center">
+          Next tele-consultation: Dr. Arthur Chen (Cardiology) in 2 days.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- JAVASCRIPT WIZARD + CANVAS WAVEFORM + VOICE SYNTHESIS -->
+  <script>
+    lucide.createIcons();
+
+    // Check-in Questions Data
+    const questions = [
+      {
+        title: "How are you feeling overall today?",
+        desc: "Select the option that matches your morning comfort and energy.",
+        options: [
+          { val: "great", label: "Great & Rested", icon: "😊", sub: "Normal recovery energy" },
+          { val: "good", label: "Good / Stable", icon: "🙂", sub: "Usual post-discharge baseline" },
+          { val: "fair", label: "Fair / A bit tired", icon: "😐", sub: "Mild fatigue present" },
+          { val: "unwell", label: "Unwell or Discomfort", icon: "😟", sub: "Noticeable weakness" }
+        ]
+      },
+      {
+        title: "Are you having any shortness of breath or breathing difficulty?",
+        desc: "Notice your breathing while resting or speaking out loud.",
+        options: [
+          { val: "none", label: "No breathing trouble", icon: "🫁", sub: "Breathing freely" },
+          { val: "mild", label: "Mild shortness with walking", icon: "😮‍💨", sub: "Slight breathlessness" },
+          { val: "severe", label: "Severe difficulty even resting", icon: "⚠️", sub: "Labored breathing" }
+        ]
+      },
+      {
+        title: "Are you feeling unusually weak, dizzy or exhausted today?",
+        desc: "Compare to how you felt upon hospital discharge.",
+        options: [
+          { val: "none", label: "Normal energy levels", icon: "⚡", sub: "Able to walk comfortably" },
+          { val: "mild", label: "Mild weakness / manageable", icon: "🥱", sub: "Needs more rest" },
+          { val: "severe", label: "Severe weakness, bedbound", icon: "🛌", sub: "Dizzy standing up" }
+        ]
+      },
+      {
+        title: "Do you feel feverish, hot, or have shivering chills?",
+        desc: "Your smartwatch also continuously measures skin temperature trends.",
+        options: [
+          { val: "none", label: "No fever or chills", icon: "🌡️", sub: "Normal body temp" },
+          { val: "mild", label: "Slight feverish feeling", icon: "🤒", sub: "Chills or warmth" }
+        ]
+      },
+      {
+        title: "Have you taken your prescribed medications today?",
+        desc: "Lisinopril 10mg, Furosemide 40mg, Carvedilol 6.25mg.",
+        options: [
+          { val: "yes_all", label: "Yes, took all morning doses", icon: "💊", sub: "Adherent with water" },
+          { val: "partial", label: "Partially taken (missed one)", icon: "⏳", sub: "Taking remaining soon" },
+          { val: "not_yet", label: "Not yet taken", icon: "🕒", sub: "Will take right now" }
+        ]
+      },
+      {
+        title: "Are you experiencing any swelling or new symptoms?",
+        desc: "Check ankles, legs, or sudden cough.",
+        options: [
+          { val: "none", label: "No swelling or new symptoms", icon: "✓", sub: "Ankles clear" },
+          { val: "mild_swelling", label: "Mild ankle / feet swelling", icon: "🦶", sub: "Slight puffiness" },
+          { val: "chest_pressure", label: "Chest pressure / pain", icon: "⚠️", sub: "Discomfort in chest" }
+        ]
+      }
+    ];
+
+    let currentStep = 0;
+    let answers = {};
+    let adaptiveAnswer = null;
+
+    function renderQuestion() {
+      const q = questions[currentStep];
+      document.getElementById('step-num').innerText = currentStep + 1;
+      document.getElementById('question-title').innerText = q.title;
+      document.getElementById('question-desc').innerText = q.desc;
+
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+
+      q.options.forEach(opt => {
+        const isSelected = answers[currentStep] === opt.val;
+        const btn = document.createElement('div');
+        btn.className = `p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between ${
+          isSelected 
+            ? 'border-sky-500 bg-sky-50/80 shadow-md ring-2 ring-sky-200' 
+            : 'border-slate-200 bg-white hover:border-sky-300 hover:bg-slate-50'
+        }`;
+        btn.onclick = () => selectOption(opt.val);
+        btn.innerHTML = `
+          <div>
+            <div class="text-2xl mb-1">${opt.icon}</div>
+            <h4 class="font-bold text-slate-800 text-xs">${opt.label}</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">${opt.sub}</p>
+          </div>
+          <div class="mt-2 text-[10px] font-bold ${isSelected ? 'text-sky-600' : 'text-slate-400'}">
+            ${isSelected ? '● Selected' : '○ Tap to select'}
+          </div>
+        `;
+        container.appendChild(btn);
+      });
+
+      document.getElementById('prev-btn').disabled = currentStep === 0;
+
+      if (currentStep === questions.length - 1) {
+        document.getElementById('next-btn').classList.add('hidden');
+        document.getElementById('submit-btn').classList.remove('hidden');
+      } else {
+        document.getElementById('next-btn').classList.remove('hidden');
+        document.getElementById('submit-btn').classList.add('hidden');
+      }
+
+      // Check adaptive branch
+      if (currentStep === 1 && (answers[1] === 'mild' || answers[1] === 'severe')) {
+        document.getElementById('adaptive-branch').classList.remove('hidden');
+      } else {
+        document.getElementById('adaptive-branch').classList.add('hidden');
+      }
+    }
+
+    function selectOption(val) {
+      answers[currentStep] = val;
+      if (currentStep === 1 && (val === 'mild' || val === 'severe')) {
+        document.getElementById('adaptive-branch').classList.remove('hidden');
+      } else if (currentStep === 1) {
+        document.getElementById('adaptive-branch').classList.add('hidden');
+      }
+      renderQuestion();
+    }
+
+    function setAdaptiveAnswer(ans, btn) {
+      adaptiveAnswer = ans;
+      btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('bg-amber-200', 'font-black'));
+      btn.classList.add('bg-amber-200', 'font-black');
+    }
+
+    function nextStep() {
+      if (!answers[currentStep]) {
+        answers[currentStep] = questions[currentStep].options[0].val; // default
+      }
+      if (currentStep < questions.length - 1) {
+        currentStep++;
+        renderQuestion();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        renderQuestion();
+      }
+    }
+
+    function speakCurrentQuestion() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = questions[currentStep].title;
+        const ut = new SpeechSynthesisUtterance(text);
+        ut.rate = 0.95;
+        window.speechSynthesis.speak(ut);
+      } else {
+        alert("Text-to-speech not supported in this browser.");
+      }
+    }
+
+    function toggleVoiceRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        const manual = prompt("Microphone speech recognition not supported in this browser engine. Type your answer:");
+        if (manual) handleVoiceAnswer(manual);
+        return;
+      }
+
+      const rec = new SpeechRecognition();
+      rec.lang = 'en-US';
+      const statusDiv = document.getElementById('voice-status');
+      statusDiv.classList.remove('hidden');
+
+      rec.onstart = () => {
+        document.getElementById('voice-transcript').innerText = "Listening... Speak your answer now.";
+      };
+      rec.onresult = (e) => {
+        const text = e.results[0][0].transcript;
+        document.getElementById('voice-transcript').innerText = `Heard: "${text}"`;
+        handleVoiceAnswer(text);
+      };
+      rec.onerror = () => {
+        document.getElementById('voice-transcript').innerText = "Microphone unavailable or speech not recognized.";
+      };
+      rec.onend = () => {
+        setTimeout(() => statusDiv.classList.add('hidden'), 3500);
+      };
+      rec.start();
+    }
+
+    function handleVoiceAnswer(speech) {
+      const lower = speech.toLowerCase();
+      if (lower.includes("great") || lower.includes("good") || lower.includes("fine")) {
+        selectOption("good");
+      } else if (lower.includes("bad") || lower.includes("unwell") || lower.includes("sick")) {
+        selectOption("unwell");
+      } else if (lower.includes("no") || lower.includes("none")) {
+        selectOption("none");
+      } else if (lower.includes("yes") || lower.includes("all") || lower.includes("taken")) {
+        selectOption("yes_all");
+      } else {
+        selectOption(questions[currentStep].options[0].val);
+      }
+    }
+
+    function toggleVoiceNoteMic() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        const manual = prompt("Type your voice note / symptom description:");
+        if (manual) document.getElementById('voice-note').value = manual;
+        return;
+      }
+      const rec = new SpeechRecognition();
+      rec.lang = 'en-US';
+      rec.onresult = (e) => {
+        document.getElementById('voice-note').value = e.results[0][0].transcript;
+      };
+      rec.start();
+    }
+
+    function submitCheckin() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const note = document.getElementById('voice-note').value;
+
+      // Risk score calculation
+      let score = 0;
+      if (answers[0] === 'unwell') score += 2;
+      if (answers[1] === 'mild') score += 2;
+      if (answers[1] === 'severe') score += 5;
+      if (answers[2] === 'severe') score += 3;
+      if (answers[4] && answers[4].includes('not')) score += 2;
+
+      const tier = score >= 5 ? 'CRITICAL' : (score >= 3 ? 'HIGH RISK' : (score >= 1 ? 'MODERATE' : 'LOW RISK'));
+      const tierColor = tier === 'CRITICAL' ? 'bg-rose-600 text-white' : (tier === 'HIGH RISK' ? 'bg-amber-600 text-white' : 'bg-emerald-600 text-white');
+
+      // Append check-in event to wave stream timeline
+      const stream = document.getElementById('checkin-stream');
+      const card = document.createElement('div');
+      card.className = `p-3.5 rounded-xl border transition-all text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+        tier === 'CRITICAL' ? 'bg-rose-50 border-rose-200' : 'bg-sky-50 border-sky-200'
+      }`;
+      card.innerHTML = `
+        <div class="flex items-center gap-3">
+          <span class="px-2 py-0.5 rounded-md bg-white text-slate-800 font-bold text-[10px] border">
+            ${timeStr}
+          </span>
+          <div>
+            <span class="font-bold text-slate-900">Submitted Check-in (Score +${score})</span>
+            <span class="text-slate-600 text-[11px] block">
+              Feeling: <strong>${answers[0] || 'Good'}</strong> • Breathing: <strong>${answers[1] || 'None'}</strong> • Meds: <strong>${answers[4] || 'Taken'}</strong>
+            </span>
+            ${note ? `<span class="text-sky-800 italic text-[10px] block mt-0.5">Voice Note: "${note}"</span>` : ''}
+            ${adaptiveAnswer ? `<span class="text-amber-800 text-[10px] font-bold block mt-0.5">Adaptive Respiratory onset: ${adaptiveAnswer}</span>` : ''}
+          </div>
+        </div>
+        <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${tierColor}">
+          Tier: ${tier}
+        </span>
+      `;
+      stream.insertBefore(card, stream.firstChild);
+
+      document.getElementById('checkin-count-badge').innerText = '2 Check-ins Recorded';
+      alert(`Daily Health Check-in submitted successfully!\n\nTimestamp: ${timeStr}\nRisk Tier: ${tier}\nYour care team (Nurse Sarah Jenkins) has been synchronized.`);
+    }
+
+    function callNurse() {
+      alert("EMERGENCY NURSE CALL DISPATCHED:\n\nCalling Ward A Clinical Station...\nNurse Sarah Jenkins, RN notified with current patient location and telemetry wave.");
+    }
+
+    // CANVAS CONTINUOUS WAVEFORM ANIMATION
+    const canvas = document.getElementById('waveCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.offsetWidth;
+    let height = canvas.height = canvas.offsetHeight;
+    window.addEventListener('resize', () => {
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    });
+
+    let phase = 0;
+    function drawWave() {
+      ctx.fillStyle = '#090d16';
+      ctx.fillRect(0, 0, width, height);
+
+      // Grid lines
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < width; x += 30) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+      }
+      for (let y = 0; y < height; y += 30) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+      }
+
+      // ECG Wave (Green)
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      for (let x = 0; x < width; x++) {
+        const t = (x + phase) % 180;
+        let y = height * 0.45;
+        if (t > 70 && t < 78) y -= 15;
+        else if (t >= 85 && t <= 90) y += 12;
+        else if (t > 90 && t < 100) y -= 55;
+        else if (t >= 100 && t <= 106) y += 22;
+        else if (t > 120 && t < 140) y -= 18;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // SpO2 Pleth Wave (Cyan)
+      ctx.strokeStyle = '#06b6d4';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      for (let x = 0; x < width; x++) {
+        const y = height * 0.78 + Math.sin((x + phase * 0.8) * 0.05) * 16 - Math.sin((x + phase * 0.8) * 0.1) * 6;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Check-in Marker on Wave
+      const markerX = (width - 120);
+      ctx.fillStyle = '#38bdf8';
+      ctx.beginPath();
+      ctx.arc(markerX, height * 0.45 - 20, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '10px monospace';
+      ctx.fillText('Check-in 08:30', markerX - 35, height * 0.45 - 32);
+
+      phase += 3;
+      requestAnimationFrame(drawWave);
+    }
+    drawWave();
+    renderQuestion();
+  </script>
+</body>
+</html>

@@ -5,13 +5,13 @@ import {
   BrainCircuit, 
   GitFork, 
   ShieldAlert, 
-  FileText, 
   HeartPulse, 
   Gauge, 
   SlidersHorizontal,
   Sparkles,
-  Award
+  Database
 } from 'lucide-react';
+import { UserSession, UserRole } from '@/types';
 
 export type NavPage = 
   | 'overview' 
@@ -30,7 +30,16 @@ interface SidebarProps {
   onOpenDemoControls: () => void;
   simulationActive: boolean;
   urgentAlertCount: number;
+  currentUser?: UserSession | null;
 }
+
+const ROLE_PERMITTED_PAGES: Record<UserRole, NavPage[]> = {
+  patient: [],
+  pheon: ['overview', 'patients'],
+  nurse: ['overview', 'patients', 'clinical', 'recovery', 'security'],
+  doctor: ['overview', 'showcase', 'patients', 'clinical', 'digital-twin', 'security', 'fhir', 'recovery', 'performance'],
+  senior_doctor: ['overview', 'showcase', 'patients', 'clinical', 'digital-twin', 'security', 'fhir', 'recovery', 'performance'],
+};
 
 export const Sidebar: React.FC<SidebarProps> = ({
   currentPage,
@@ -38,18 +47,38 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onOpenDemoControls,
   simulationActive,
   urgentAlertCount,
+  currentUser,
 }) => {
-  const navItems: { id: NavPage; label: string; icon: React.ElementType; badge?: string; highlight?: boolean }[] = [
+  const allNavItems: { id: NavPage; label: string; icon: React.ElementType; badge?: string; highlight?: boolean }[] = [
     { id: 'overview', label: 'Overview', icon: Activity },
     { id: 'showcase', label: 'Showcase Demo', icon: Sparkles, badge: '7 ACTS', highlight: true },
     { id: 'patients', label: 'Patient Monitoring', icon: Users, badge: '10' },
     { id: 'clinical', label: 'Clinical Intelligence', icon: BrainCircuit },
     { id: 'digital-twin', label: 'Digital Twin', icon: GitFork },
     { id: 'security', label: 'Security Operations', icon: ShieldAlert, badge: 'HMAC' },
-    { id: 'fhir', label: 'FHIR Records', icon: FileText, badge: 'R4' },
+    { id: 'fhir', label: 'FHIR Records', icon: Database, badge: 'R4' },
     { id: 'recovery', label: 'Recovery Plans', icon: HeartPulse },
     { id: 'performance', label: 'System Performance', icon: Gauge },
   ];
+
+  const permittedPages = currentUser ? ROLE_PERMITTED_PAGES[currentUser.role] : null;
+  const navItems = permittedPages ? allNavItems.filter((item) => permittedPages.includes(item.id)) : allNavItems;
+
+  const renderRoleBadge = () => {
+    if (!currentUser) return null;
+    switch (currentUser.role) {
+      case 'pheon':
+        return <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">PHEON ATTENDANT</span>;
+      case 'nurse':
+        return <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200">STAFF NURSE</span>;
+      case 'doctor':
+        return <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-200">ATTENDING MD</span>;
+      case 'senior_doctor':
+        return <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200">CHIEF CLINICIAN</span>;
+      default:
+        return null;
+    }
+  };
 
   return (
     <aside className="w-64 bg-white border-r border-[#E7ECE6] flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none">
@@ -59,20 +88,33 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#16866A] to-[#3AA99B] flex items-center justify-center text-white shadow-sm shrink-0">
             <Activity className="w-5 h-5 stroke-[2.5]" />
           </div>
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-1.5">
               <span className="font-extrabold text-base tracking-tight text-[#193B32]">HEALTHGUARD</span>
             </div>
-            <p className="text-[11px] font-medium text-[#697B73] leading-none mt-1">
-              Intelligent Post-Discharge Monitoring
+            <p className="text-[11px] font-medium text-[#697B73] leading-none mt-1 truncate">
+              Intelligent Tele-Surveillance
             </p>
           </div>
         </div>
 
+        {/* Current Clinician Identity Card */}
+        {currentUser && (
+          <div className="px-4 py-3 mx-3 my-2 rounded-xl bg-[#F7F8F3] border border-[#E7ECE6] space-y-1">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] uppercase font-bold text-[#697B73]">Logged In Role</span>
+              {renderRoleBadge()}
+            </div>
+            <p className="text-xs font-bold text-[#193B32] truncate">{currentUser.name}</p>
+            <p className="text-[10px] text-[#697B73] truncate">{currentUser.title}</p>
+          </div>
+        )}
+
         {/* Navigation list */}
         <nav className="p-3 space-y-1">
-          <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#697B73]">
-            Clinical Workspace
+          <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#697B73] flex items-center justify-between">
+            <span>Clinical Workspace</span>
+            <span className="text-[9px] font-normal lowercase text-[#697B73]">({navItems.length} modules)</span>
           </div>
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -122,34 +164,34 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <SlidersHorizontal className="w-3.5 h-3.5" />
           <span>Demo Controls Panel</span>
           {simulationActive && (
-            <span className="w-2 h-2 rounded-full bg-[#16866A] animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-[#16866A]" />
           )}
         </button>
 
         {/* Live Simulation Status */}
         <div className="p-2.5 rounded-xl bg-white border border-[#E7ECE6] text-[11px] space-y-1.5">
           <div className="flex items-center justify-between">
-            <span className="text-[#697B73] flex items-center gap-1 font-medium">
-              <span className={`w-2 h-2 rounded-full ${simulationActive ? 'bg-[#16866A] animate-pulse' : 'bg-amber-400'}`} />
-              Telemetry Stream
+            <span className="text-[#697B73] font-medium flex items-center gap-1.5">
+              <span className={`w-2 h-2 rounded-full ${simulationActive ? 'bg-[#16866A]' : 'bg-gray-400'}`} />
+              Telemetry Ingestion
             </span>
-            <span className="font-bold text-[#193B32]">{simulationActive ? 'STREAMING' : 'PAUSED'}</span>
+            <span className="font-mono font-bold text-[#193B32]">
+              {simulationActive ? '10 Hz' : 'PAUSED'}
+            </span>
           </div>
-          <div className="flex items-center justify-between text-[10px] text-[#697B73]">
-            <span>Mode: 4-Vital NEWS2</span>
-            <span className="text-[#16866A] font-semibold">Demo 100%</span>
+
+          <div className="flex items-center justify-between">
+            <span className="text-[#697B73] font-medium">Active Critical P0</span>
+            <span className={`font-mono font-bold px-1.5 py-0.2 rounded ${
+              urgentAlertCount > 0 ? 'bg-[#E45D58] text-white' : 'text-[#16866A]'
+            }`}>
+              {urgentAlertCount}
+            </span>
           </div>
         </div>
 
-        {/* User Profile */}
-        <div className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-white transition-colors border border-transparent hover:border-[#E7ECE6]">
-          <div className="w-8 h-8 rounded-full bg-[#16866A] text-white flex items-center justify-center text-xs font-bold shrink-0">
-            CA
-          </div>
-          <div className="overflow-hidden">
-            <p className="text-xs font-bold text-[#193B32] truncate">Dr. Sarah Vance, MD</p>
-            <p className="text-[10px] text-[#697B73] truncate">Clinical Administrator</p>
-          </div>
+        <div className="text-[10px] text-center text-[#697B73] font-mono">
+          <span>PS-03 HealthGuard Core v2.4</span>
         </div>
       </div>
     </aside>

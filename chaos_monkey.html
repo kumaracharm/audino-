@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthGuard — Chaos Monkey Cyber Hacker Console</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- TOP ARCHITECTURE NAVIGATION BAR -->
+  <div class="bg-[#020617] text-white px-4 py-2.5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-50 text-xs shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+      <span class="font-extrabold tracking-tight text-white uppercase text-[11px]">PS-03 Tri-Tier Architecture</span>
+      <span class="hidden sm:inline text-slate-400 text-[10px]">| Webpage 3 of 3: Chaos Monkey Hacker GUI</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="healthguard_app.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+        <i data-lucide="stethoscope" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <span>1. Clinical Hub</span>
+      </a>
+      <a href="patient_checkin.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+        <i data-lucide="user-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <span>2. Patient Check-in</span>
+      </a>
+      <a href="chaos_monkey.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-rose-500 text-rose-300 bg-rose-950/60 font-bold shadow-xs">
+        <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rose-400"></i>
+        <span>3. Chaos Monkey GUI</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- VIBRANT HEADER (Light theme with vibrant colored accents) -->
+  <header class="bg-white border-b border-slate-200 px-6 py-4 sticky top-10 z-40 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="flex items-center gap-3.5">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 via-amber-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-rose-200 shrink-0">
+        <i data-lucide="zap" class="w-6 h-6 stroke-[2.5]"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-lg font-black text-slate-900 tracking-tight">
+            CHAOS MONKEY CYBER HACKER CONSOLE
+          </h1>
+          <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-bold border border-rose-200 uppercase">
+            ADVERSARIAL WEAPONRY
+          </span>
+        </div>
+        <p class="text-xs text-slate-500 mt-0.5">
+          Live Edge Attack Generator • Cryptographic Tampering • Zero-Trust Edge Verification
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2.5">
+      <button onclick="fireStressTest()" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-amber-500 text-white hover:from-rose-600 hover:to-amber-600 text-xs font-bold shadow-md shadow-rose-200 transition-all cursor-pointer">
+        <i data-lucide="play" class="w-3.5 h-3.5"></i>
+        <span>Fire Full Attack Wave</span>
+      </button>
+      <div class="px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center gap-1.5">
+        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+        <span>Firewall: 100% BLOCKED</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIBRANT 3-STEP PIPELINE STATUS BAR -->
+  <div class="bg-white border-b border-slate-200 px-6 py-3">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2 font-bold text-slate-700">
+        <i data-lucide="activity" class="w-4 h-4 text-purple-600"></i>
+        <span>Zero-Trust Verification Pipeline:</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-rose-100 text-rose-800 font-bold border border-rose-200">
+          <span>1. Hostile Packet Injected</span>
+        </div>
+        <span class="text-slate-400 font-bold">➔</span>
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-100 text-amber-800 font-bold border border-amber-200">
+          <span>2. Gateway Interception (42ms)</span>
+        </div>
+        <span class="text-slate-400 font-bold">➔</span>
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">
+          <span>3. Dropped (0% Clinical Impact)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="flex-1 max-w-7xl mx-auto p-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- LEFT 7 COLUMNS: ATTACK VECTOR LAUNCHER -->
+    <div class="lg:col-span-7 space-y-4">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+        <span class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
+          <i data-lucide="zap" class="w-4 h-4 text-rose-500"></i>
+          Attack Vector Injection Arsenal
+        </span>
+        <span class="text-[11px] text-slate-500">Click any vector card to inject packet live</span>
+      </div>
+
+      <!-- 4 Vibrant Attack Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <!-- Vector 1: HMAC -->
+        <div onclick="fireAttack('tampered-vital', 'HMAC Byte Modification', 'SpO2 flipped from 98% to 74% in transit.', 'HMAC Signature Verification', 'Payload tampered in transit: Calculated 8b1c... received 4a7f... Signature mismatch.')" class="p-4 rounded-2xl border-2 border-rose-400 bg-rose-50/60 hover:bg-rose-50 transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between group active:scale-98">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-rose-500 text-white">Data Tampering</span>
+              <i data-lucide="flame" class="w-5 h-5 text-rose-600 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <h3 class="text-xs font-black text-rose-700">HMAC Byte Modification</h3>
+            <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+              Flips SpO₂ telemetry byte to falsify acute hypoxia. Trapped at HMAC SHA-256 integrity stage.
+            </p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-[11px] font-bold text-rose-700">
+            <span>FIRE VECTOR</span>
+            <span class="group-hover:translate-x-1 transition-transform">⚡</span>
+          </div>
+        </div>
+
+        <!-- Vector 2: Replay -->
+        <div onclick="fireAttack('replayed-request', 'Nonce Replay Storm', 'Duplicate nonce replay attempt detected in buffer.', 'Nonce / Replay Protection', 'Replay window violated: Nonce already registered in Bloom filter.')" class="p-4 rounded-2xl border-2 border-amber-400 bg-amber-50/60 hover:bg-amber-50 transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between group active:scale-98">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-500 text-white">Replay Attack</span>
+              <i data-lucide="rotate-ccw" class="w-5 h-5 text-amber-600 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <h3 class="text-xs font-black text-amber-700">Nonce Replay Storm</h3>
+            <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+              Re-transmits stale normal observation. Trapped by sliding-window Bloom filter cache.
+            </p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-[11px] font-bold text-amber-700">
+            <span>FIRE VECTOR</span>
+            <span class="group-hover:translate-x-1 transition-transform">⚡</span>
+          </div>
+        </div>
+
+        <!-- Vector 3: Rogue Token -->
+        <div onclick="fireAttack('forged-identity', 'Rogue Device JWT (alg: none)', 'Unsigned token presented with header algorithm none.', 'JWT Validation', 'Algorithm none strictly rejected by RS256 token policy gate.')" class="p-4 rounded-2xl border-2 border-purple-400 bg-purple-50/60 hover:bg-purple-50 transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between group active:scale-98">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-purple-600 text-white">Identity Spoofing</span>
+              <i data-lucide="key" class="w-5 h-5 text-purple-600 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <h3 class="text-xs font-black text-purple-700">Rogue Device JWT ("alg: none")</h3>
+            <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+              Fabricates wearable identity with unsigned token. Trapped by strict RS256 policy.
+            </p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-[11px] font-bold text-purple-700">
+            <span>FIRE VECTOR</span>
+            <span class="group-hover:translate-x-1 transition-transform">⚡</span>
+          </div>
+        </div>
+
+        <!-- Vector 4: Clock Skew -->
+        <div onclick="fireAttack('expired-timestamp', 'Clock Skew Delta Drift', 'Packet timestamp delta exceeds 300 seconds skew.', 'Timestamp Validation', 'Clock skew delta of 480s exceeds maximum permissible 300s window.')" class="p-4 rounded-2xl border-2 border-sky-400 bg-sky-50/60 hover:bg-sky-50 transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between group active:scale-98">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-sky-600 text-white">Time Drift Attack</span>
+              <i data-lucide="radio" class="w-5 h-5 text-sky-600 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <h3 class="text-xs font-black text-sky-700">Clock Skew Injection</h3>
+            <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+              Sends telemetry outside permissible clock window. Trapped by timestamp validator.
+            </p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-[11px] font-bold text-sky-700">
+            <span>FIRE VECTOR</span>
+            <span class="group-hover:translate-x-1 transition-transform">⚡</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Terminal Stream -->
+      <div class="rounded-2xl bg-white border border-slate-200 p-4 shadow-sm space-y-2 font-mono">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100 text-xs">
+          <span class="font-bold text-slate-900 flex items-center gap-2">
+            <i data-lucide="terminal" class="w-4 h-4 text-emerald-600"></i>
+            Live Chaos Monkey Audit Stream
+          </span>
+          <button onclick="clearTerminal()" class="text-[10px] text-slate-500 hover:text-slate-800">Clear</button>
+        </div>
+        <div id="terminal-logs" class="h-44 overflow-y-auto space-y-1 text-[11px] text-slate-800">
+          <div>[*] Chaos Monkey Cyber Engine v2.4 initialized</div>
+          <div>[*] Target Gateway: gateway.healthguard.local:8443 (Zero-Trust Armed)</div>
+          <div class="text-emerald-700 font-bold">[+] Defense Pipeline: HMAC-SHA256 + Bloom Filter Nonces + RS256 Tokens</div>
+          <div class="text-slate-500">[i] Vibrant mode armed. Ready to fire adversarial test packets.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT 5 COLUMNS: INTERCEPTED PACKET INSPECTOR -->
+    <div class="lg:col-span-5 space-y-4">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+        <span class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
+          <i data-lucide="eye" class="w-4 h-4 text-purple-600"></i>
+          Intercepted Packet Inspector
+        </span>
+        <span id="inspect-id" class="text-[10px] px-2 py-0.5 rounded bg-purple-100 text-purple-800 font-bold border border-purple-200">
+          ID: SEC-00042
+        </span>
+      </div>
+
+      <!-- Inspection Card with Vibrant Details -->
+      <div class="p-5 rounded-2xl bg-white border-2 border-purple-200 shadow-sm space-y-3.5">
+        <div class="flex items-center justify-between text-xs pb-2 border-b border-slate-100">
+          <span class="text-slate-500 font-semibold">Attack Category:</span>
+          <span id="inspect-cat" class="text-rose-600 font-bold">HMAC Byte Modification</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pb-2 border-b border-slate-100">
+          <span class="text-slate-500 font-semibold">Interception Stage:</span>
+          <span id="inspect-stage" class="text-purple-700 font-bold">HMAC Signature Verification</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pb-2 border-b border-slate-100">
+          <span class="text-slate-500 font-semibold">Clinical Impact:</span>
+          <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded">
+            NONE (0% Contamination)
+          </span>
+        </div>
+
+        <div class="space-y-1.5">
+          <span class="text-[10px] text-slate-600 uppercase font-bold block">Tampered Telemetry Payload:</span>
+          <pre id="inspect-dump" class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] font-mono text-slate-800 overflow-x-auto leading-relaxed">
+{"patientId":"HG-001","vitals":{"hr":72,"rr":16,"spo2":74,"temp":36.8}}
+          </pre>
+        </div>
+
+        <div class="space-y-1">
+          <span class="text-[10px] text-slate-600 uppercase font-bold block">Zero-Trust Rejection Reason:</span>
+          <div id="inspect-reason" class="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 text-xs leading-relaxed">
+            Payload tampered in transit: Calculated 8b1c... received 4a7f... Signature mismatch.
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-600 font-mono space-y-1">
+          <div>✓ Edge mTLS: Mutual TLS Authenticated</div>
+          <div class="text-rose-600 font-bold">✗ Gateway Check: REJECTED AT FIREWALL</div>
+          <div class="text-emerald-700 font-bold">✓ Clinical Quarantine: 100% Protected</div>
+        </div>
+      </div>
+
+      <!-- Recent Interceptions List -->
+      <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-2">
+        <span class="text-xs font-bold text-slate-800 block mb-1">Recent Interceptions</span>
+        <div id="recent-list" class="space-y-1.5 max-h-48 overflow-y-auto">
+          <div class="p-2.5 rounded-xl text-xs flex items-center justify-between bg-purple-50 border border-purple-200 font-bold text-purple-900">
+            <span>HMAC Byte Modification</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold border border-rose-200">REJECTED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    let counter = 42;
+
+    function fireAttack(type, cat, desc, stage, reason) {
+      counter++;
+      const id = `SEC-000${counter}`;
+      const time = new Date().toLocaleTimeString();
+
+      document.getElementById('inspect-id').innerText = `ID: ${id}`;
+      document.getElementById('inspect-cat').innerText = cat;
+      document.getElementById('inspect-stage').innerText = stage;
+      document.getElementById('inspect-reason').innerText = reason;
+      document.getElementById('inspect-dump').innerText = JSON.stringify({
+        patientId: "HG-001",
+        attackVector: type,
+        timestamp: new Date().toISOString(),
+        tamperedPayload: desc
+      }, null, 2);
+
+      const term = document.getElementById('terminal-logs');
+      const div = document.createElement('div');
+      div.className = "text-rose-600 font-bold leading-tight";
+      div.innerText = `[${time}] [!] VECTOR INJECTED: [${cat}] -> Intercepted at [${stage}] -> Result: REJECTED (0ms Impact)`;
+      term.insertBefore(div, term.firstChild);
+
+      const list = document.getElementById('recent-list');
+      const item = document.createElement('div');
+      item.className = "p-2.5 rounded-xl text-xs flex items-center justify-between bg-purple-50 border border-purple-200 font-bold text-purple-900";
+      item.innerHTML = `<span>${cat}</span><span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold border border-rose-200">REJECTED</span>`;
+      list.insertBefore(item, list.firstChild);
+    }
+
+    function fireStressTest() {
+      fireAttack('tampered-vital', 'HMAC Byte Modification', 'SpO2 98% -> 74%', 'HMAC Signature Verification', 'HMAC signature mismatch');
+      setTimeout(() => fireAttack('replayed-request', 'Nonce Replay Storm', 'Replayed packet', 'Nonce / Replay Protection', 'Duplicate nonce in Bloom filter'), 200);
+      setTimeout(() => fireAttack('forged-identity', 'Rogue Device JWT (alg: none)', 'Unsigned token', 'JWT Validation', 'Algorithm none rejected'), 400);
+    }
+
+    function clearTerminal() {
+      document.getElementById('terminal-logs').innerHTML = "<div>[*] Terminal logs cleared.</div>";
+    }
+  </script>
+</body>
+</html>

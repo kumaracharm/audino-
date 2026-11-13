@@ -1,6 +1,6 @@
 import { SecurityEvent } from '@/types';
 
-let secCounter = 0;
+let secCounter = 100;
 
 const ATTACK_CONFIGS = {
   'forged-identity': {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Bell, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Search, Bell, SlidersHorizontal, Sparkles, LogOut, UserCheck, AlertTriangle, Volume2, VolumeX } from 'lucide-react';
 import { NavPage } from './Sidebar';
+import { UserSession } from '@/types';
 
 interface TopNavProps {
   currentPage: NavPage;
@@ -10,6 +11,11 @@ interface TopNavProps {
   unreadAlertCount: number;
   onTriggerAlertView: () => void;
   onNavigateToShowcase: () => void;
+  currentUser?: UserSession | null;
+  onLogout?: () => void;
+  onInjectP0?: () => void;
+  isMuted?: boolean;
+  onToggleMute?: () => void;
 }
 
 export const TopNav: React.FC<TopNavProps> = ({
@@ -20,6 +26,11 @@ export const TopNav: React.FC<TopNavProps> = ({
   unreadAlertCount,
   onTriggerAlertView,
   onNavigateToShowcase,
+  currentUser,
+  onLogout,
+  onInjectP0,
+  isMuted = false,
+  onToggleMute,
 }) => {
   const pageTitles: Record<NavPage, { title: string; subtitle: string }> = {
     overview: {
@@ -95,7 +106,7 @@ export const TopNav: React.FC<TopNavProps> = ({
       {/* Right toolbar controls */}
       <div className="flex items-center gap-2.5">
         {/* Quick Showcase Demonstration Pill */}
-        {currentPage !== 'showcase' && (
+        {currentPage !== 'showcase' && currentUser?.role === 'senior_doctor' && (
           <button
             onClick={onNavigateToShowcase}
             className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#16866A]/10 text-[#16866A] hover:bg-[#16866A] hover:text-white border border-[#16866A]/30 text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-98"
@@ -106,7 +117,7 @@ export const TopNav: React.FC<TopNavProps> = ({
         )}
 
         {/* Search bar */}
-        <div className="relative w-52 hidden md:block">
+        <div className="relative w-48 hidden md:block">
           <Search className="w-3.5 h-3.5 text-[#697B73] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
@@ -122,6 +133,21 @@ export const TopNav: React.FC<TopNavProps> = ({
           {currentTime || '18:00:00 UTC'}
         </div>
 
+        {/* Buzzer Sound Mute/Unmute Toggle */}
+        {onToggleMute && (
+          <button
+            onClick={onToggleMute}
+            className={`p-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer border ${
+              isMuted 
+                ? 'bg-[#F7F8F3] text-[#697B73] border-[#E7ECE6]' 
+                : 'bg-[#16866A]/10 text-[#16866A] border-[#16866A]/30'
+            }`}
+            title={isMuted ? 'Alert buzzer muted — Click to unmute' : 'Alert buzzer active — Click to mute'}
+          >
+            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          </button>
+        )}
+
         {/* Notification Bell */}
         <button
           onClick={onTriggerAlertView}
@@ -130,11 +156,23 @@ export const TopNav: React.FC<TopNavProps> = ({
         >
           <Bell className="w-4 h-4" />
           {unreadAlertCount > 0 && (
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#E45D58] text-white rounded-full text-[9px] font-bold flex items-center justify-center animate-pulse">
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#E45D58] text-white rounded-full text-[9px] font-bold flex items-center justify-center">
               {unreadAlertCount}
             </span>
           )}
         </button>
+
+        {/* 1-Click Inject P0 Critical Deterioration */}
+        {onInjectP0 && (
+          <button
+            onClick={onInjectP0}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#E45D58] text-white hover:bg-[#c94540] text-xs font-bold shadow-xs transition-all active:scale-98 cursor-pointer"
+            title="Inject acute physiological decompensation on HG-001 (triggers P0 Urgent alert & buzzer)"
+          >
+            <AlertTriangle className="w-3.5 h-3.5" />
+            <span>Inject P0 Urgent</span>
+          </button>
+        )}
 
         {/* Global Demo Controls Button */}
         <button
@@ -142,8 +180,20 @@ export const TopNav: React.FC<TopNavProps> = ({
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#16866A] text-white hover:bg-[#126b55] text-xs font-semibold shadow-xs transition-all active:scale-98 cursor-pointer"
         >
           <SlidersHorizontal className="w-3.5 h-3.5" />
-          <span>Demo Controls</span>
+          <span className="hidden sm:inline">Demo Controls</span>
         </button>
+
+        {/* Role & Sign Out Button */}
+        {onLogout && (
+          <button
+            onClick={onLogout}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-red-200 bg-red-50 text-red-700 hover:bg-red-100 text-xs font-semibold shadow-xs transition-all cursor-pointer"
+            title="Log out or switch RBAC role"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Switch Role</span>
+          </button>
+        )}
       </div>
     </header>
   );
