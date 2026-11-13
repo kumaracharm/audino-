@@ -18,16 +18,16 @@ export const DEMO_USERS: UserSession[] = [
   },
   {
     id: 'pheon_marcus',
-    name: 'Marcus Ward',
+    name: 'Marcus Vance',
     role: 'pheon',
-    title: 'PHEON / Ward Attendant (Ward A)',
+    title: 'Post-Discharge Care Attendant (PHEON)',
     assignedPatients: ['HG-001', 'HG-002', 'HG-003', 'HG-007'],
   },
   {
     id: 'nurse_sarah',
     name: 'Sarah Jenkins, RN',
     role: 'nurse',
-    title: 'Clinical Monitoring Nurse (Ward A & B)',
+    title: 'Post-Discharge Tele-Surveillance Nurse',
     assignedPatients: ['HG-001', 'HG-002', 'HG-003', 'HG-004', 'HG-007', 'HG-009'],
   },
   {
@@ -57,14 +57,14 @@ const CLINICAL_ROLE_CONFIGS: Record<Exclude<UserRole, 'patient'>, {
     badge: 'PHEON / Attendant',
     badgeColor: 'bg-[#d97706]/10 text-[#d97706] border-[#d97706]/30',
     icon: UserCheck,
-    scope: '4 Assigned Patients • Ward A',
+    scope: '4 Assigned Patients • Remote Cohort A',
     desc: 'First-response operational monitoring, device connectivity & one-click nurse escalation.',
   },
   nurse: {
     badge: 'Staff Nurse',
     badgeColor: 'bg-[#16866A]/10 text-[#16866A] border-[#16866A]/30',
     icon: HeartPulse,
-    scope: '6 Assigned Patients • Ward A & B',
+    scope: '6 Assigned Patients • Remote Cohort A & B',
     desc: 'Clinical telemetry, prioritized alerts, check-in waveform review & care plan execution.',
   },
   doctor: {
@@ -78,7 +78,7 @@ const CLINICAL_ROLE_CONFIGS: Record<Exclude<UserRole, 'patient'>, {
     badge: 'Senior Doctor / Admin',
     badgeColor: 'bg-[#7c3aed]/10 text-[#7c3aed] border-[#7c3aed]/30',
     icon: ShieldCheck,
-    scope: 'Full Cohort (10 Patients) • All Wards',
+    scope: 'Full Remote Cohort (10 Patients) · Post-Discharge',
     desc: 'Cohort governance, staff response metrics, patient reassignment & audited workflow overrides.',
   },
 };

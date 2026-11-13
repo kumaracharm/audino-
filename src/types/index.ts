@@ -140,3 +140,27 @@ export interface DailyCheckin {
   riskTier: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL';
 }
 
+// Doctor Shift Session & Clinical Feedback Types
+export interface DoctorShiftSession {
+  id: string;
+  doctorName: string;
+  doctorId: string;
+  shiftType: 'Morning Shift (08:00 - 16:00)' | 'Evening Shift (16:00 - 00:00)' | 'Night / On-Call (00:00 - 08:00)';
+  startTime: string;
+  status: 'active' | 'completed' | 'handover';
+  reviewedPatientIds: string[];
+  feedbackList: DoctorShiftFeedback[];
+}
+
+export interface DoctorShiftFeedback {
+  id: string;
+  patientId: string;
+  timestamp: string;
+  doctorName: string;
+  clinicalImpression: string;
+  actionPlan: string;
+  prescriptionsOrOrders: string;
+  handoverDirective: string;
+  urgencyResolved: boolean;
+}
+

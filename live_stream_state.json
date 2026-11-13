@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-13T08:05:37.281413+00:00",
+  "timestamp": "2026-11-13T08:09:15.824557+00:00",
   "patient_count": 10,
   "patients": {
     "P001": {
@@ -8,252 +8,252 @@
       "name": "Maura Steuber",
       "age": 62,
       "scenario": "Respiratory decline / COVID-19",
-      "heartRate": 71.8,
-      "spo2": 96.8,
-      "respiratoryRate": 15.4,
+      "heartRate": 70.7,
+      "spo2": 96.7,
+      "respiratoryRate": 15.5,
       "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:36.438800+00:00",
+      "lastUpdated": "2026-11-13T08:09:15.824515+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.271702+00:00",
-          "heartRate": 72.0,
-          "spo2": 97.1,
-          "respiratoryRate": 15.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:08.274905+00:00",
-          "heartRate": 71.7,
-          "spo2": 97.3,
-          "respiratoryRate": 16.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:09.276757+00:00",
-          "heartRate": 71.8,
-          "spo2": 97.0,
-          "respiratoryRate": 16.7,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.286343+00:00",
-          "heartRate": 71.6,
-          "spo2": 96.9,
-          "respiratoryRate": 16.1,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.288228+00:00",
-          "heartRate": 71.6,
-          "spo2": 97.8,
+          "timestamp": "2026-11-13T08:08:40.860844+00:00",
+          "heartRate": 68.1,
+          "spo2": 97.2,
           "respiratoryRate": 16.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:12.289909+00:00",
-          "heartRate": 70.6,
-          "spo2": 96.9,
-          "respiratoryRate": 15.3,
+          "timestamp": "2026-11-13T08:08:41.866794+00:00",
+          "heartRate": 72.0,
+          "spo2": 97.8,
+          "respiratoryRate": 17.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:13.300682+00:00",
-          "heartRate": 69.2,
-          "spo2": 97.0,
-          "respiratoryRate": 15.9,
+          "timestamp": "2026-11-13T08:08:42.883377+00:00",
+          "heartRate": 71.5,
+          "spo2": 97.2,
+          "respiratoryRate": 14.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:14.306319+00:00",
-          "heartRate": 71.2,
-          "spo2": 97.0,
-          "respiratoryRate": 15.8,
+          "timestamp": "2026-11-13T08:08:43.884424+00:00",
+          "heartRate": 72.0,
+          "spo2": 97.4,
+          "respiratoryRate": 15.6,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:15.314641+00:00",
-          "heartRate": 70.0,
-          "spo2": 96.4,
-          "respiratoryRate": 16.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:16.320376+00:00",
-          "heartRate": 69.9,
-          "spo2": 97.0,
-          "respiratoryRate": 15.4,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:17.322969+00:00",
-          "heartRate": 69.7,
-          "spo2": 97.0,
+          "timestamp": "2026-11-13T08:08:44.888690+00:00",
+          "heartRate": 73.0,
+          "spo2": 97.3,
           "respiratoryRate": 15.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:18.331162+00:00",
-          "heartRate": 73.3,
-          "spo2": 96.7,
+          "timestamp": "2026-11-13T08:08:45.901736+00:00",
+          "heartRate": 71.7,
+          "spo2": 97.1,
+          "respiratoryRate": 15.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:46.912249+00:00",
+          "heartRate": 73.4,
+          "spo2": 97.7,
+          "respiratoryRate": 16.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:47.912914+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.4,
           "respiratoryRate": 16.1,
-          "temperature": 36.8,
+          "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:19.334686+00:00",
-          "heartRate": 71.6,
-          "spo2": 97.5,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:20.339808+00:00",
-          "heartRate": 70.7,
+          "timestamp": "2026-11-13T08:08:48.928968+00:00",
+          "heartRate": 73.3,
           "spo2": 97.0,
-          "respiratoryRate": 15.7,
+          "respiratoryRate": 15.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:21.344132+00:00",
-          "heartRate": 73.0,
-          "spo2": 97.3,
-          "respiratoryRate": 16.5,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.346688+00:00",
-          "heartRate": 71.9,
-          "spo2": 97.2,
-          "respiratoryRate": 14.9,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:23.350721+00:00",
+          "timestamp": "2026-11-13T08:08:49.933712+00:00",
           "heartRate": 73.1,
           "spo2": 96.7,
-          "respiratoryRate": 16.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.360773+00:00",
-          "heartRate": 71.9,
-          "spo2": 97.3,
-          "respiratoryRate": 16.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:25.369257+00:00",
-          "heartRate": 70.3,
-          "spo2": 97.5,
-          "respiratoryRate": 15.8,
+          "respiratoryRate": 15.4,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:26.377303+00:00",
-          "heartRate": 71.8,
-          "spo2": 97.3,
-          "respiratoryRate": 16.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.385545+00:00",
+          "timestamp": "2026-11-13T08:08:50.938795+00:00",
           "heartRate": 72.2,
-          "spo2": 97.2,
+          "spo2": 96.8,
           "respiratoryRate": 16.2,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:28.395926+00:00",
-          "heartRate": 72.8,
-          "spo2": 97.3,
-          "respiratoryRate": 17.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:29.399850+00:00",
-          "heartRate": 72.7,
-          "spo2": 97.3,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:30.400684+00:00",
-          "heartRate": 71.6,
-          "spo2": 97.1,
-          "respiratoryRate": 15.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.403476+00:00",
-          "heartRate": 73.0,
+          "timestamp": "2026-11-13T08:08:51.947805+00:00",
+          "heartRate": 72.1,
           "spo2": 96.6,
           "respiratoryRate": 14.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:32.407625+00:00",
-          "heartRate": 72.7,
+          "timestamp": "2026-11-13T08:08:52.961997+00:00",
+          "heartRate": 71.4,
           "spo2": 96.6,
-          "respiratoryRate": 16.3,
+          "respiratoryRate": 16.1,
           "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:33.409394+00:00",
-          "heartRate": 71.4,
-          "spo2": 96.9,
-          "respiratoryRate": 15.7,
+          "timestamp": "2026-11-13T08:08:53.976910+00:00",
+          "heartRate": 73.1,
+          "spo2": 97.3,
+          "respiratoryRate": 14.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:34.415857+00:00",
-          "heartRate": 74.2,
-          "spo2": 97.0,
-          "respiratoryRate": 16.7,
+          "timestamp": "2026-11-13T08:08:54.981016+00:00",
+          "heartRate": 72.8,
+          "spo2": 96.8,
+          "respiratoryRate": 15.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.985849+00:00",
+          "heartRate": 71.8,
+          "spo2": 96.9,
+          "respiratoryRate": 15.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.997769+00:00",
+          "heartRate": 70.6,
+          "spo2": 96.9,
+          "respiratoryRate": 15.0,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:35.427019+00:00",
-          "heartRate": 71.0,
-          "spo2": 97.5,
+          "timestamp": "2026-11-13T08:08:57.998822+00:00",
+          "heartRate": 70.6,
+          "spo2": 96.5,
+          "respiratoryRate": 14.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.004913+00:00",
+          "heartRate": 73.5,
+          "spo2": 97.4,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.018875+00:00",
+          "heartRate": 72.7,
+          "spo2": 96.6,
           "respiratoryRate": 16.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:36.438800+00:00",
-          "heartRate": 71.8,
+          "timestamp": "2026-11-13T08:09:01.023825+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.0,
+          "respiratoryRate": 16.5,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:02.024777+00:00",
+          "heartRate": 72.0,
+          "spo2": 97.0,
+          "respiratoryRate": 17.0,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:03.039852+00:00",
+          "heartRate": 71.2,
+          "spo2": 96.2,
+          "respiratoryRate": 17.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.043525+00:00",
+          "heartRate": 72.7,
+          "spo2": 96.7,
+          "respiratoryRate": 15.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.049218+00:00",
+          "heartRate": 71.6,
           "spo2": 96.8,
+          "respiratoryRate": 15.5,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.057505+00:00",
+          "heartRate": 70.2,
+          "spo2": 96.5,
+          "respiratoryRate": 15.2,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.059449+00:00",
+          "heartRate": 72.1,
+          "spo2": 97.4,
+          "respiratoryRate": 16.2,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.060023+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.1,
+          "respiratoryRate": 16.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:09.060836+00:00",
+          "heartRate": 71.5,
+          "spo2": 96.9,
           "respiratoryRate": 15.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:15.824515+00:00",
+          "heartRate": 70.7,
+          "spo2": 96.7,
+          "respiratoryRate": 15.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         }
@@ -265,252 +265,252 @@
       "name": "Eugenio Okuneva",
       "age": 42,
       "scenario": "COPD / Hypercapnic target test",
-      "heartRate": 74.2,
-      "spo2": 97.2,
-      "respiratoryRate": 16.7,
+      "heartRate": 73.2,
+      "spo2": 96.8,
+      "respiratoryRate": 16.5,
       "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:37.064203+00:00",
+      "lastUpdated": "2026-11-13T08:09:09.556912+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.823609+00:00",
-          "heartRate": 70.5,
-          "spo2": 97.3,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:08.831220+00:00",
-          "heartRate": 72.1,
+          "timestamp": "2026-11-13T08:08:40.353028+00:00",
+          "heartRate": 73.2,
           "spo2": 96.8,
-          "respiratoryRate": 16.5,
+          "respiratoryRate": 17.5,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:41.357676+00:00",
+          "heartRate": 72.7,
+          "spo2": 96.9,
+          "respiratoryRate": 17.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:09.846418+00:00",
-          "heartRate": 70.5,
-          "spo2": 96.9,
+          "timestamp": "2026-11-13T08:08:42.359237+00:00",
+          "heartRate": 72.0,
+          "spo2": 97.0,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:43.368868+00:00",
+          "heartRate": 73.6,
+          "spo2": 97.0,
+          "respiratoryRate": 16.3,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:44.377500+00:00",
+          "heartRate": 73.7,
+          "spo2": 97.3,
           "respiratoryRate": 15.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:10.860462+00:00",
-          "heartRate": 73.9,
-          "spo2": 97.2,
-          "respiratoryRate": 15.8,
+          "timestamp": "2026-11-13T08:08:45.384926+00:00",
+          "heartRate": 73.1,
+          "spo2": 96.9,
+          "respiratoryRate": 16.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:11.892168+00:00",
+          "timestamp": "2026-11-13T08:08:46.394221+00:00",
           "heartRate": 73.0,
-          "spo2": 96.9,
-          "respiratoryRate": 15.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:12.898763+00:00",
-          "heartRate": 72.4,
-          "spo2": 97.2,
-          "respiratoryRate": 15.7,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:13.909331+00:00",
-          "heartRate": 70.8,
           "spo2": 96.8,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.917089+00:00",
-          "heartRate": 73.7,
-          "spo2": 97.5,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:15.918174+00:00",
-          "heartRate": 70.3,
-          "spo2": 97.2,
           "respiratoryRate": 15.4,
-          "temperature": 36.9,
+          "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:16.922003+00:00",
-          "heartRate": 70.9,
-          "spo2": 96.7,
-          "respiratoryRate": 15.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:17.936625+00:00",
-          "heartRate": 69.4,
-          "spo2": 96.9,
+          "timestamp": "2026-11-13T08:08:47.402002+00:00",
+          "heartRate": 71.8,
+          "spo2": 97.6,
           "respiratoryRate": 15.6,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:18.942712+00:00",
-          "heartRate": 70.8,
-          "spo2": 97.0,
+          "timestamp": "2026-11-13T08:08:48.413055+00:00",
+          "heartRate": 71.8,
+          "spo2": 96.7,
+          "respiratoryRate": 15.9,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:49.419121+00:00",
+          "heartRate": 72.1,
+          "spo2": 97.2,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:50.433147+00:00",
+          "heartRate": 71.7,
+          "spo2": 96.8,
           "respiratoryRate": 15.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:19.951171+00:00",
-          "heartRate": 71.7,
-          "spo2": 96.8,
-          "respiratoryRate": 15.0,
+          "timestamp": "2026-11-13T08:08:51.446403+00:00",
+          "heartRate": 72.9,
+          "spo2": 96.6,
+          "respiratoryRate": 15.8,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:20.960109+00:00",
-          "heartRate": 71.9,
+          "timestamp": "2026-11-13T08:08:52.453368+00:00",
+          "heartRate": 73.3,
+          "spo2": 96.7,
+          "respiratoryRate": 14.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:53.454589+00:00",
+          "heartRate": 72.0,
           "spo2": 96.7,
           "respiratoryRate": 15.2,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:21.964216+00:00",
+          "timestamp": "2026-11-13T08:08:54.463793+00:00",
+          "heartRate": 72.7,
+          "spo2": 96.7,
+          "respiratoryRate": 15.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.466342+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.4,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.480762+00:00",
           "heartRate": 72.8,
-          "spo2": 97.3,
-          "respiratoryRate": 16.0,
+          "spo2": 97.2,
+          "respiratoryRate": 14.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:22.965416+00:00",
-          "heartRate": 72.2,
+          "timestamp": "2026-11-13T08:08:57.483150+00:00",
+          "heartRate": 71.9,
+          "spo2": 96.8,
+          "respiratoryRate": 14.9,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.488980+00:00",
+          "heartRate": 73.2,
+          "spo2": 96.8,
+          "respiratoryRate": 15.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.495545+00:00",
+          "heartRate": 71.2,
+          "spo2": 97.7,
+          "respiratoryRate": 15.9,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.496619+00:00",
+          "heartRate": 71.9,
+          "spo2": 96.8,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:01.499049+00:00",
+          "heartRate": 72.0,
           "spo2": 97.1,
-          "respiratoryRate": 16.5,
+          "respiratoryRate": 15.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:23.971242+00:00",
+          "timestamp": "2026-11-13T08:09:02.499912+00:00",
           "heartRate": 70.8,
-          "spo2": 96.8,
-          "respiratoryRate": 16.0,
+          "spo2": 97.1,
+          "respiratoryRate": 16.4,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:24.974271+00:00",
+          "timestamp": "2026-11-13T08:09:03.506094+00:00",
           "heartRate": 72.5,
-          "spo2": 96.8,
+          "spo2": 97.2,
+          "respiratoryRate": 15.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.507936+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.1,
+          "respiratoryRate": 15.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.511652+00:00",
+          "heartRate": 73.6,
+          "spo2": 96.9,
           "respiratoryRate": 15.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:25.974945+00:00",
-          "heartRate": 71.9,
-          "spo2": 96.2,
-          "respiratoryRate": 15.3,
-          "temperature": 36.7,
+          "timestamp": "2026-11-13T08:09:06.521149+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.3,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:26.980950+00:00",
-          "heartRate": 71.4,
-          "spo2": 96.6,
-          "respiratoryRate": 17.4,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.982579+00:00",
-          "heartRate": 72.9,
-          "spo2": 97.0,
-          "respiratoryRate": 16.4,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:28.994852+00:00",
-          "heartRate": 72.8,
-          "spo2": 97.1,
+          "timestamp": "2026-11-13T08:09:07.532090+00:00",
+          "heartRate": 73.4,
+          "spo2": 97.2,
           "respiratoryRate": 16.2,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:30.008955+00:00",
-          "heartRate": 69.9,
-          "spo2": 96.9,
-          "respiratoryRate": 17.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.020858+00:00",
-          "heartRate": 70.7,
-          "spo2": 96.9,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:32.022044+00:00",
-          "heartRate": 71.3,
-          "spo2": 97.0,
-          "respiratoryRate": 16.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:33.025091+00:00",
-          "heartRate": 71.3,
-          "spo2": 96.3,
-          "respiratoryRate": 17.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:34.030332+00:00",
+          "timestamp": "2026-11-13T08:09:08.540513+00:00",
           "heartRate": 72.5,
-          "spo2": 96.5,
+          "spo2": 97.2,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:09.556912+00:00",
+          "heartRate": 73.2,
+          "spo2": 96.8,
           "respiratoryRate": 16.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:35.046096+00:00",
-          "heartRate": 73.3,
-          "spo2": 96.5,
-          "respiratoryRate": 16.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:36.053214+00:00",
-          "heartRate": 71.6,
-          "spo2": 97.2,
-          "respiratoryRate": 16.4,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:37.064203+00:00",
-          "heartRate": 74.2,
-          "spo2": 97.2,
-          "respiratoryRate": 16.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         }
@@ -522,252 +522,252 @@
       "name": "Michale VonRueden",
       "age": 71,
       "scenario": "Heart failure gradual drift",
-      "heartRate": 69.1,
-      "spo2": 97.3,
-      "respiratoryRate": 16.9,
+      "heartRate": 71.1,
+      "spo2": 97.2,
+      "respiratoryRate": 15.7,
       "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:37.090614+00:00",
+      "lastUpdated": "2026-11-13T08:09:09.562881+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.842043+00:00",
-          "heartRate": 72.6,
-          "spo2": 97.2,
-          "respiratoryRate": 15.4,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:08.850517+00:00",
-          "heartRate": 71.6,
-          "spo2": 96.9,
-          "respiratoryRate": 16.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:09.864976+00:00",
-          "heartRate": 72.5,
-          "spo2": 96.9,
-          "respiratoryRate": 15.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.866193+00:00",
-          "heartRate": 70.2,
-          "spo2": 97.4,
-          "respiratoryRate": 15.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.925716+00:00",
-          "heartRate": 72.5,
-          "spo2": 96.7,
-          "respiratoryRate": 16.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:12.904001+00:00",
-          "heartRate": 71.7,
-          "spo2": 96.9,
-          "respiratoryRate": 15.7,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:13.914651+00:00",
-          "heartRate": 72.1,
-          "spo2": 97.1,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.943216+00:00",
-          "heartRate": 70.6,
-          "spo2": 97.4,
-          "respiratoryRate": 15.2,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:15.936776+00:00",
-          "heartRate": 72.6,
-          "spo2": 96.7,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:16.927370+00:00",
-          "heartRate": 72.7,
-          "spo2": 96.9,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:17.965331+00:00",
-          "heartRate": 72.6,
-          "spo2": 96.7,
-          "respiratoryRate": 15.1,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:18.958772+00:00",
-          "heartRate": 71.9,
+          "timestamp": "2026-11-13T08:08:40.359217+00:00",
+          "heartRate": 70.0,
           "spo2": 97.0,
-          "respiratoryRate": 14.5,
+          "respiratoryRate": 15.4,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:19.956081+00:00",
-          "heartRate": 71.3,
-          "spo2": 97.5,
-          "respiratoryRate": 15.1,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:20.984424+00:00",
-          "heartRate": 70.3,
-          "spo2": 97.3,
-          "respiratoryRate": 15.2,
+          "timestamp": "2026-11-13T08:08:41.364513+00:00",
+          "heartRate": 71.2,
+          "spo2": 97.7,
+          "respiratoryRate": 15.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:21.970536+00:00",
-          "heartRate": 70.2,
-          "spo2": 97.1,
-          "respiratoryRate": 15.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.970569+00:00",
+          "timestamp": "2026-11-13T08:08:42.385789+00:00",
           "heartRate": 71.6,
-          "spo2": 96.9,
-          "respiratoryRate": 15.8,
+          "spo2": 96.4,
+          "respiratoryRate": 16.2,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:23.978438+00:00",
+          "timestamp": "2026-11-13T08:08:43.376781+00:00",
+          "heartRate": 71.8,
+          "spo2": 96.7,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:44.385376+00:00",
           "heartRate": 71.1,
           "spo2": 96.8,
-          "respiratoryRate": 14.9,
+          "respiratoryRate": 15.8,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:24.979612+00:00",
-          "heartRate": 72.3,
-          "spo2": 96.8,
-          "respiratoryRate": 16.0,
+          "timestamp": "2026-11-13T08:08:45.391696+00:00",
+          "heartRate": 70.9,
+          "spo2": 96.5,
+          "respiratoryRate": 17.3,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:25.981617+00:00",
+          "timestamp": "2026-11-13T08:08:46.401722+00:00",
+          "heartRate": 71.5,
+          "spo2": 96.5,
+          "respiratoryRate": 17.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:47.408388+00:00",
+          "heartRate": 70.8,
+          "spo2": 96.8,
+          "respiratoryRate": 16.2,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:48.420653+00:00",
+          "heartRate": 72.1,
+          "spo2": 97.0,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:49.425121+00:00",
+          "heartRate": 69.9,
+          "spo2": 96.9,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:50.438919+00:00",
           "heartRate": 72.7,
           "spo2": 96.8,
-          "respiratoryRate": 14.9,
+          "respiratoryRate": 15.3,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:26.987136+00:00",
-          "heartRate": 72.2,
-          "spo2": 96.8,
-          "respiratoryRate": 16.3,
-          "temperature": 36.7,
+          "timestamp": "2026-11-13T08:08:51.452333+00:00",
+          "heartRate": 71.8,
+          "spo2": 97.3,
+          "respiratoryRate": 15.7,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:27.988668+00:00",
-          "heartRate": 72.9,
+          "timestamp": "2026-11-13T08:08:52.461470+00:00",
+          "heartRate": 72.5,
           "spo2": 97.0,
           "respiratoryRate": 16.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:29.001999+00:00",
+          "timestamp": "2026-11-13T08:08:53.460090+00:00",
           "heartRate": 71.9,
-          "spo2": 96.5,
-          "respiratoryRate": 14.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:30.016078+00:00",
-          "heartRate": 73.7,
-          "spo2": 96.8,
-          "respiratoryRate": 14.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.039542+00:00",
-          "heartRate": 71.7,
           "spo2": 97.0,
-          "respiratoryRate": 16.5,
+          "respiratoryRate": 15.6,
           "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:32.027896+00:00",
-          "heartRate": 71.5,
+          "timestamp": "2026-11-13T08:08:54.470029+00:00",
+          "heartRate": 72.5,
           "spo2": 97.1,
-          "respiratoryRate": 17.1,
+          "respiratoryRate": 16.4,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.484227+00:00",
+          "heartRate": 74.3,
+          "spo2": 97.4,
+          "respiratoryRate": 16.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:33.030391+00:00",
-          "heartRate": 69.7,
-          "spo2": 97.3,
-          "respiratoryRate": 16.6,
+          "timestamp": "2026-11-13T08:08:56.500205+00:00",
+          "heartRate": 73.3,
+          "spo2": 97.4,
+          "respiratoryRate": 16.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:34.037293+00:00",
-          "heartRate": 70.2,
+          "timestamp": "2026-11-13T08:08:57.489152+00:00",
+          "heartRate": 74.1,
+          "spo2": 96.9,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.494745+00:00",
+          "heartRate": 70.7,
           "spo2": 97.2,
-          "respiratoryRate": 16.4,
-          "temperature": 36.7,
+          "respiratoryRate": 15.3,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:35.054226+00:00",
-          "heartRate": 70.2,
+          "timestamp": "2026-11-13T08:08:59.506362+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.0,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.503372+00:00",
+          "heartRate": 72.0,
+          "spo2": 96.7,
+          "respiratoryRate": 15.7,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:01.504445+00:00",
+          "heartRate": 75.0,
           "spo2": 97.1,
+          "respiratoryRate": 15.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:02.506430+00:00",
+          "heartRate": 71.8,
+          "spo2": 97.5,
+          "respiratoryRate": 14.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:03.512368+00:00",
+          "heartRate": 70.6,
+          "spo2": 97.0,
+          "respiratoryRate": 16.6,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.514534+00:00",
+          "heartRate": 71.4,
+          "spo2": 97.2,
+          "respiratoryRate": 15.7,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.517482+00:00",
+          "heartRate": 71.2,
+          "spo2": 97.1,
+          "respiratoryRate": 16.2,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.528245+00:00",
+          "heartRate": 72.5,
+          "spo2": 97.4,
           "respiratoryRate": 15.5,
-          "temperature": 36.6,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:36.059478+00:00",
-          "heartRate": 71.7,
+          "timestamp": "2026-11-13T08:09:07.537681+00:00",
+          "heartRate": 72.7,
           "spo2": 97.1,
-          "respiratoryRate": 16.4,
+          "respiratoryRate": 15.6,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:37.090614+00:00",
-          "heartRate": 69.1,
-          "spo2": 97.3,
-          "respiratoryRate": 16.9,
+          "timestamp": "2026-11-13T08:09:08.546902+00:00",
+          "heartRate": 71.7,
+          "spo2": 96.8,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:09.562881+00:00",
+          "heartRate": 71.1,
+          "spo2": 97.2,
+          "respiratoryRate": 15.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         }
@@ -779,252 +779,252 @@
       "name": "Danilo Bradtke",
       "age": 68,
       "scenario": "Post-pneumonia motion artifact",
-      "heartRate": 71.8,
-      "spo2": 97.0,
-      "respiratoryRate": 15.7,
+      "heartRate": 75.1,
+      "spo2": 96.9,
+      "respiratoryRate": 16.1,
       "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:37.137952+00:00",
+      "lastUpdated": "2026-11-13T08:09:09.664081+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.912267+00:00",
-          "heartRate": 72.2,
-          "spo2": 96.5,
-          "respiratoryRate": 16.4,
+          "timestamp": "2026-11-13T08:08:40.470092+00:00",
+          "heartRate": 72.9,
+          "spo2": 96.9,
+          "respiratoryRate": 16.2,
           "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:08.921374+00:00",
-          "heartRate": 70.9,
-          "spo2": 96.4,
+          "timestamp": "2026-11-13T08:08:41.472485+00:00",
+          "heartRate": 74.5,
+          "spo2": 96.8,
           "respiratoryRate": 16.0,
           "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:09.939991+00:00",
-          "heartRate": 70.9,
-          "spo2": 96.8,
-          "respiratoryRate": 16.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.943678+00:00",
-          "heartRate": 71.9,
-          "spo2": 96.8,
-          "respiratoryRate": 17.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.950022+00:00",
-          "heartRate": 70.4,
+          "timestamp": "2026-11-13T08:08:42.475030+00:00",
+          "heartRate": 71.0,
           "spo2": 96.6,
           "respiratoryRate": 15.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:12.962505+00:00",
-          "heartRate": 71.0,
-          "spo2": 97.3,
-          "respiratoryRate": 16.6,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:13.975400+00:00",
-          "heartRate": 73.0,
-          "spo2": 97.4,
-          "respiratoryRate": 16.6,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.983138+00:00",
-          "heartRate": 72.3,
+          "timestamp": "2026-11-13T08:08:43.490522+00:00",
+          "heartRate": 75.0,
           "spo2": 97.0,
-          "respiratoryRate": 15.5,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:15.984535+00:00",
-          "heartRate": 70.6,
-          "spo2": 97.2,
-          "respiratoryRate": 15.8,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:16.987243+00:00",
-          "heartRate": 72.9,
-          "spo2": 96.7,
-          "respiratoryRate": 15.4,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:17.992776+00:00",
-          "heartRate": 73.9,
-          "spo2": 97.4,
-          "respiratoryRate": 16.1,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:18.997643+00:00",
-          "heartRate": 72.6,
-          "spo2": 97.0,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:20.001268+00:00",
-          "heartRate": 72.5,
-          "spo2": 97.2,
-          "respiratoryRate": 16.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:21.015069+00:00",
-          "heartRate": 72.2,
-          "spo2": 96.9,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.022285+00:00",
-          "heartRate": 73.0,
-          "spo2": 97.2,
-          "respiratoryRate": 15.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:23.023659+00:00",
-          "heartRate": 72.7,
-          "spo2": 96.9,
-          "respiratoryRate": 16.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.029469+00:00",
-          "heartRate": 72.0,
-          "spo2": 96.9,
-          "respiratoryRate": 15.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:25.039786+00:00",
-          "heartRate": 72.5,
-          "spo2": 97.1,
-          "respiratoryRate": 16.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:26.048607+00:00",
-          "heartRate": 69.9,
-          "spo2": 96.8,
-          "respiratoryRate": 16.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.054924+00:00",
-          "heartRate": 71.6,
-          "spo2": 96.6,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:28.057858+00:00",
-          "heartRate": 71.4,
-          "spo2": 96.8,
           "respiratoryRate": 16.4,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:29.061293+00:00",
-          "heartRate": 73.1,
-          "spo2": 96.5,
-          "respiratoryRate": 15.4,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:30.069838+00:00",
-          "heartRate": 73.8,
-          "spo2": 96.7,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.070696+00:00",
-          "heartRate": 71.6,
-          "spo2": 96.6,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:32.078786+00:00",
-          "heartRate": 70.8,
-          "spo2": 96.5,
-          "respiratoryRate": 15.5,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:33.089778+00:00",
-          "heartRate": 71.7,
-          "spo2": 97.5,
-          "respiratoryRate": 14.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:34.100520+00:00",
+          "timestamp": "2026-11-13T08:08:44.492855+00:00",
           "heartRate": 71.2,
-          "spo2": 96.9,
-          "respiratoryRate": 15.3,
+          "spo2": 96.8,
+          "respiratoryRate": 16.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:35.126733+00:00",
-          "heartRate": 70.0,
-          "spo2": 96.9,
+          "timestamp": "2026-11-13T08:08:45.500835+00:00",
+          "heartRate": 72.5,
+          "spo2": 97.0,
+          "respiratoryRate": 15.5,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:46.509424+00:00",
+          "heartRate": 70.2,
+          "spo2": 96.8,
           "respiratoryRate": 15.9,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:36.135079+00:00",
-          "heartRate": 73.1,
-          "spo2": 96.9,
-          "respiratoryRate": 16.5,
+          "timestamp": "2026-11-13T08:08:47.512878+00:00",
+          "heartRate": 72.7,
+          "spo2": 97.3,
+          "respiratoryRate": 16.4,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:37.137952+00:00",
-          "heartRate": 71.8,
+          "timestamp": "2026-11-13T08:08:48.527383+00:00",
+          "heartRate": 69.9,
+          "spo2": 97.4,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:49.533584+00:00",
+          "heartRate": 73.3,
+          "spo2": 97.6,
+          "respiratoryRate": 16.5,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:50.539722+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.5,
+          "respiratoryRate": 16.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:51.546305+00:00",
+          "heartRate": 73.2,
+          "spo2": 97.3,
+          "respiratoryRate": 15.9,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:52.560717+00:00",
+          "heartRate": 71.4,
+          "spo2": 97.4,
+          "respiratoryRate": 17.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:53.568964+00:00",
+          "heartRate": 71.2,
+          "spo2": 97.2,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:54.579962+00:00",
+          "heartRate": 71.0,
+          "spo2": 96.8,
+          "respiratoryRate": 16.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.591374+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.1,
+          "respiratoryRate": 16.9,
+          "temperature": 36.6,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.595037+00:00",
+          "heartRate": 72.7,
           "spo2": 97.0,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:57.607558+00:00",
+          "heartRate": 72.6,
+          "spo2": 96.7,
+          "respiratoryRate": 16.7,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.612376+00:00",
+          "heartRate": 73.0,
+          "spo2": 97.2,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.616158+00:00",
+          "heartRate": 73.3,
+          "spo2": 96.9,
+          "respiratoryRate": 16.7,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.626289+00:00",
+          "heartRate": 73.9,
+          "spo2": 97.0,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:01.630297+00:00",
+          "heartRate": 72.9,
+          "spo2": 97.0,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:02.632085+00:00",
+          "heartRate": 69.3,
+          "spo2": 97.2,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:03.637659+00:00",
+          "heartRate": 72.1,
+          "spo2": 97.2,
+          "respiratoryRate": 16.8,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.639469+00:00",
+          "heartRate": 73.0,
+          "spo2": 97.1,
           "respiratoryRate": 15.7,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.644206+00:00",
+          "heartRate": 69.8,
+          "spo2": 96.8,
+          "respiratoryRate": 16.1,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.651407+00:00",
+          "heartRate": 70.5,
+          "spo2": 96.9,
+          "respiratoryRate": 16.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.662895+00:00",
+          "heartRate": 71.4,
+          "spo2": 97.0,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.662967+00:00",
+          "heartRate": 72.0,
+          "spo2": 96.9,
+          "respiratoryRate": 16.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:09.664081+00:00",
+          "heartRate": 75.1,
+          "spo2": 96.9,
+          "respiratoryRate": 16.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         }
@@ -1036,252 +1036,252 @@
       "name": "Ellis Bosco",
       "age": 55,
       "scenario": "Cardiac surgery / Probe dropout",
-      "heartRate": 72.7,
-      "spo2": 97.4,
-      "respiratoryRate": 15.4,
+      "heartRate": 71.6,
+      "spo2": 97.1,
+      "respiratoryRate": 15.8,
       "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:37.171507+00:00",
+      "lastUpdated": "2026-11-13T08:09:09.733184+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.952991+00:00",
-          "heartRate": 74.8,
-          "spo2": 97.1,
-          "respiratoryRate": 16.4,
+          "timestamp": "2026-11-13T08:08:40.487490+00:00",
+          "heartRate": 70.3,
+          "spo2": 97.5,
+          "respiratoryRate": 15.8,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:08.954531+00:00",
-          "heartRate": 73.7,
-          "spo2": 97.2,
+          "timestamp": "2026-11-13T08:08:41.479291+00:00",
+          "heartRate": 71.0,
+          "spo2": 96.9,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:42.481974+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.1,
           "respiratoryRate": 15.4,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:43.497430+00:00",
+          "heartRate": 71.8,
+          "spo2": 96.9,
+          "respiratoryRate": 16.8,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:09.967183+00:00",
-          "heartRate": 74.1,
-          "spo2": 96.6,
-          "respiratoryRate": 16.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.984167+00:00",
+          "timestamp": "2026-11-13T08:08:44.498949+00:00",
           "heartRate": 73.2,
-          "spo2": 96.9,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.991115+00:00",
-          "heartRate": 72.7,
           "spo2": 97.0,
           "respiratoryRate": 16.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:12.998485+00:00",
-          "heartRate": 71.6,
-          "spo2": 97.5,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:13.999730+00:00",
-          "heartRate": 74.3,
-          "spo2": 96.9,
-          "respiratoryRate": 15.3,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:15.001576+00:00",
+          "timestamp": "2026-11-13T08:08:45.507919+00:00",
           "heartRate": 72.9,
-          "spo2": 97.5,
-          "respiratoryRate": 15.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:16.009370+00:00",
-          "heartRate": 71.6,
-          "spo2": 97.7,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:17.047590+00:00",
-          "heartRate": 71.9,
           "spo2": 97.2,
-          "respiratoryRate": 15.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:18.051129+00:00",
-          "heartRate": 72.9,
-          "spo2": 97.3,
-          "respiratoryRate": 17.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:19.055432+00:00",
-          "heartRate": 72.8,
-          "spo2": 96.7,
-          "respiratoryRate": 16.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:20.059087+00:00",
-          "heartRate": 71.6,
-          "spo2": 96.7,
-          "respiratoryRate": 15.0,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:21.064502+00:00",
-          "heartRate": 71.2,
-          "spo2": 97.0,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.081461+00:00",
-          "heartRate": 69.7,
-          "spo2": 97.1,
-          "respiratoryRate": 16.6,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:23.089189+00:00",
-          "heartRate": 71.1,
-          "spo2": 96.9,
-          "respiratoryRate": 15.9,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.095118+00:00",
-          "heartRate": 73.5,
-          "spo2": 96.8,
-          "respiratoryRate": 17.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:25.104153+00:00",
-          "heartRate": 73.5,
-          "spo2": 97.0,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:26.106376+00:00",
-          "heartRate": 72.9,
-          "spo2": 96.6,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.112988+00:00",
-          "heartRate": 72.2,
-          "spo2": 96.6,
-          "respiratoryRate": 15.8,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:28.115796+00:00",
-          "heartRate": 70.3,
-          "spo2": 97.2,
-          "respiratoryRate": 15.4,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:29.120080+00:00",
-          "heartRate": 70.6,
-          "spo2": 96.7,
-          "respiratoryRate": 14.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:30.121521+00:00",
-          "heartRate": 70.3,
-          "spo2": 97.1,
-          "respiratoryRate": 16.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.129385+00:00",
-          "heartRate": 73.5,
-          "spo2": 96.4,
-          "respiratoryRate": 16.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:32.136159+00:00",
-          "heartRate": 71.6,
-          "spo2": 96.6,
-          "respiratoryRate": 16.1,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:33.139598+00:00",
-          "heartRate": 71.1,
-          "spo2": 97.6,
-          "respiratoryRate": 15.6,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:34.152903+00:00",
-          "heartRate": 70.3,
-          "spo2": 97.2,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:35.156154+00:00",
-          "heartRate": 73.3,
-          "spo2": 97.7,
-          "respiratoryRate": 15.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:36.158433+00:00",
-          "heartRate": 72.1,
-          "spo2": 97.5,
           "respiratoryRate": 16.2,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:37.171507+00:00",
-          "heartRate": 72.7,
-          "spo2": 97.4,
+          "timestamp": "2026-11-13T08:08:46.515894+00:00",
+          "heartRate": 72.3,
+          "spo2": 96.8,
+          "respiratoryRate": 16.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:47.519330+00:00",
+          "heartRate": 73.6,
+          "spo2": 96.7,
+          "respiratoryRate": 16.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:48.536460+00:00",
+          "heartRate": 73.7,
+          "spo2": 96.9,
+          "respiratoryRate": 16.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:49.538911+00:00",
+          "heartRate": 73.2,
+          "spo2": 97.3,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:50.544931+00:00",
+          "heartRate": 71.6,
+          "spo2": 97.1,
+          "respiratoryRate": 15.5,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:51.552426+00:00",
+          "heartRate": 73.0,
+          "spo2": 96.9,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:52.578600+00:00",
+          "heartRate": 73.0,
+          "spo2": 97.3,
+          "respiratoryRate": 16.1,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:53.574607+00:00",
+          "heartRate": 73.7,
+          "spo2": 97.2,
+          "respiratoryRate": 15.7,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:54.586227+00:00",
+          "heartRate": 73.0,
+          "spo2": 96.9,
+          "respiratoryRate": 16.9,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.597421+00:00",
+          "heartRate": 71.1,
+          "spo2": 96.8,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.612247+00:00",
+          "heartRate": 72.8,
+          "spo2": 97.0,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:57.614910+00:00",
+          "heartRate": 71.8,
+          "spo2": 97.0,
+          "respiratoryRate": 16.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.630756+00:00",
+          "heartRate": 72.3,
+          "spo2": 96.9,
+          "respiratoryRate": 16.2,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.623439+00:00",
+          "heartRate": 74.0,
+          "spo2": 97.0,
+          "respiratoryRate": 15.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.633946+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.5,
+          "respiratoryRate": 16.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:01.635541+00:00",
+          "heartRate": 73.1,
+          "spo2": 97.3,
+          "respiratoryRate": 15.8,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:02.639050+00:00",
+          "heartRate": 71.9,
+          "spo2": 96.8,
+          "respiratoryRate": 15.1,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:03.643606+00:00",
+          "heartRate": 71.1,
+          "spo2": 97.1,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.644487+00:00",
+          "heartRate": 71.6,
+          "spo2": 97.1,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.654675+00:00",
+          "heartRate": 70.8,
+          "spo2": 97.0,
           "respiratoryRate": 15.4,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.657395+00:00",
+          "heartRate": 71.5,
+          "spo2": 97.3,
+          "respiratoryRate": 16.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.669582+00:00",
+          "heartRate": 71.2,
+          "spo2": 96.4,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.669775+00:00",
+          "heartRate": 71.7,
+          "spo2": 97.1,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:09.733184+00:00",
+          "heartRate": 71.6,
+          "spo2": 97.1,
+          "respiratoryRate": 15.8,
           "temperature": 36.8,
           "signalQuality": 0.94
         }
@@ -1293,252 +1293,252 @@
       "name": "Launa Brakus",
       "age": 58,
       "scenario": "Respiratory illness / Asthma",
-      "heartRate": 73.0,
-      "spo2": 97.1,
-      "respiratoryRate": 15.6,
+      "heartRate": 68.7,
+      "spo2": 96.9,
+      "respiratoryRate": 15.8,
       "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:37.176900+00:00",
+      "lastUpdated": "2026-11-13T08:09:10.749402+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.981064+00:00",
-          "heartRate": 72.6,
-          "spo2": 97.0,
-          "respiratoryRate": 16.8,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:08.972186+00:00",
-          "heartRate": 73.4,
-          "spo2": 97.0,
-          "respiratoryRate": 16.5,
+          "timestamp": "2026-11-13T08:08:40.493614+00:00",
+          "heartRate": 72.2,
+          "spo2": 97.3,
+          "respiratoryRate": 14.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:09.972561+00:00",
-          "heartRate": 72.8,
-          "spo2": 96.9,
-          "respiratoryRate": 16.3,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.003781+00:00",
-          "heartRate": 72.2,
-          "spo2": 97.1,
+          "timestamp": "2026-11-13T08:08:41.484784+00:00",
+          "heartRate": 70.1,
+          "spo2": 97.0,
           "respiratoryRate": 15.9,
           "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:12.009412+00:00",
-          "heartRate": 70.5,
+          "timestamp": "2026-11-13T08:08:42.489920+00:00",
+          "heartRate": 71.1,
           "spo2": 97.5,
-          "respiratoryRate": 16.3,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:13.003877+00:00",
-          "heartRate": 72.5,
-          "spo2": 96.7,
-          "respiratoryRate": 16.3,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.026476+00:00",
-          "heartRate": 71.6,
-          "spo2": 96.9,
-          "respiratoryRate": 15.0,
+          "respiratoryRate": 15.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:15.006169+00:00",
-          "heartRate": 73.6,
+          "timestamp": "2026-11-13T08:08:43.502766+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.0,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:44.505277+00:00",
+          "heartRate": 71.3,
+          "spo2": 97.0,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:45.513587+00:00",
+          "heartRate": 70.3,
           "spo2": 97.1,
-          "respiratoryRate": 14.9,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:16.020980+00:00",
-          "heartRate": 71.2,
-          "spo2": 96.9,
-          "respiratoryRate": 15.0,
+          "respiratoryRate": 16.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:17.091065+00:00",
-          "heartRate": 74.0,
+          "timestamp": "2026-11-13T08:08:46.523100+00:00",
+          "heartRate": 70.4,
+          "spo2": 96.9,
+          "respiratoryRate": 16.3,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:47.524912+00:00",
+          "heartRate": 71.3,
+          "spo2": 96.8,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:48.543900+00:00",
+          "heartRate": 70.3,
           "spo2": 96.9,
           "respiratoryRate": 15.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:18.056983+00:00",
+          "timestamp": "2026-11-13T08:08:49.543304+00:00",
+          "heartRate": 71.4,
+          "spo2": 96.7,
+          "respiratoryRate": 16.4,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:50.550794+00:00",
           "heartRate": 72.9,
-          "spo2": 96.8,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:19.072909+00:00",
-          "heartRate": 72.4,
-          "spo2": 97.0,
+          "spo2": 97.2,
           "respiratoryRate": 15.4,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:51.571877+00:00",
+          "heartRate": 70.9,
+          "spo2": 96.8,
+          "respiratoryRate": 16.5,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:52.584227+00:00",
+          "heartRate": 72.8,
+          "spo2": 97.2,
+          "respiratoryRate": 15.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:20.076380+00:00",
-          "heartRate": 74.1,
+          "timestamp": "2026-11-13T08:08:53.581935+00:00",
+          "heartRate": 73.2,
+          "spo2": 96.7,
+          "respiratoryRate": 16.5,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:54.606078+00:00",
+          "heartRate": 70.4,
+          "spo2": 97.4,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.602209+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.4,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.617595+00:00",
+          "heartRate": 72.1,
+          "spo2": 97.1,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:57.619932+00:00",
+          "heartRate": 73.1,
           "spo2": 97.0,
           "respiratoryRate": 16.6,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:21.070689+00:00",
-          "heartRate": 74.5,
-          "spo2": 96.9,
-          "respiratoryRate": 16.3,
-          "temperature": 36.9,
+          "timestamp": "2026-11-13T08:08:58.636592+00:00",
+          "heartRate": 70.8,
+          "spo2": 97.4,
+          "respiratoryRate": 15.9,
+          "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:22.087429+00:00",
-          "heartRate": 73.9,
-          "spo2": 96.3,
-          "respiratoryRate": 16.5,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:23.094941+00:00",
-          "heartRate": 74.3,
-          "spo2": 96.8,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.101247+00:00",
-          "heartRate": 72.5,
-          "spo2": 96.8,
-          "respiratoryRate": 16.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:25.109051+00:00",
-          "heartRate": 72.9,
+          "timestamp": "2026-11-13T08:08:59.630302+00:00",
+          "heartRate": 72.3,
           "spo2": 97.0,
-          "respiratoryRate": 16.0,
-          "temperature": 36.9,
+          "respiratoryRate": 16.1,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:26.112039+00:00",
-          "heartRate": 71.4,
-          "spo2": 97.1,
+          "timestamp": "2026-11-13T08:09:00.640199+00:00",
+          "heartRate": 72.8,
+          "spo2": 96.9,
           "respiratoryRate": 16.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:27.119002+00:00",
-          "heartRate": 72.5,
+          "timestamp": "2026-11-13T08:09:01.642106+00:00",
+          "heartRate": 74.0,
           "spo2": 96.8,
-          "respiratoryRate": 15.7,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:28.121161+00:00",
-          "heartRate": 70.6,
-          "spo2": 96.6,
-          "respiratoryRate": 16.5,
+          "respiratoryRate": 16.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:29.128106+00:00",
-          "heartRate": 69.9,
-          "spo2": 96.6,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:30.130669+00:00",
-          "heartRate": 71.8,
-          "spo2": 97.0,
-          "respiratoryRate": 14.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.134939+00:00",
-          "heartRate": 73.0,
-          "spo2": 97.0,
-          "respiratoryRate": 15.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:32.142223+00:00",
-          "heartRate": 70.1,
-          "spo2": 97.4,
-          "respiratoryRate": 15.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:33.144735+00:00",
-          "heartRate": 71.2,
-          "spo2": 97.5,
-          "respiratoryRate": 16.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:34.178601+00:00",
-          "heartRate": 70.7,
+          "timestamp": "2026-11-13T08:09:02.658712+00:00",
+          "heartRate": 72.6,
           "spo2": 97.2,
-          "respiratoryRate": 15.8,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:35.168260+00:00",
-          "heartRate": 70.4,
-          "spo2": 97.4,
-          "respiratoryRate": 16.2,
+          "respiratoryRate": 15.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:36.163969+00:00",
-          "heartRate": 72.4,
+          "timestamp": "2026-11-13T08:09:03.649001+00:00",
+          "heartRate": 72.1,
+          "spo2": 97.2,
+          "respiratoryRate": 16.3,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.649706+00:00",
+          "heartRate": 71.9,
           "spo2": 97.1,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.662555+00:00",
+          "heartRate": 72.0,
+          "spo2": 96.8,
+          "respiratoryRate": 16.0,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.663123+00:00",
+          "heartRate": 71.0,
+          "spo2": 97.5,
+          "respiratoryRate": 15.9,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.676594+00:00",
+          "heartRate": 71.4,
+          "spo2": 96.7,
+          "respiratoryRate": 16.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.675951+00:00",
+          "heartRate": 71.2,
+          "spo2": 97.4,
           "respiratoryRate": 15.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:37.176900+00:00",
-          "heartRate": 73.0,
-          "spo2": 97.1,
-          "respiratoryRate": 15.6,
+          "timestamp": "2026-11-13T08:09:10.749402+00:00",
+          "heartRate": 68.7,
+          "spo2": 96.9,
+          "respiratoryRate": 15.8,
           "temperature": 36.8,
           "signalQuality": 0.94
         }
@@ -1550,253 +1550,253 @@
       "name": "Albert Bins",
       "age": 46,
       "scenario": "Post-op appendectomy temp trend",
-      "heartRate": 73.2,
-      "spo2": 96.7,
-      "respiratoryRate": 16.5,
-      "temperature": 36.7,
+      "heartRate": 70.9,
+      "spo2": 97.3,
+      "respiratoryRate": 15.6,
+      "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:37.220100+00:00",
+      "lastUpdated": "2026-11-13T08:09:11.761454+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:08.011343+00:00",
-          "heartRate": 72.1,
-          "spo2": 96.5,
-          "respiratoryRate": 15.3,
-          "temperature": 36.8,
+          "timestamp": "2026-11-13T08:08:40.557266+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.0,
+          "respiratoryRate": 15.7,
+          "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:09.019972+00:00",
-          "heartRate": 70.3,
+          "timestamp": "2026-11-13T08:08:41.562786+00:00",
+          "heartRate": 69.8,
           "spo2": 97.4,
-          "respiratoryRate": 16.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.022373+00:00",
-          "heartRate": 72.0,
-          "spo2": 96.8,
-          "respiratoryRate": 16.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.031583+00:00",
-          "heartRate": 70.7,
-          "spo2": 96.6,
-          "respiratoryRate": 15.9,
+          "respiratoryRate": 16.4,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:12.032469+00:00",
-          "heartRate": 70.5,
-          "spo2": 97.2,
-          "respiratoryRate": 15.7,
+          "timestamp": "2026-11-13T08:08:42.564436+00:00",
+          "heartRate": 69.9,
+          "spo2": 96.5,
+          "respiratoryRate": 17.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:13.038916+00:00",
-          "heartRate": 72.5,
-          "spo2": 96.8,
-          "respiratoryRate": 17.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.043313+00:00",
-          "heartRate": 71.5,
-          "spo2": 97.0,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:15.049202+00:00",
-          "heartRate": 72.9,
+          "timestamp": "2026-11-13T08:08:43.580933+00:00",
+          "heartRate": 71.7,
           "spo2": 96.8,
           "respiratoryRate": 16.8,
-          "temperature": 36.8,
+          "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:16.057601+00:00",
-          "heartRate": 73.7,
+          "timestamp": "2026-11-13T08:08:44.584567+00:00",
+          "heartRate": 70.3,
           "spo2": 97.0,
           "respiratoryRate": 15.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:17.101683+00:00",
-          "heartRate": 72.8,
+          "timestamp": "2026-11-13T08:08:45.590792+00:00",
+          "heartRate": 71.8,
+          "spo2": 97.6,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:46.600211+00:00",
+          "heartRate": 73.7,
+          "spo2": 97.3,
+          "respiratoryRate": 15.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:47.611120+00:00",
+          "heartRate": 75.7,
+          "spo2": 97.2,
+          "respiratoryRate": 17.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:48.617087+00:00",
+          "heartRate": 72.6,
           "spo2": 97.2,
           "respiratoryRate": 15.8,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:18.108788+00:00",
-          "heartRate": 72.5,
-          "spo2": 97.2,
+          "timestamp": "2026-11-13T08:08:49.623442+00:00",
+          "heartRate": 71.6,
+          "spo2": 97.0,
+          "respiratoryRate": 14.9,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:50.629110+00:00",
+          "heartRate": 71.5,
+          "spo2": 97.3,
+          "respiratoryRate": 16.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:51.637215+00:00",
+          "heartRate": 73.2,
+          "spo2": 97.4,
+          "respiratoryRate": 16.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:52.650253+00:00",
+          "heartRate": 73.9,
+          "spo2": 96.5,
+          "respiratoryRate": 16.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:53.658260+00:00",
+          "heartRate": 72.7,
+          "spo2": 96.9,
           "respiratoryRate": 16.0,
           "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:19.113297+00:00",
-          "heartRate": 73.1,
-          "spo2": 96.7,
-          "respiratoryRate": 17.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:20.116570+00:00",
-          "heartRate": 72.9,
-          "spo2": 96.9,
-          "respiratoryRate": 15.9,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:21.130110+00:00",
-          "heartRate": 73.4,
-          "spo2": 96.9,
-          "respiratoryRate": 17.5,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.131228+00:00",
-          "heartRate": 71.8,
-          "spo2": 97.2,
+          "timestamp": "2026-11-13T08:08:54.662539+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.3,
           "respiratoryRate": 16.5,
-          "temperature": 36.8,
+          "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:23.138480+00:00",
-          "heartRate": 73.6,
-          "spo2": 97.4,
-          "respiratoryRate": 16.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.144240+00:00",
-          "heartRate": 74.0,
-          "spo2": 96.9,
+          "timestamp": "2026-11-13T08:08:55.673200+00:00",
+          "heartRate": 71.0,
+          "spo2": 97.2,
           "respiratoryRate": 15.6,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:25.152693+00:00",
-          "heartRate": 71.5,
-          "spo2": 96.5,
-          "respiratoryRate": 15.9,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:26.164025+00:00",
-          "heartRate": 71.4,
-          "spo2": 97.3,
-          "respiratoryRate": 15.5,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.170892+00:00",
-          "heartRate": 73.0,
-          "spo2": 96.9,
-          "respiratoryRate": 16.3,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:28.175024+00:00",
-          "heartRate": 70.0,
-          "spo2": 97.2,
-          "respiratoryRate": 15.7,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:29.177185+00:00",
-          "heartRate": 73.1,
-          "spo2": 96.9,
-          "respiratoryRate": 17.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:30.178222+00:00",
-          "heartRate": 71.3,
-          "spo2": 96.9,
-          "respiratoryRate": 16.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.186877+00:00",
-          "heartRate": 72.4,
-          "spo2": 97.7,
-          "respiratoryRate": 15.9,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:32.192641+00:00",
-          "heartRate": 71.0,
-          "spo2": 97.6,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:33.197649+00:00",
-          "heartRate": 72.7,
-          "spo2": 97.2,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:34.201521+00:00",
-          "heartRate": 72.1,
-          "spo2": 97.1,
-          "respiratoryRate": 15.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:35.206539+00:00",
-          "heartRate": 71.1,
-          "spo2": 96.9,
-          "respiratoryRate": 17.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:36.207200+00:00",
+          "timestamp": "2026-11-13T08:08:56.684886+00:00",
           "heartRate": 72.0,
-          "spo2": 97.2,
-          "respiratoryRate": 16.0,
+          "spo2": 97.1,
+          "respiratoryRate": 15.9,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:37.220100+00:00",
-          "heartRate": 73.2,
-          "spo2": 96.7,
-          "respiratoryRate": 16.5,
+          "timestamp": "2026-11-13T08:08:57.689547+00:00",
+          "heartRate": 72.5,
+          "spo2": 96.8,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.690615+00:00",
+          "heartRate": 71.8,
+          "spo2": 97.4,
+          "respiratoryRate": 15.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.696110+00:00",
+          "heartRate": 71.4,
+          "spo2": 96.9,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.700225+00:00",
+          "heartRate": 72.2,
+          "spo2": 97.1,
+          "respiratoryRate": 15.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:01.711290+00:00",
+          "heartRate": 73.3,
+          "spo2": 96.1,
+          "respiratoryRate": 15.5,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:02.722010+00:00",
+          "heartRate": 71.5,
+          "spo2": 96.6,
+          "respiratoryRate": 16.0,
           "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:03.735814+00:00",
+          "heartRate": 72.7,
+          "spo2": 97.0,
+          "respiratoryRate": 15.3,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.737903+00:00",
+          "heartRate": 72.8,
+          "spo2": 97.1,
+          "respiratoryRate": 15.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.739557+00:00",
+          "heartRate": 73.6,
+          "spo2": 96.8,
+          "respiratoryRate": 15.6,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.740906+00:00",
+          "heartRate": 72.2,
+          "spo2": 97.1,
+          "respiratoryRate": 16.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.744140+00:00",
+          "heartRate": 71.3,
+          "spo2": 96.4,
+          "respiratoryRate": 16.1,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.760673+00:00",
+          "heartRate": 72.2,
+          "spo2": 97.7,
+          "respiratoryRate": 17.1,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:11.761454+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.3,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
           "signalQuality": 0.94
         }
       ]
@@ -1807,253 +1807,253 @@
       "name": "Lucie Hackett",
       "age": 21,
       "scenario": "Stable post-op recovery",
-      "heartRate": 72.5,
-      "spo2": 97.4,
-      "respiratoryRate": 15.9,
-      "temperature": 36.9,
+      "heartRate": 71.8,
+      "spo2": 96.4,
+      "respiratoryRate": 15.0,
+      "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:37.281364+00:00",
+      "lastUpdated": "2026-11-13T08:09:12.775805+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:08.100504+00:00",
+          "timestamp": "2026-11-13T08:08:40.584128+00:00",
           "heartRate": 72.8,
           "spo2": 96.8,
-          "respiratoryRate": 16.0,
+          "respiratoryRate": 17.1,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:09.102636+00:00",
-          "heartRate": 72.4,
-          "spo2": 96.4,
-          "respiratoryRate": 16.6,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.105043+00:00",
-          "heartRate": 71.4,
-          "spo2": 96.7,
-          "respiratoryRate": 16.5,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.116822+00:00",
-          "heartRate": 71.9,
-          "spo2": 96.6,
-          "respiratoryRate": 15.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:12.131843+00:00",
-          "heartRate": 70.2,
+          "timestamp": "2026-11-13T08:08:41.568831+00:00",
+          "heartRate": 72.6,
           "spo2": 96.8,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:13.136776+00:00",
-          "heartRate": 71.9,
-          "spo2": 97.2,
-          "respiratoryRate": 16.2,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.141369+00:00",
-          "heartRate": 72.3,
-          "spo2": 97.0,
           "respiratoryRate": 16.3,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:15.148879+00:00",
-          "heartRate": 69.4,
-          "spo2": 97.6,
-          "respiratoryRate": 16.1,
+          "timestamp": "2026-11-13T08:08:42.582134+00:00",
+          "heartRate": 73.2,
+          "spo2": 96.6,
+          "respiratoryRate": 16.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:16.155246+00:00",
-          "heartRate": 69.5,
+          "timestamp": "2026-11-13T08:08:43.586974+00:00",
+          "heartRate": 70.7,
           "spo2": 97.2,
-          "respiratoryRate": 16.6,
-          "temperature": 36.8,
+          "respiratoryRate": 16.3,
+          "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:17.157274+00:00",
-          "heartRate": 69.6,
-          "spo2": 97.0,
-          "respiratoryRate": 16.6,
-          "temperature": 36.8,
+          "timestamp": "2026-11-13T08:08:44.590796+00:00",
+          "heartRate": 73.8,
+          "spo2": 96.2,
+          "respiratoryRate": 16.2,
+          "temperature": 36.9,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:18.158749+00:00",
-          "heartRate": 71.0,
-          "spo2": 97.1,
-          "respiratoryRate": 17.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:19.163049+00:00",
-          "heartRate": 70.3,
-          "spo2": 97.2,
+          "timestamp": "2026-11-13T08:08:45.596714+00:00",
+          "heartRate": 72.8,
+          "spo2": 96.9,
           "respiratoryRate": 16.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:20.165943+00:00",
-          "heartRate": 69.0,
-          "spo2": 97.3,
-          "respiratoryRate": 15.9,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:21.179212+00:00",
-          "heartRate": 73.3,
-          "spo2": 96.8,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.180683+00:00",
-          "heartRate": 72.4,
-          "spo2": 96.8,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:23.189043+00:00",
-          "heartRate": 73.3,
-          "spo2": 97.0,
-          "respiratoryRate": 15.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.193464+00:00",
-          "heartRate": 73.2,
+          "timestamp": "2026-11-13T08:08:46.606444+00:00",
+          "heartRate": 71.8,
           "spo2": 97.2,
-          "respiratoryRate": 16.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:25.200839+00:00",
-          "heartRate": 73.2,
-          "spo2": 96.7,
           "respiratoryRate": 15.4,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:26.204520+00:00",
-          "heartRate": 74.8,
-          "spo2": 96.8,
-          "respiratoryRate": 16.2,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.211766+00:00",
-          "heartRate": 73.8,
-          "spo2": 97.3,
-          "respiratoryRate": 15.1,
+          "timestamp": "2026-11-13T08:08:47.617187+00:00",
+          "heartRate": 70.6,
+          "spo2": 97.2,
+          "respiratoryRate": 16.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:28.216179+00:00",
-          "heartRate": 73.8,
-          "spo2": 96.9,
-          "respiratoryRate": 15.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:29.218050+00:00",
+          "timestamp": "2026-11-13T08:08:48.625178+00:00",
           "heartRate": 73.6,
-          "spo2": 96.8,
-          "respiratoryRate": 17.2,
+          "spo2": 97.2,
+          "respiratoryRate": 16.1,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:30.220180+00:00",
-          "heartRate": 72.8,
-          "spo2": 97.0,
-          "respiratoryRate": 15.2,
+          "timestamp": "2026-11-13T08:08:49.631113+00:00",
+          "heartRate": 74.2,
+          "spo2": 97.2,
+          "respiratoryRate": 17.3,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:31.236822+00:00",
-          "heartRate": 73.9,
-          "spo2": 96.9,
-          "respiratoryRate": 15.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:32.242099+00:00",
-          "heartRate": 72.0,
-          "spo2": 97.4,
+          "timestamp": "2026-11-13T08:08:50.635010+00:00",
+          "heartRate": 73.1,
+          "spo2": 96.5,
           "respiratoryRate": 16.3,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:33.246409+00:00",
-          "heartRate": 72.6,
-          "spo2": 97.0,
-          "respiratoryRate": 16.2,
-          "temperature": 36.9,
+          "timestamp": "2026-11-13T08:08:51.642560+00:00",
+          "heartRate": 73.3,
+          "spo2": 97.5,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:34.249995+00:00",
-          "heartRate": 70.4,
+          "timestamp": "2026-11-13T08:08:52.656112+00:00",
+          "heartRate": 74.2,
           "spo2": 97.3,
-          "respiratoryRate": 16.6,
+          "respiratoryRate": 17.3,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:35.263235+00:00",
-          "heartRate": 72.1,
-          "spo2": 97.2,
-          "respiratoryRate": 16.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:36.272689+00:00",
-          "heartRate": 73.9,
-          "spo2": 97.0,
-          "respiratoryRate": 17.5,
+          "timestamp": "2026-11-13T08:08:53.664152+00:00",
+          "heartRate": 72.5,
+          "spo2": 97.4,
+          "respiratoryRate": 15.4,
           "temperature": 36.7,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:37.281364+00:00",
-          "heartRate": 72.5,
-          "spo2": 97.4,
-          "respiratoryRate": 15.9,
+          "timestamp": "2026-11-13T08:08:54.680360+00:00",
+          "heartRate": 71.9,
+          "spo2": 97.5,
+          "respiratoryRate": 15.7,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.679066+00:00",
+          "heartRate": 73.1,
+          "spo2": 97.3,
+          "respiratoryRate": 15.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.690511+00:00",
+          "heartRate": 69.7,
+          "spo2": 97.7,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:57.699432+00:00",
+          "heartRate": 71.5,
+          "spo2": 97.5,
+          "respiratoryRate": 15.5,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.696497+00:00",
+          "heartRate": 70.8,
+          "spo2": 97.1,
+          "respiratoryRate": 15.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.702739+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.2,
+          "respiratoryRate": 16.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.707733+00:00",
+          "heartRate": 71.3,
+          "spo2": 96.8,
+          "respiratoryRate": 15.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:01.717532+00:00",
+          "heartRate": 71.5,
+          "spo2": 96.5,
+          "respiratoryRate": 16.2,
           "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:02.728359+00:00",
+          "heartRate": 72.7,
+          "spo2": 96.8,
+          "respiratoryRate": 16.7,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:03.741534+00:00",
+          "heartRate": 73.2,
+          "spo2": 96.6,
+          "respiratoryRate": 16.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.743703+00:00",
+          "heartRate": 74.3,
+          "spo2": 97.0,
+          "respiratoryRate": 16.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.747669+00:00",
+          "heartRate": 71.9,
+          "spo2": 96.7,
+          "respiratoryRate": 15.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.747548+00:00",
+          "heartRate": 71.9,
+          "spo2": 96.2,
+          "respiratoryRate": 17.0,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.750956+00:00",
+          "heartRate": 71.6,
+          "spo2": 97.0,
+          "respiratoryRate": 16.9,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.766692+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.0,
+          "respiratoryRate": 16.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:12.775805+00:00",
+          "heartRate": 71.8,
+          "spo2": 96.4,
+          "respiratoryRate": 15.0,
+          "temperature": 36.8,
           "signalQuality": 0.94
         }
       ]
@@ -2064,253 +2064,253 @@
       "name": "Jarrett Mraz",
       "age": 62,
       "scenario": "Acute NSTEMI / Cardiac history",
-      "heartRate": 72.4,
+      "heartRate": 73.9,
       "spo2": 96.9,
-      "respiratoryRate": 16.1,
-      "temperature": 36.8,
+      "respiratoryRate": 16.5,
+      "temperature": 36.9,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:36.380568+00:00",
+      "lastUpdated": "2026-11-13T08:09:13.790947+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.189596+00:00",
-          "heartRate": 72.3,
-          "spo2": 96.6,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:08.200041+00:00",
-          "heartRate": 72.3,
-          "spo2": 97.5,
-          "respiratoryRate": 16.4,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:09.203359+00:00",
-          "heartRate": 72.4,
-          "spo2": 97.4,
-          "respiratoryRate": 16.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.213216+00:00",
-          "heartRate": 71.1,
-          "spo2": 97.8,
-          "respiratoryRate": 16.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.216923+00:00",
-          "heartRate": 74.2,
-          "spo2": 97.3,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:12.223837+00:00",
-          "heartRate": 75.3,
-          "spo2": 96.8,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:13.227549+00:00",
-          "heartRate": 72.6,
-          "spo2": 97.0,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.232248+00:00",
-          "heartRate": 72.8,
-          "spo2": 96.7,
-          "respiratoryRate": 16.6,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:15.240167+00:00",
-          "heartRate": 70.7,
+          "timestamp": "2026-11-13T08:08:40.770630+00:00",
+          "heartRate": 74.5,
           "spo2": 96.9,
-          "respiratoryRate": 15.8,
-          "temperature": 36.6,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:16.251457+00:00",
-          "heartRate": 71.8,
-          "spo2": 97.1,
-          "respiratoryRate": 16.7,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:17.257268+00:00",
-          "heartRate": 72.3,
-          "spo2": 96.7,
-          "respiratoryRate": 16.3,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:18.274148+00:00",
-          "heartRate": 72.3,
-          "spo2": 96.7,
-          "respiratoryRate": 17.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:19.277831+00:00",
-          "heartRate": 72.9,
-          "spo2": 96.9,
-          "respiratoryRate": 15.7,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:20.281845+00:00",
-          "heartRate": 73.9,
-          "spo2": 97.2,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:21.285781+00:00",
-          "heartRate": 73.0,
-          "spo2": 97.0,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.289075+00:00",
-          "heartRate": 72.7,
-          "spo2": 96.6,
-          "respiratoryRate": 15.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:23.293262+00:00",
-          "heartRate": 74.0,
-          "spo2": 96.9,
-          "respiratoryRate": 16.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.301756+00:00",
-          "heartRate": 72.8,
-          "spo2": 96.7,
           "respiratoryRate": 16.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:25.307436+00:00",
-          "heartRate": 70.8,
-          "spo2": 97.0,
-          "respiratoryRate": 15.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:26.312584+00:00",
-          "heartRate": 72.4,
-          "spo2": 96.6,
-          "respiratoryRate": 13.9,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.319021+00:00",
-          "heartRate": 74.4,
+          "timestamp": "2026-11-13T08:08:41.784750+00:00",
+          "heartRate": 73.8,
           "spo2": 96.9,
-          "respiratoryRate": 16.7,
+          "respiratoryRate": 15.8,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:28.330941+00:00",
-          "heartRate": 72.2,
-          "spo2": 96.4,
+          "timestamp": "2026-11-13T08:08:42.785274+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.4,
+          "respiratoryRate": 14.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:43.795050+00:00",
+          "heartRate": 72.1,
+          "spo2": 96.7,
+          "respiratoryRate": 15.4,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:44.796420+00:00",
+          "heartRate": 71.7,
+          "spo2": 97.2,
           "respiratoryRate": 16.3,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:45.804493+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.0,
+          "respiratoryRate": 16.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:29.334051+00:00",
+          "timestamp": "2026-11-13T08:08:46.812892+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.0,
+          "respiratoryRate": 16.1,
+          "temperature": 36.6,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:47.824229+00:00",
+          "heartRate": 73.1,
+          "spo2": 96.9,
+          "respiratoryRate": 16.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:48.838259+00:00",
+          "heartRate": 71.5,
+          "spo2": 96.9,
+          "respiratoryRate": 14.5,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:49.842324+00:00",
+          "heartRate": 70.8,
+          "spo2": 97.2,
+          "respiratoryRate": 15.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:50.848550+00:00",
+          "heartRate": 72.6,
+          "spo2": 96.4,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:51.856908+00:00",
+          "heartRate": 73.6,
+          "spo2": 96.8,
+          "respiratoryRate": 16.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:52.863554+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.4,
+          "respiratoryRate": 15.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:53.878479+00:00",
+          "heartRate": 70.2,
+          "spo2": 96.8,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:54.883856+00:00",
+          "heartRate": 69.6,
+          "spo2": 96.7,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.895243+00:00",
+          "heartRate": 73.7,
+          "spo2": 96.9,
+          "respiratoryRate": 15.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.899316+00:00",
+          "heartRate": 72.4,
+          "spo2": 97.1,
+          "respiratoryRate": 15.9,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:57.900895+00:00",
+          "heartRate": 73.6,
+          "spo2": 96.4,
+          "respiratoryRate": 16.5,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.906640+00:00",
+          "heartRate": 71.9,
+          "spo2": 96.9,
+          "respiratoryRate": 16.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.912767+00:00",
+          "heartRate": 70.7,
+          "spo2": 97.1,
+          "respiratoryRate": 15.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.917291+00:00",
           "heartRate": 72.7,
-          "spo2": 96.6,
+          "spo2": 96.4,
           "respiratoryRate": 15.6,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:30.336400+00:00",
-          "heartRate": 74.4,
-          "spo2": 96.4,
-          "respiratoryRate": 16.7,
-          "temperature": 36.7,
+          "timestamp": "2026-11-13T08:09:01.926316+00:00",
+          "heartRate": 72.1,
+          "spo2": 96.5,
+          "respiratoryRate": 15.2,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:31.344862+00:00",
-          "heartRate": 72.8,
-          "spo2": 96.8,
-          "respiratoryRate": 15.7,
-          "temperature": 36.7,
+          "timestamp": "2026-11-13T08:09:02.935032+00:00",
+          "heartRate": 73.9,
+          "spo2": 97.4,
+          "respiratoryRate": 15.8,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:32.358464+00:00",
-          "heartRate": 73.6,
-          "spo2": 97.2,
-          "respiratoryRate": 15.9,
-          "temperature": 36.7,
+          "timestamp": "2026-11-13T08:09:03.945861+00:00",
+          "heartRate": 70.2,
+          "spo2": 97.1,
+          "respiratoryRate": 15.3,
+          "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:33.360975+00:00",
-          "heartRate": 72.2,
-          "spo2": 96.8,
+          "timestamp": "2026-11-13T08:09:04.950971+00:00",
+          "heartRate": 70.4,
+          "spo2": 96.9,
           "respiratoryRate": 16.8,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:34.374191+00:00",
-          "heartRate": 72.3,
-          "spo2": 96.7,
-          "respiratoryRate": 16.3,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:35.377790+00:00",
-          "heartRate": 73.4,
-          "spo2": 96.8,
-          "respiratoryRate": 15.6,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:36.380568+00:00",
-          "heartRate": 72.4,
+          "timestamp": "2026-11-13T08:09:05.960246+00:00",
+          "heartRate": 69.5,
           "spo2": 96.9,
-          "respiratoryRate": 16.1,
+          "respiratoryRate": 17.0,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.961279+00:00",
+          "heartRate": 72.6,
+          "spo2": 96.5,
+          "respiratoryRate": 16.5,
           "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.963376+00:00",
+          "heartRate": 73.0,
+          "spo2": 97.1,
+          "respiratoryRate": 16.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.971511+00:00",
+          "heartRate": 74.6,
+          "spo2": 97.1,
+          "respiratoryRate": 15.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:13.790947+00:00",
+          "heartRate": 73.9,
+          "spo2": 96.9,
+          "respiratoryRate": 16.5,
+          "temperature": 36.9,
           "signalQuality": 0.94
         }
       ]
@@ -2322,251 +2322,251 @@
       "age": 27,
       "scenario": "COVID-19 / Sensor comparison",
       "heartRate": 74.9,
-      "spo2": 97.3,
-      "respiratoryRate": 15.1,
+      "spo2": 96.5,
+      "respiratoryRate": 16.2,
       "temperature": 36.8,
       "signalQuality": 0.94,
       "sensorStatus": "CONNECTED",
       "priority": "P3",
-      "lastUpdated": "2026-11-13T08:05:36.388220+00:00",
+      "lastUpdated": "2026-11-13T08:09:14.809038+00:00",
       "history": [
         {
-          "timestamp": "2026-11-13T08:05:07.195392+00:00",
-          "heartRate": 72.9,
-          "spo2": 97.5,
-          "respiratoryRate": 16.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:08.223133+00:00",
-          "heartRate": 72.5,
-          "spo2": 97.7,
-          "respiratoryRate": 16.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:09.219873+00:00",
-          "heartRate": 73.3,
-          "spo2": 96.6,
-          "respiratoryRate": 16.0,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:10.239260+00:00",
-          "heartRate": 71.7,
-          "spo2": 97.3,
-          "respiratoryRate": 14.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:11.222998+00:00",
-          "heartRate": 70.8,
-          "spo2": 97.4,
+          "timestamp": "2026-11-13T08:08:40.778348+00:00",
+          "heartRate": 71.9,
+          "spo2": 97.0,
           "respiratoryRate": 16.4,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:12.228896+00:00",
-          "heartRate": 73.0,
+          "timestamp": "2026-11-13T08:08:41.789763+00:00",
+          "heartRate": 72.3,
+          "spo2": 96.7,
+          "respiratoryRate": 14.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:42.793231+00:00",
+          "heartRate": 70.7,
           "spo2": 97.2,
+          "respiratoryRate": 14.7,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:43.802078+00:00",
+          "heartRate": 71.5,
+          "spo2": 97.4,
+          "respiratoryRate": 15.6,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:44.804214+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.0,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:45.811166+00:00",
+          "heartRate": 72.3,
+          "spo2": 97.3,
+          "respiratoryRate": 16.8,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:46.820233+00:00",
+          "heartRate": 70.1,
+          "spo2": 97.1,
+          "respiratoryRate": 16.2,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:47.831390+00:00",
+          "heartRate": 70.4,
+          "spo2": 96.8,
+          "respiratoryRate": 15.8,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:48.844742+00:00",
+          "heartRate": 71.7,
+          "spo2": 96.4,
+          "respiratoryRate": 15.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:49.848415+00:00",
+          "heartRate": 72.3,
+          "spo2": 96.5,
           "respiratoryRate": 17.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:13.233067+00:00",
-          "heartRate": 71.5,
-          "spo2": 96.6,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:14.238538+00:00",
-          "heartRate": 73.5,
-          "spo2": 96.9,
-          "respiratoryRate": 17.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:15.266312+00:00",
-          "heartRate": 72.5,
-          "spo2": 97.0,
-          "respiratoryRate": 15.8,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:16.271360+00:00",
-          "heartRate": 71.1,
+          "timestamp": "2026-11-13T08:08:50.854176+00:00",
+          "heartRate": 72.4,
           "spo2": 96.7,
-          "respiratoryRate": 16.1,
+          "respiratoryRate": 16.5,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:17.274699+00:00",
-          "heartRate": 71.9,
-          "spo2": 97.0,
-          "respiratoryRate": 15.4,
+          "timestamp": "2026-11-13T08:08:51.862592+00:00",
+          "heartRate": 71.7,
+          "spo2": 96.7,
+          "respiratoryRate": 16.3,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:18.281106+00:00",
-          "heartRate": 71.2,
-          "spo2": 96.4,
-          "respiratoryRate": 14.3,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:19.283120+00:00",
-          "heartRate": 72.2,
-          "spo2": 96.8,
-          "respiratoryRate": 15.5,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:20.299857+00:00",
-          "heartRate": 70.9,
-          "spo2": 97.5,
-          "respiratoryRate": 15.5,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:21.291790+00:00",
-          "heartRate": 72.8,
-          "spo2": 97.0,
-          "respiratoryRate": 16.4,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:22.295615+00:00",
-          "heartRate": 69.8,
-          "spo2": 97.2,
-          "respiratoryRate": 16.1,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:23.298085+00:00",
-          "heartRate": 70.0,
+          "timestamp": "2026-11-13T08:08:52.868855+00:00",
+          "heartRate": 72.6,
           "spo2": 97.1,
-          "respiratoryRate": 18.1,
-          "temperature": 36.9,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:24.308103+00:00",
-          "heartRate": 69.6,
-          "spo2": 96.8,
-          "respiratoryRate": 16.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:25.337949+00:00",
-          "heartRate": 71.4,
-          "spo2": 97.1,
-          "respiratoryRate": 16.0,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:26.317628+00:00",
-          "heartRate": 73.3,
-          "spo2": 97.0,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:27.324279+00:00",
-          "heartRate": 70.6,
-          "spo2": 96.6,
-          "respiratoryRate": 16.2,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:28.339236+00:00",
-          "heartRate": 72.5,
-          "spo2": 97.4,
-          "respiratoryRate": 15.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:29.340527+00:00",
-          "heartRate": 71.9,
-          "spo2": 97.0,
-          "respiratoryRate": 16.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:30.341681+00:00",
-          "heartRate": 70.2,
-          "spo2": 97.3,
-          "respiratoryRate": 15.7,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:31.351764+00:00",
-          "heartRate": 71.3,
-          "spo2": 97.3,
-          "respiratoryRate": 17.8,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:32.364591+00:00",
-          "heartRate": 72.1,
-          "spo2": 97.5,
-          "respiratoryRate": 14.8,
-          "temperature": 36.7,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:33.369600+00:00",
-          "heartRate": 72.3,
-          "spo2": 97.0,
-          "respiratoryRate": 16.1,
-          "temperature": 36.8,
-          "signalQuality": 0.94
-        },
-        {
-          "timestamp": "2026-11-13T08:05:34.392893+00:00",
-          "heartRate": 73.8,
-          "spo2": 97.7,
           "respiratoryRate": 16.7,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:35.384266+00:00",
-          "heartRate": 73.9,
-          "spo2": 97.0,
-          "respiratoryRate": 16.2,
+          "timestamp": "2026-11-13T08:08:53.915412+00:00",
+          "heartRate": 71.7,
+          "spo2": 96.9,
+          "respiratoryRate": 15.0,
           "temperature": 36.8,
           "signalQuality": 0.94
         },
         {
-          "timestamp": "2026-11-13T08:05:36.388220+00:00",
-          "heartRate": 74.9,
-          "spo2": 97.3,
+          "timestamp": "2026-11-13T08:08:54.909834+00:00",
+          "heartRate": 71.8,
+          "spo2": 96.8,
+          "respiratoryRate": 14.9,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:55.903268+00:00",
+          "heartRate": 74.3,
+          "spo2": 96.9,
+          "respiratoryRate": 15.4,
+          "temperature": 36.7,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:56.905784+00:00",
+          "heartRate": 73.2,
+          "spo2": 96.8,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:57.906811+00:00",
+          "heartRate": 73.9,
+          "spo2": 96.6,
+          "respiratoryRate": 16.4,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:58.912109+00:00",
+          "heartRate": 69.9,
+          "spo2": 96.7,
+          "respiratoryRate": 14.8,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:08:59.919052+00:00",
+          "heartRate": 71.7,
+          "spo2": 97.2,
+          "respiratoryRate": 16.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:00.943895+00:00",
+          "heartRate": 72.6,
+          "spo2": 97.4,
+          "respiratoryRate": 15.6,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:01.944493+00:00",
+          "heartRate": 71.7,
+          "spo2": 97.0,
           "respiratoryRate": 15.1,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:02.953041+00:00",
+          "heartRate": 70.4,
+          "spo2": 96.6,
+          "respiratoryRate": 16.1,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:03.951553+00:00",
+          "heartRate": 72.4,
+          "spo2": 96.7,
+          "respiratoryRate": 16.3,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:04.968548+00:00",
+          "heartRate": 72.7,
+          "spo2": 97.0,
+          "respiratoryRate": 17.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:05.968152+00:00",
+          "heartRate": 71.8,
+          "spo2": 97.7,
+          "respiratoryRate": 16.4,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:06.968669+00:00",
+          "heartRate": 70.2,
+          "spo2": 96.9,
+          "respiratoryRate": 16.6,
+          "temperature": 36.9,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:07.970239+00:00",
+          "heartRate": 73.5,
+          "spo2": 97.2,
+          "respiratoryRate": 15.0,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:08.979345+00:00",
+          "heartRate": 70.9,
+          "spo2": 97.2,
+          "respiratoryRate": 16.1,
+          "temperature": 36.8,
+          "signalQuality": 0.94
+        },
+        {
+          "timestamp": "2026-11-13T08:09:14.809038+00:00",
+          "heartRate": 74.9,
+          "spo2": 96.5,
+          "respiratoryRate": 16.2,
           "temperature": 36.8,
           "signalQuality": 0.94
         }

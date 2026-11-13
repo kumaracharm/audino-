@@ -49,41 +49,49 @@ class ClinicalAudioBuzzer {
   }
 
   /**
-   * Triggers the exact medical alert buzzer sequence:
-   * 3 buzzes spaced 5 seconds apart (t=0s, t=5s, t=10s)
+   * Triggers continuous hospital telemetry alarm until clinical attention is provided.
+   * Repeats triple-pulse alarm every 5 seconds indefinitely until clinician explicitly attends.
    */
-  public triggerThreeBuzzSequence(onProgress?: (buzzIndex: number) => void) {
+  public triggerContinuousAlarmUntilAttended(onProgress?: (cycleIndex: number) => void) {
     this.cancelBuzzerSequence();
     if (this.isMuted) return;
 
     this.currentBuzzIndex = 1;
     this.playP0Buzzer();
     if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
-      try { navigator.vibrate([200, 100, 200]); } catch {}
+      try { navigator.vibrate([300, 150, 300, 150, 400]); } catch {}
     }
     onProgress?.(1);
     this.buzzSubscriber?.(1, true);
 
     this.activeIntervalId = setInterval(() => {
-      this.currentBuzzIndex++;
-      if (this.currentBuzzIndex > 3 || this.isMuted) {
+      if (this.isMuted) {
         this.cancelBuzzerSequence();
         return;
       }
 
+      this.currentBuzzIndex++;
       this.playP0Buzzer();
       if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
-        try { navigator.vibrate([200, 100, 200]); } catch {}
+        try { navigator.vibrate([300, 150, 300, 150, 400]); } catch {}
       }
       onProgress?.(this.currentBuzzIndex);
       this.buzzSubscriber?.(this.currentBuzzIndex, true);
-
-      if (this.currentBuzzIndex >= 3) {
-        setTimeout(() => {
-          this.cancelBuzzerSequence();
-        }, 1500);
-      }
     }, 5000);
+  }
+
+  /**
+   * Legacy alias: triggers continuous alarm until attention is provided
+   */
+  public triggerThreeBuzzSequence(onProgress?: (buzzIndex: number) => void) {
+    this.triggerContinuousAlarmUntilAttended(onProgress);
+  }
+
+  /**
+   * Clinician explicitly provides attention / acknowledges, immediately silencing the alarm
+   */
+  public provideAttention() {
+    this.cancelBuzzerSequence();
   }
 
   public cancelBuzzerSequence() {

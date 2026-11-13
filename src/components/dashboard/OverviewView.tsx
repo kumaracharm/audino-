@@ -179,22 +179,22 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
         </div>
       )}
 
-      {/* 2. PHEON / WARD ATTENDANT SIMPLE OPERATIONAL BAR */}
+      {/* 2. COMMUNITY HEALTH WORKER / TELE-ATTENDANT SIMPLE OPERATIONAL BAR */}
       {currentUser?.role === 'pheon' && (
         <div className="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-3">
             <UserCheck className="w-5 h-5 text-emerald-700 shrink-0" />
             <div>
               <span className="font-bold text-emerald-900 text-xs block">
-                Ward A Operational First-Response: 4 Patients Assigned
+                Post-Discharge Remote Cohort: 4 Home Patients Assigned
               </span>
               <p className="text-[11px] text-emerald-800 mt-0.5">
-                Monitor wearable connectivity and missed morning updates. Do not diagnose — escalate urgent alerts immediately.
+                Monitor wearable connectivity and missed home check-in updates. Do not diagnose — escalate urgent alerts immediately.
               </p>
             </div>
           </div>
           <button
-            onClick={() => alert("Nurse Sarah Jenkins, RN notified: Attendant Marcus Ward flagged Ward A review.")}
+            onClick={() => alert("Nurse Sarah Jenkins, RN notified: Attendant flagged post-discharge patient review.")}
             className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all flex items-center gap-1.5 shadow shrink-0 cursor-pointer"
           >
             <PhoneCall className="w-3.5 h-3.5" />

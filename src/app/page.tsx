@@ -14,9 +14,13 @@ import {
   Priority, 
   ShowcaseAct,
   UserSession,
-  DailyCheckin
+  DailyCheckin,
+  DoctorShiftSession,
+  DoctorShiftFeedback
 } from "@/types";
 import { clinicalBuzzer } from "@/lib/audio-buzzer";
+import { Stethoscope } from "lucide-react";
+import { DoctorShiftModal } from "@/components/clinical/DoctorShiftModal";
 
 import { Sidebar, NavPage } from "@/components/layout/Sidebar";
 import { TopNav } from "@/components/layout/TopNav";
@@ -182,6 +186,29 @@ export default function HealthGuardDashboard() {
   const [isBuzzerMuted, setIsBuzzerMuted] = useState<boolean>(false);
   const [buzzCount, setBuzzCount] = useState<number>(0);
   const [isBuzzActive, setIsBuzzActive] = useState<boolean>(false);
+  const [isShiftModalOpen, setIsShiftModalOpen] = useState<boolean>(false);
+  const [currentShift, setCurrentShift] = useState<DoctorShiftSession>({
+    id: 'SHIFT-20261113-01',
+    doctorName: 'Dr. Arthur Chen, MD',
+    doctorId: 'dr_chen',
+    shiftType: 'Morning Shift (08:00 - 16:00)',
+    startTime: '08:00 AM UTC+5:30',
+    status: 'active',
+    reviewedPatientIds: ['HG-002', 'HG-003'],
+    feedbackList: [
+      {
+        id: 'FB-001',
+        patientId: 'HG-002',
+        timestamp: '09:15 AM',
+        doctorName: 'Dr. Arthur Chen, MD',
+        clinicalImpression: 'Stable recovery under home oxygen protocol. SpO2 maintained 90-92% (COPD target).',
+        actionPlan: 'Continue current bronchodilator regimen.',
+        prescriptionsOrOrders: 'Tiotropium 18mcg daily',
+        handoverDirective: 'Monitor morning check-in adherence.',
+        urgencyResolved: true,
+      }
+    ],
+  });
 
   useEffect(() => {
     clinicalBuzzer.onBuzzUpdate((count, active) => {
@@ -412,11 +439,77 @@ export default function HealthGuardDashboard() {
       ...prev.slice(0, 19),
     ]);
 
-    // Fire audible hospital telemetry alarm buzzer (3 buzzes, every 5s)!
-    clinicalBuzzer.triggerThreeBuzzSequence();
+    // Fire audible hospital telemetry alarm buzzer (repeats continuously until attention is provided)!
+    clinicalBuzzer.triggerContinuousAlarmUntilAttended();
 
     showNotification(
-      `🚨 P0 CRITICAL INJECTED: Patient ${targetId} deteriorated (HR 136, RR 28, SpO₂ 89%, Temp 38.6°C). Zero-queue buzzer alert active!`
+      `🚨 P0 CRITICAL INJECTED: Patient ${targetId} deteriorated (HR 136, RR 28, SpO₂ 89%, Temp 38.6°C). Alarm repeating until clinical attention is provided!`
+    );
+  };
+
+  const handleOpenDoctorShiftForAttention = (patientId?: string) => {
+    if (patientId) {
+      setSelectedPatientId(patientId);
+    }
+    clinicalBuzzer.provideAttention();
+    setIsBuzzActive(false);
+    setIsShiftModalOpen(true);
+  };
+
+  const handleDoctorSubmitFeedback = (feedbackData: Omit<DoctorShiftFeedback, 'id' | 'timestamp'>) => {
+    const newFeedback: DoctorShiftFeedback = {
+      id: `FB-${Date.now().toString().slice(-4)}`,
+      timestamp: new Date().toLocaleTimeString(),
+      ...feedbackData,
+    };
+
+    setCurrentShift((prev) => ({
+      ...prev,
+      reviewedPatientIds: Array.from(new Set([...prev.reviewedPatientIds, feedbackData.patientId])),
+      feedbackList: [newFeedback, ...prev.feedbackList],
+    }));
+
+    // If this was a P0 locked patient and urgency was resolved, release lock and de-escalate vitals
+    if (feedbackData.urgencyResolved && p0LockedPatientIds.includes(feedbackData.patientId)) {
+      setP0LockedPatientIds((prev) => prev.filter((id) => id !== feedbackData.patientId));
+      setPatients((prev) =>
+        prev.map((p) => {
+          if (p.id === feedbackData.patientId) {
+            const resolvedReading: VitalReading = {
+              timestamp: new Date().toISOString(),
+              heartRate: 88,
+              respiratoryRate: 18,
+              spo2: 95,
+              temperature: 37.1,
+            };
+            return {
+              ...p,
+              priority: 'P1',
+              currentVitals: resolvedReading,
+              lastObservation: resolvedReading.timestamp,
+              vitalHistory: [...p.vitalHistory.slice(1), resolvedReading],
+            };
+          }
+          return p;
+        })
+      );
+    }
+
+    // Append clinical note activity
+    setActivityEvents((prev) => [
+      {
+        id: `EVT-${Date.now().toString().slice(-4)}`,
+        timestamp: new Date().toISOString(),
+        type: 'assessment',
+        message: `Dr. Arthur Chen submitted shift feedback for ${feedbackData.patientId}: "${feedbackData.clinicalImpression.slice(0, 60)}..."`,
+        patientId: feedbackData.patientId,
+        isDemo: true,
+      },
+      ...prev.slice(0, 19),
+    ]);
+
+    showNotification(
+      `Physician Feedback Recorded for ${feedbackData.patientId}. Patient marked as Clinician Attended.`
     );
   };
 
@@ -591,26 +684,36 @@ export default function HealthGuardDashboard() {
             onInjectP0={() => handleSimulateUrgentEvent(selectedPatientId)}
             isMuted={isBuzzerMuted}
             onToggleMute={handleToggleBuzzerMute}
+            currentShift={currentShift}
+            onOpenShiftModal={() => setIsShiftModalOpen(true)}
           />
 
-          {/* CRITICAL ALERT BUZZER LIVE BANNER (3 Buzzes every 5s) */}
+          {/* CRITICAL ALERT BUZZER LIVE BANNER (CONTINUOUS ALARM UNTIL ATTENTION PROVIDED) */}
           {isBuzzActive && (
             <div className="bg-[#E45D58] text-white px-6 py-2.5 flex items-center justify-between text-xs font-bold shadow-md sticky top-16 z-30">
               <div className="flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-white shrink-0 animate-ping" />
                 <span>
-                  CRITICAL TELEMETRY ALERT: Priority P0 Physiological Decompensation Active · Alarm Buzzer (Pulse {buzzCount} of 3, 5s cadence)
+                  🚨 CRITICAL TELEMETRY ALERT: Priority P0 Decompensation Active · Alarm Repeating (Pulse #{buzzCount}, every 5s until clinical attention is provided)
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <button
+                  onClick={() => handleOpenDoctorShiftForAttention(p0LockedPatientIds[0] || selectedPatientId)}
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white text-[#E45D58] hover:bg-[#F7F8F3] rounded-lg font-bold text-xs transition-colors cursor-pointer shadow-xs active:scale-98"
+                >
+                  <Stethoscope className="w-3.5 h-3.5" />
+                  <span>Provide Clinical Attention</span>
+                </button>
+                <button
                   onClick={() => {
-                    clinicalBuzzer.cancelBuzzerSequence();
+                    clinicalBuzzer.provideAttention();
                     setIsBuzzActive(false);
                   }}
-                  className="px-3 py-1 bg-white text-[#E45D58] hover:bg-[#F7F8F3] rounded-lg font-bold text-xs transition-colors cursor-pointer shadow-xs active:scale-98"
+                  className="px-2.5 py-1.5 bg-red-700/60 hover:bg-red-700 text-white rounded-lg font-semibold text-xs transition-colors cursor-pointer"
+                  title="Silence audible buzzer"
                 >
-                  Acknowledge & Mute Buzzer
+                  Mute Tone
                 </button>
               </div>
             </div>
@@ -662,6 +765,7 @@ export default function HealthGuardDashboard() {
                   onSimulateAbnormalObservation={handleSimulateUrgentEvent}
                   isMounted={isMounted}
                   checkins={checkins}
+                  onOpenDoctorShiftModal={(pId) => handleOpenDoctorShiftForAttention(pId)}
                 />
               )}
 
@@ -729,6 +833,7 @@ export default function HealthGuardDashboard() {
         onSimulateNewObservation={handleSimulateNormalReading}
         onSimulateDeterioration={handleSimulateUrgentEvent}
         isMounted={isMounted}
+        onOpenDoctorFeedback={(pId) => handleOpenDoctorShiftForAttention(pId)}
       />
 
       {/* DEMO CONTROLS MODAL */}
@@ -756,6 +861,22 @@ export default function HealthGuardDashboard() {
         }}
         fhirOutage={fhirOutage}
         onResetDemo={handleResetDemo}
+      />
+
+      {/* DOCTOR SHIFT SESSION & CLINICAL FEEDBACK MODAL */}
+      <DoctorShiftModal
+        isOpen={isShiftModalOpen}
+        onClose={() => setIsShiftModalOpen(false)}
+        currentUser={currentUser}
+        currentShift={currentShift}
+        patients={patients}
+        activePatientId={selectedPatientId}
+        onProvideFeedback={handleDoctorSubmitFeedback}
+        isAlarmActive={isBuzzActive}
+        onSilenceAlarm={() => {
+          clinicalBuzzer.provideAttention();
+          setIsBuzzActive(false);
+        }}
       />
     </div>
   );

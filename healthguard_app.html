@@ -859,7 +859,7 @@ function navigate(tabId) {
     subtitle.textContent = 'Fast, simple mobile-first morning assessment';
     renderPatientCheckinView(content);
   } else if (tabId === 'patients') {
-    title.textContent = currentRole === 'pheon' ? 'Assigned Ward Patients' : (currentRole === 'doctor' ? 'Clinical Decision Support Workspace' : 'Patient Monitoring Workspace');
+    title.textContent = currentRole === 'pheon' ? 'Assigned Remote Patients' : (currentRole === 'doctor' ? 'Clinical Decision Support Workspace' : 'Patient Monitoring Workspace');
     subtitle.textContent = currentRole === 'pheon' ? 'Operational first-response and escalation triage' : 'Real-time telemetry and deterioration tracking';
     renderPatientsListView(content);
   } else if (tabId === 'digital_twin') {

@@ -15,7 +15,8 @@ import {
   Clock,
   Layers,
   Sparkles,
-  Download
+  Download,
+  Stethoscope
 } from 'lucide-react';
 import { Patient, Priority } from '@/types';
 import { calculateScore } from '@/lib/scoring';
@@ -31,6 +32,7 @@ interface PatientDetailDrawerProps {
   onSimulateNewObservation: () => void;
   onSimulateDeterioration: () => void;
   isMounted: boolean;
+  onOpenDoctorFeedback?: (patientId: string) => void;
 }
 
 export const PatientDetailDrawer: React.FC<PatientDetailDrawerProps> = ({
@@ -41,6 +43,7 @@ export const PatientDetailDrawer: React.FC<PatientDetailDrawerProps> = ({
   onSimulateNewObservation,
   onSimulateDeterioration,
   isMounted,
+  onOpenDoctorFeedback,
 }) => {
   if (!isOpen || !patient) return null;
 
@@ -214,23 +217,39 @@ export const PatientDetailDrawer: React.FC<PatientDetailDrawerProps> = ({
         </div>
 
         {/* Drawer Action Footer */}
-        <div className="p-5 border-t border-[#E7ECE6] bg-[#FAFBF8] flex items-center justify-between gap-3">
-          <a
-            href={`/api/patients/${patient.id}/fhir-export`}
-            download={`fhir-bundle-${patient.id}.json`}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white text-blue-700 border border-blue-200 hover:bg-blue-50 transition-all cursor-pointer"
-            title="Download authorized FHIR bundle"
-          >
-            <Download className="w-3.5 h-3.5 text-blue-600" />
-            <span>FHIR R4</span>
-          </a>
+        <div className="p-5 border-t border-[#E7ECE6] bg-[#FAFBF8] flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <a
+              href={`/api/patients/${patient.id}/fhir-export`}
+              download={`fhir-bundle-${patient.id}.json`}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white text-blue-700 border border-blue-200 hover:bg-blue-50 transition-all cursor-pointer"
+              title="Download authorized FHIR bundle"
+            >
+              <Download className="w-3.5 h-3.5 text-blue-600" />
+              <span>FHIR R4</span>
+            </a>
+
+            {onOpenDoctorFeedback && (
+              <button
+                onClick={() => {
+                  onOpenDoctorFeedback(patient.id);
+                  onClose();
+                }}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-[#16866A]/10 text-[#16866A] border border-[#16866A]/30 hover:bg-[#16866A] hover:text-white transition-all cursor-pointer"
+                title="Enter physician impression & action directives"
+              >
+                <Stethoscope className="w-3.5 h-3.5" />
+                <span>Provide Shift Feedback</span>
+              </button>
+            )}
+          </div>
 
           <button
             onClick={() => {
               onNavigateToFullDetail(patient.id);
               onClose();
             }}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#16866A] text-white hover:bg-[#126b55] text-xs font-bold transition-all shadow-xs cursor-pointer active:scale-98"
+            className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#16866A] text-white hover:bg-[#126b55] text-xs font-bold transition-all shadow-xs cursor-pointer active:scale-98"
           >
             <span>Open Dedicated Patient Workspace</span>
             <ChevronRight className="w-4 h-4" />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Bell, SlidersHorizontal, Sparkles, LogOut, UserCheck, AlertTriangle, Volume2, VolumeX } from 'lucide-react';
+import { Search, Bell, SlidersHorizontal, Sparkles, LogOut, UserCheck, AlertTriangle, Volume2, VolumeX, Stethoscope, Clock } from 'lucide-react';
 import { NavPage } from './Sidebar';
-import { UserSession } from '@/types';
+import { UserSession, DoctorShiftSession } from '@/types';
 
 interface TopNavProps {
   currentPage: NavPage;
@@ -16,6 +16,8 @@ interface TopNavProps {
   onInjectP0?: () => void;
   isMuted?: boolean;
   onToggleMute?: () => void;
+  currentShift?: DoctorShiftSession;
+  onOpenShiftModal?: () => void;
 }
 
 export const TopNav: React.FC<TopNavProps> = ({
@@ -31,6 +33,8 @@ export const TopNav: React.FC<TopNavProps> = ({
   onInjectP0,
   isMuted = false,
   onToggleMute,
+  currentShift,
+  onOpenShiftModal,
 }) => {
   const pageTitles: Record<NavPage, { title: string; subtitle: string }> = {
     overview: {
@@ -161,6 +165,21 @@ export const TopNav: React.FC<TopNavProps> = ({
             </span>
           )}
         </button>
+
+        {/* Doctor Shift Session & Feedback Button */}
+        {onOpenShiftModal && (
+          <button
+            onClick={onOpenShiftModal}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FAFBF8] border border-[#E7ECE6] hover:border-[#16866A] text-xs font-bold text-[#193B32] transition-all cursor-pointer shadow-xs active:scale-98"
+            title="Open Shift Session & Provide Clinical Feedback"
+          >
+            <Stethoscope className="w-3.5 h-3.5 text-[#16866A]" />
+            <span className="hidden sm:inline">Doctor Shift</span>
+            <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[#16866A]/10 text-[#16866A]">
+              Active
+            </span>
+          </button>
+        )}
 
         {/* 1-Click Inject P0 Critical Deterioration */}
         {onInjectP0 && (

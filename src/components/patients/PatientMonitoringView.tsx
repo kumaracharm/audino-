@@ -21,7 +21,8 @@ import {
   ArrowUpRight,
   Download,
   PlusCircle,
-  Send
+  Send,
+  Stethoscope
 } from 'lucide-react';
 import { Patient, Priority, DailyCheckin } from '@/types';
 import { calculateScore, ScoreResult } from '@/lib/scoring';
@@ -36,6 +37,7 @@ interface PatientMonitoringViewProps {
   onSimulateAbnormalObservation: () => void;
   isMounted: boolean;
   checkins?: DailyCheckin[];
+  onOpenDoctorShiftModal?: (patientId: string) => void;
 }
 
 export const PatientMonitoringView: React.FC<PatientMonitoringViewProps> = ({
@@ -45,6 +47,7 @@ export const PatientMonitoringView: React.FC<PatientMonitoringViewProps> = ({
   onSimulateAbnormalObservation,
   isMounted,
   checkins = [],
+  onOpenDoctorShiftModal,
 }) => {
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
   const [noteInput, setNoteInput] = useState('');
@@ -219,6 +222,18 @@ export const PatientMonitoringView: React.FC<PatientMonitoringViewProps> = ({
 
         {/* Action Controls calling Real Backend APIs */}
         <div className="flex flex-wrap items-center gap-2">
+          {/* Shift Clinical Feedback Button */}
+          {onOpenDoctorShiftModal && (
+            <button
+              onClick={() => onOpenDoctorShiftModal(patient.id)}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-[#16866A] text-white hover:bg-[#126b55] transition-all cursor-pointer shadow-xs active:scale-98"
+              title="Provide physician clinical shift feedback and action directives"
+            >
+              <Stethoscope className="w-3.5 h-3.5" />
+              <span>Shift Clinical Feedback</span>
+            </button>
+          )}
+
           {/* Acknowledge Alert Button */}
           <button
             onClick={handleAcknowledgeAlert}

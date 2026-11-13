@@ -303,7 +303,7 @@ export const PatientPortalView: React.FC<PatientPortalViewProps> = ({
               </span>
             </div>
             <div className="text-[11px] text-[#64748b]">
-              ID: <span className="font-mono font-semibold">{patient.id}</span> • Ward A Tele-Recovery
+              ID: <span className="font-mono font-semibold">{patient.id}</span> • Post-Discharge Remote Tele-Recovery
             </div>
           </div>
         </div>
